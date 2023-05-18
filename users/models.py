@@ -5,7 +5,7 @@ from django.contrib.auth.models import AbstractUser
 from django.db import models
 from django.template.defaultfilters import slugify
 from django.utils.translation import gettext_lazy as _
-
+from user_type.models import UserType
 from .managers import CustomUserManager
 
 
@@ -14,6 +14,8 @@ class CustomUser(AbstractUser):
     name = models.TextField(default="")
     last_name = models.TextField(default="")
     dni = models.IntegerField(unique=True)
+    type = models.ForeignKey(
+        UserType, default=3, null=False, on_delete=models.CASCADE)
 
     USERNAME_FIELD = "dni"
     REQUIRED_FIELDS = ["username"]

@@ -34,7 +34,9 @@ INSTALLED_APPS = [
 
     # Local apps
     "users",
-    "posts",
+    "user_type",
+    "cooperativa",
+    "espacio_trabajo",
 
 ]
 
