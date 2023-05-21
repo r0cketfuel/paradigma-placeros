@@ -1,12 +1,11 @@
+from users import serializers
 from django.contrib.auth import get_user_model
 from rest_framework import status, viewsets
-from rest_framework.generics import GenericAPIView, RetrieveUpdateAPIView
+from rest_framework.generics import RetrieveUpdateAPIView
 from rest_framework.permissions import AllowAny, IsAuthenticated
 from rest_framework.response import Response
 from rest_framework_simplejwt.tokens import RefreshToken
-
-from . import serializers
-from .models import Profile
+# from .models import Profile
 
 User = get_user_model()
 
@@ -30,15 +29,16 @@ class UserRegisterationViewSet(viewsets.ModelViewSet):
         return Response(data, status=status.HTTP_201_CREATED)
 
 
-class UserLoginAPIView(GenericAPIView):
+class UserLoginViewSet(viewsets.ModelViewSet):
     """
-    An endpoint to authenticate existing users using their email and password.
+    An endpoint to authenticate existing users using their dni and password.
     """
 
     permission_classes = (AllowAny,)
     serializer_class = serializers.UserLoginSerializer
+    queryset = User.objects.all()
 
-    def post(self, request, *args, **kwargs):
+    def create(self, request, *args, **kwargs):
         serializer = self.get_serializer(data=request.data)
         serializer.is_valid(raise_exception=True)
         user = serializer.validated_data
@@ -50,20 +50,23 @@ class UserLoginAPIView(GenericAPIView):
         return Response(data, status=status.HTTP_200_OK)
 
 
-class UserLogoutAPIView(GenericAPIView):
+class UserLogoutViewSet(viewsets.ModelViewSet):
     """
     An endpoint to logout users.
     """
 
-    permission_classes = (IsAuthenticated,)
+    permission_classes = (AllowAny,)
+    serializer_class = serializers.UserLoginSerializer
+    queryset = []
 
-    def post(self, request, *args, **kwargs):
+    def create(self, request, *args, **kwargs):
         try:
             refresh_token = request.data["refresh"]
             token = RefreshToken(refresh_token)
             token.blacklist()
             return Response(status=status.HTTP_205_RESET_CONTENT)
         except Exception as e:
+            print(e)
             return Response(status=status.HTTP_400_BAD_REQUEST)
 
 
@@ -79,27 +82,27 @@ class UserAPIView(RetrieveUpdateAPIView):
         return self.request.user
 
 
-class UserProfileAPIView(RetrieveUpdateAPIView):
-    """
-    Get, Update user profile
-    """
+# class UserProfileAPIView(RetrieveUpdateAPIView):
+#     """
+#     Get, Update user profile
+#     """
 
-    queryset = Profile.objects.all()
-    serializer_class = serializers.ProfileSerializer
-    permission_classes = (IsAuthenticated,)
+#     queryset = Profile.objects.all()
+#     serializer_class = serializers.ProfileSerializer
+#     permission_classes = (IsAuthenticated,)
 
-    def get_object(self):
-        return self.request.user.profile
+#     def get_object(self):
+#         return self.request.user.profile
 
 
-class UserAvatarAPIView(RetrieveUpdateAPIView):
-    """
-    Get, Update user avatar
-    """
+# class UserAvatarAPIView(RetrieveUpdateAPIView):
+#     """
+#     Get, Update user avatar
+#     """
 
-    queryset = Profile.objects.all()
-    serializer_class = serializers.ProfileAvatarSerializer
-    permission_classes = (IsAuthenticated,)
+#     queryset = Profile.objects.all()
+#     serializer_class = serializers.ProfileAvatarSerializer
+#     permission_classes = (IsAuthenticated,)
 
-    def get_object(self):
-        return self.request.user.profile
+#     def get_object(self):
+#         return self.request.user.profile

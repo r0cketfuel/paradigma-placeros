@@ -1,6 +1,6 @@
 from django.apps import AppConfig
 
 
-class UserTypeConfig(AppConfig):
+class PlanTrabajoConfig(AppConfig):
     default_auto_field = 'django.db.models.BigAutoField'
-    name = 'user_type'
+    name = 'plan_trabajo'

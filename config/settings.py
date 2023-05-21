@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     "user_type",
     "cooperativa",
     "espacio_trabajo",
+    "plan_trabajo"
 
 ]
 
