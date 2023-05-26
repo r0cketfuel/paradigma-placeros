@@ -10,6 +10,9 @@ from user_type.views import UserTypeViewSet
 from cooperativa.views import CooperativaViewSet
 from espacio_trabajo.views import EspacioTrabajoViewSet
 from plan_trabajo.views import PlanTrabajoViewSet
+from incidente.views import IncidenteViewSet
+from trabajador.views import TrabajadorViewSet
+from evaluacion_trabajador.views import EvaluacionTrabajadorViewSet
 
 
 router = routers.DefaultRouter()
@@ -20,9 +23,14 @@ router.register(r'usertype', UserTypeViewSet, basename='usertype')
 router.register(r'cooperativa', CooperativaViewSet, basename='cooperativa')
 router.register(r'espacio_trabajo', EspacioTrabajoViewSet,
                 basename='espacio_trabajo')
-router.register(r'planadetrabajo', PlanTrabajoViewSet,
+router.register(r'plandetrabajo', PlanTrabajoViewSet,
                 basename='plandetrabajo')
-
+router.register(r'incidente', IncidenteViewSet,
+                basename='incidente')
+router.register(r'trabajador', TrabajadorViewSet,
+                basename='trabajador')
+router.register(r'evaluacion', EvaluacionTrabajadorViewSet,
+                basename='evaluacion')
 
 urlpatterns = [
     path("admin/", admin.site.urls),

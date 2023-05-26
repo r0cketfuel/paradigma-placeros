@@ -15,7 +15,7 @@ SECRET_KEY = "blog-api"
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["*"]
 
 
 # Application definition
@@ -28,7 +28,7 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
 
-    # Third-party apps
+    # Third-part apps
     "rest_framework",
     "rest_framework_simplejwt.token_blacklist",
 
@@ -37,7 +37,10 @@ INSTALLED_APPS = [
     "user_type",
     "cooperativa",
     "espacio_trabajo",
-    "plan_trabajo"
+    "plan_trabajo",
+    "incidente",
+    "trabajador",
+    "evaluacion_trabajador",
 
 ]
 
@@ -123,6 +126,8 @@ USE_TZ = True
 
 STATIC_URL = "static/"
 
+STATIC_ROOT = BASE_DIR / 'static'
+
 MEDIA_ROOT = os.path.join(BASE_DIR, "media")
 MEDIA_URL = "/media/"
 
@@ -166,3 +171,4 @@ SIMPLE_JWT = {
     "SLIDING_TOKEN_LIFETIME": timedelta(minutes=5),
     "SLIDING_TOKEN_REFRESH_LIFETIME": timedelta(days=1),
 }
+# CSRF_TRUSTED_ORIGINS = ["https://reqbin.com/"]

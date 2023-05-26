@@ -15,6 +15,6 @@ class PlanTrabajo(models.Model):
     tipo_servicio = models.TextField()
 
     def __str__(self):
-        return self.description
+        return self.name
 # TODO
 # IMPLEMENT CLASSMETHOD FOR GET PK USERS
