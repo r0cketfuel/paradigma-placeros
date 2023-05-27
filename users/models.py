@@ -14,7 +14,7 @@ class CustomUser(AbstractUser):
     name = models.TextField(default="")
     last_name = models.TextField(default="")
     dni = models.IntegerField(unique=True)
-    type = models.ForeignKey(
+    type_user = models.ForeignKey(
         UserType, default=3, null=False, on_delete=models.CASCADE)
 
     USERNAME_FIELD = "dni"

@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     "incidente",
     "trabajador",
     "evaluacion_trabajador",
+    "planilla_trabajo",
 
 ]
 

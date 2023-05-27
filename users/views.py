@@ -5,7 +5,7 @@ from rest_framework.generics import RetrieveUpdateAPIView
 from rest_framework.permissions import AllowAny, IsAuthenticated
 from rest_framework.response import Response
 from rest_framework_simplejwt.tokens import RefreshToken
-# from .models import Profile
+from django.contrib.auth.hashers import make_password
 
 User = get_user_model()
 
@@ -27,6 +27,19 @@ class UserRegisterationViewSet(viewsets.ModelViewSet):
         data["tokens"] = {"refresh": str(
             token), "access": str(token.access_token)}
         return Response(data, status=status.HTTP_201_CREATED)
+
+    def update(self, request, *args, **kwargs):
+        instance = self.get_object()
+        data = request.POST.copy()
+        if not data.get('password'):
+            data['password'] = instance.password
+        else:
+            data['password'] = make_password(data['password'])        
+        serializer = self.get_serializer(
+            instance, data=data, partial=True)
+        serializer.is_valid(raise_exception=True)
+        serializer.save()
+        return Response(serializer.data)
 
 
 class UserLoginViewSet(viewsets.ModelViewSet):
