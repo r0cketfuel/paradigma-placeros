@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     "trabajador",
     "evaluacion_trabajador",
     "planilla_trabajo",
+    "cuestionario",
 
 ]
 

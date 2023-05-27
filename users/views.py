@@ -34,7 +34,7 @@ class UserRegisterationViewSet(viewsets.ModelViewSet):
         if not data.get('password'):
             data['password'] = instance.password
         else:
-            data['password'] = make_password(data['password'])        
+            data['password'] = make_password(data['password'])
         serializer = self.get_serializer(
             instance, data=data, partial=True)
         serializer.is_valid(raise_exception=True)
