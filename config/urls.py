@@ -15,6 +15,9 @@ from trabajador.views import TrabajadorViewSet
 from evaluacion_trabajador.views import EvaluacionTrabajadorViewSet
 from planilla_trabajo.views import PlanillaTrabajoViewSet
 from cuestionario.views import CuestionarioViewSet
+from respuesta_cuestionario.views import RespuestaCuestionarioViewSet
+from evaluacion_desempeño.views import EvaluacionDesempeñoViewSet
+
 
 router = routers.DefaultRouter()
 router.register(r'login', UserLoginViewSet, basename='login')
@@ -36,6 +39,10 @@ router.register(r'planilla_trabajo', PlanillaTrabajoViewSet,
                 basename='planilla_trabajo')
 router.register(r'cuestionario', CuestionarioViewSet,
                 basename='cuestionario')
+router.register(r'respuesta_cuestionario', RespuestaCuestionarioViewSet,
+                basename='respuesta_cuestionario')
+router.register(r'evaluacion_desempeño', EvaluacionDesempeñoViewSet,
+                basename='evaluacion_desempeño')
 
 urlpatterns = [
     path("admin/", admin.site.urls),
