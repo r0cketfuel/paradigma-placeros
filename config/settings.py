@@ -88,7 +88,7 @@ DATABASES = {
         "NAME": "test_plaza_web",
         "USER": "u_plaza_web",
         "PASSWORD": "123456",
-        "HOST": "172.29.0.2",
+        "HOST": "postgresql_plaza",
         "PORT": '5432'
     }
 }
@@ -176,4 +176,4 @@ SIMPLE_JWT = {
     "SLIDING_TOKEN_REFRESH_LIFETIME": timedelta(days=1),
 }
 CSRF_TRUSTED_ORIGINS = [
-    "https://db7a-190-97-29-230.ngrok-free.app"]
+    "https://0460-190-1-47-195.ngrok-free.app"]

@@ -1,22 +1,8 @@
 version: '3'
 
 services:
-  # mariadb_plaza:
-  #   container_name: "mariadb"
-  #   image: mariadb:10.5
-  #   restart: always
-  #   environment:
-  #     MYSQL_ROOT_PASSWORD: root
-  #     MYSQL_DATABASE: mariadb
-  #     MYSQL_USER: user
-  #     MYSQL_PASSWORD: user
-  #   ports:
-  #     - "3310:3306"
-  #   volumes:
-  #     - mariadb-data:/var/lib/mysql
-
   postgresql_plaza:
-    container_name: "postgres"
+    container_name: "postgres_pw"
     image: postgres:13.2
     restart: always
     environment:
@@ -27,9 +13,20 @@ services:
       - "5432:5432"
     volumes:
       - postgresql-data:/var/lib/postgresql/data
+  plazaweb:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    command: >
+      sh -c "python manage.py runserver 0.0.0.0:8000"
+    volumes:
+      - ./:/plaza_web_paradigma/
+    ports:
+      - "9009:8000"
+    depends_on:
+      - postgresql_plaza
 
 volumes:
-  #mariadb-data:
   postgresql-data:
 
 
