@@ -9,7 +9,7 @@ class EvaluacionDesempeño(models.Model):
         Cuestionario, on_delete=models.CASCADE, null=False, default=None)
     id_plan_trabajo = models.ForeignKey(
         PlanTrabajo, on_delete=models.CASCADE, null=False, default=None)
-    fecha = models.TimeField(null=False)
+    fecha = models.DateField(null=False)
     ubicacion = models.TextField()
 
     def __str__(self):

@@ -1,8 +1,8 @@
 version: '3'
 
 services:
-  postgresql_plaza:
-    container_name: "postgres_pw"
+  postgresql_plaza_dj:
+    container_name: "postgres_pw_dj"
     image: postgres:13.2
     restart: always
     environment:
@@ -13,6 +13,8 @@ services:
       - "5432:5432"
     volumes:
       - postgresql-data:/var/lib/postgresql/data
+    networks:
+      - plazaweb
   plazaweb:
     build:
       context: .
@@ -20,13 +22,18 @@ services:
     command: >
       sh -c "python manage.py runserver 0.0.0.0:8000"
     volumes:
-      - ./:/plaza_web_paradigma/
+      - ../:/plaza_web_paradigma/
     ports:
-      - "9009:8000"
+      - "8000:8000"
     depends_on:
-      - postgresql_plaza
+      - postgresql_plaza_dj
+    networks:
+      - plazaweb
 
 volumes:
   postgresql-data:
 
 
+networks:
+  plazaweb:
+    driver: bridge

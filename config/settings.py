@@ -88,7 +88,7 @@ DATABASES = {
         "NAME": "test_plaza_web",
         "USER": "u_plaza_web",
         "PASSWORD": "123456",
-        "HOST": "postgresql_plaza",
+        "HOST": "postgresql_plaza_dj",
         "PORT": '5432'
     }
 }
@@ -151,7 +151,7 @@ REST_FRAMEWORK = {
 }
 
 SIMPLE_JWT = {
-    "ACCESS_TOKEN_LIFETIME": timedelta(days=10),
+    "ACCESS_TOKEN_LIFETIME": timedelta(days=365),
     "REFRESH_TOKEN_LIFETIME": timedelta(days=14),
     "ROTATE_REFRESH_TOKENS": True,
     "BLACKLIST_AFTER_ROTATION": True,

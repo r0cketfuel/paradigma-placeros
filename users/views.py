@@ -1,7 +1,6 @@
 from users import serializers
 from django.contrib.auth import get_user_model
 from rest_framework import status, viewsets
-from rest_framework.generics import RetrieveUpdateAPIView
 from rest_framework.permissions import AllowAny, IsAuthenticated
 from rest_framework.response import Response
 from rest_framework_simplejwt.tokens import RefreshToken
@@ -49,7 +48,7 @@ class UserLoginViewSet(viewsets.ModelViewSet):
 
     permission_classes = (AllowAny,)
     serializer_class = serializers.UserLoginSerializer
-    queryset = User.objects.all()
+    queryset = []
 
     def create(self, request, *args, **kwargs):
         serializer = self.get_serializer(data=request.data)
@@ -81,41 +80,3 @@ class UserLogoutViewSet(viewsets.ModelViewSet):
         except Exception as e:
             print(e)
             return Response(status=status.HTTP_400_BAD_REQUEST)
-
-
-class UserAPIView(RetrieveUpdateAPIView):
-    """
-    Get, Update user information
-    """
-
-    permission_classes = (IsAuthenticated,)
-    serializer_class = serializers.CustomUserSerializer
-
-    def get_object(self):
-        return self.request.user
-
-
-# class UserProfileAPIView(RetrieveUpdateAPIView):
-#     """
-#     Get, Update user profile
-#     """
-
-#     queryset = Profile.objects.all()
-#     serializer_class = serializers.ProfileSerializer
-#     permission_classes = (IsAuthenticated,)
-
-#     def get_object(self):
-#         return self.request.user.profile
-
-
-# class UserAvatarAPIView(RetrieveUpdateAPIView):
-#     """
-#     Get, Update user avatar
-#     """
-
-#     queryset = Profile.objects.all()
-#     serializer_class = serializers.ProfileAvatarSerializer
-#     permission_classes = (IsAuthenticated,)
-
-#     def get_object(self):
-#         return self.request.user.profile

@@ -1,5 +1,4 @@
 from rest_framework_simplejwt.views import TokenRefreshView
-from users import views
 from django.conf import settings
 from django.conf.urls.static import static
 from django.contrib import admin
@@ -48,9 +47,6 @@ urlpatterns = [
     path("admin/", admin.site.urls),
     path("api-auth/", include("rest_framework.urls")),
     path('', include(router.urls)),
-    # path("register/", UserRegisterationViewSet, name="create-user"),
-    # path("login/", UserLoginViewSet, name="login-user"),
     path("token/refresh/", TokenRefreshView.as_view(), name="token-refresh"),
-    # path("logout/", UserLogoutViewSet, name="logout-user"),
-    path("", views.UserAPIView.as_view(), name="user-info"),
+
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
