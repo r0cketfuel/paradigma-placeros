@@ -19,4 +19,5 @@ COPY requeriments.txt .
 RUN pip install -r requeriments.txt
 
 # copy project
+
 COPY . .

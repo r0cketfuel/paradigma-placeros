@@ -1,0 +1,6 @@
+FROM nginx
+
+COPY certificados/certificado.crt /etc/ssl/certificado.crt
+COPY certificados/clave_privada.key /etc/ssl/clave_privada.key
+RUN rm /etc/nginx/conf.d/default.conf
+COPY nginx.conf /etc/nginx/conf.d
