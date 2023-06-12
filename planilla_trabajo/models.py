@@ -15,6 +15,6 @@ class PlanillaTrabajo(models.Model):
     presente = models.BooleanField(default=False)
 
     def __str__(self):
-        return self.id_plan_trabajo
+        return self.id_plan_trabajo.name
 # TODO
 # IMPLEMENT CLASSMETHOD FOR GET PK USERS

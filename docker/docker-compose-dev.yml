@@ -1,0 +1,36 @@
+version: '3'
+
+services:
+  postgresql_plaza_dj_dev:
+    container_name: "postgres_pw_dj_dev"
+    image: postgres:13.2
+    restart: always
+    environment:
+      POSTGRES_USER: u_plaza_web
+      POSTGRES_PASSWORD: 123456
+      POSTGRES_DB: test_plaza_web
+    volumes:
+      - ../data_dev/db:/var/lib/postgresql/data
+    ports:
+      - 5432:5432
+    # networks:
+    #   - plazaweb_dev
+
+  plazaweb_dev:
+    build:
+      context: .
+      dockerfile: Dockerfile_dev
+    command: >
+      sh -c "python manage.py runserver"
+    volumes:
+      - ../:/plaza_web_paradigma/
+    ports:
+      - 8000:8000
+    depends_on:
+      - postgresql_plaza_dj_dev
+    # networks:
+    #   - plazaweb_dev
+
+    # networks:
+    #   plazaweb_dev:
+    #     driver: bridge
