@@ -12,7 +12,7 @@ from plan_trabajo.views import PlanTrabajoViewSet
 from incidente.views import IncidenteViewSet
 from trabajador.views import TrabajadorViewSet
 from evaluacion_trabajador.views import EvaluacionTrabajadorViewSet
-from planilla_trabajo.views import PlanillaTrabajoViewSet, PresenteViewSet, TrabajadoresInPLanillaTrabajoByIdPlanTrabajoViewSet
+from planilla_trabajo.views import PlanillaTrabajoViewSet, PresenteViewSet, TrabajadoresInPlanillaTrabajoByIdPlanTrabajoViewSet
 from cuestionario.views import CuestionarioViewSet
 from respuesta_cuestionario.views import RespuestaCuestionarioViewSet
 from evaluacion_desempeño.views import EvaluacionDesempeñoViewSet
@@ -38,7 +38,7 @@ routes.register(r'planilla_trabajo', PlanillaTrabajoViewSet,
                 basename='planilla_trabajo')
 routes.register(r'presente', PresenteViewSet,
                 basename='presente')
-routes.register(r'trabajadores_por_id_plantrabajo', TrabajadoresInPLanillaTrabajoByIdPlanTrabajoViewSet,
+routes.register(r'trabajadores_por_id_plantrabajo', TrabajadoresInPlanillaTrabajoByIdPlanTrabajoViewSet,
                 basename='trabajadores_por_id_plantrabajo')
 routes.register(r'cuestionario', CuestionarioViewSet,
                 basename='cuestionario')

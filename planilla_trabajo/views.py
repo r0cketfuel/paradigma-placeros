@@ -1,4 +1,4 @@
-from rest_framework import viewsets
+from rest_framework import viewsets, status
 from .models import PlanillaTrabajo
 from .serializer import PlanillaTrabajoSerializer
 from rest_framework.permissions import IsAuthenticated
@@ -16,35 +16,36 @@ class PlanillaTrabajoViewSet(viewsets.ModelViewSet):
 class PresenteViewSet(viewsets.ViewSet):
 
     def create(self, request):
-        print(request.data)
-        id = request.data.get('planilla_id')
-        planilla_today = PlanillaTrabajo.objects.filter(id_plan_trabajo=id)
-        if planilla_today:
-            for planilla in planilla_today:
-                print(planilla, planilla.presente, planilla.id_trabajador.id)
-                if (planilla.id_trabajador.id) in request.data.get("employes"):
-                    planilla.presente = not planilla.presente
-                planilla.save()
-        return Response("ok")
+        try:
+            id = request.data.get('planilla_id')
+            planilla_today = PlanillaTrabajo.objects.filter(id_plan_trabajo=id)
+            if planilla_today:
+                for planilla in planilla_today:
+                    if (planilla.id_trabajador.id) in request.data.get("employes"):  # type: ignore
+                        planilla.presente = not planilla.presente
+                    planilla.save()
+            return Response({"estado": "presentes aplicados"})
+        except Exception as e:
+            return Response({"error": str(e)}, status=status.HTTP_400_BAD_REQUEST)
 
 
-class TrabajadoresInPLanillaTrabajoByIdPlanTrabajoViewSet(viewsets.ViewSet):
+class TrabajadoresInPlanillaTrabajoByIdPlanTrabajoViewSet(viewsets.ViewSet):
 
     def create(self, request):
-
-        if not isinstance(request.data, int):
-            id = request.data.get('planilla_id')
-        else:
-            id = request.data
-        print(id)
-        planilla_today = PlanillaTrabajo.objects.filter(id_plan_trabajo=id)
-        if planilla_today:
-            trabajadores = []
-            for planilla in planilla_today:
-                trabajadores.append(Trabajador.objects.filter(
-                    id=planilla.id_trabajador.id).first())
-
-            serializer = TrabajadorSerializer(trabajadores, many=True)
-            return Response(serializer.data)
-
-        return Response([])
+        try:
+            if request.data.get("planilla_id", None):
+                id = request.data.get('planilla_id')
+                planilla_today = PlanillaTrabajo.objects.filter(
+                    id_plan_trabajo=id)
+                if planilla_today:
+                    trabajadores = []
+                    for planilla in planilla_today:
+                        trabajadores.append(Trabajador.objects.filter(
+                            id=planilla.id_trabajador.id).first())   # type: ignore
+                    serializer = TrabajadorSerializer(
+                        trabajadores, many=True)
+                    return Response(serializer.data)
+                return Response([])
+            return Response({"error": "no se reconoce el identificador"})
+        except Exception as e:
+            return Response({"error": str(e)}, status=status.HTTP_400_BAD_REQUEST)
