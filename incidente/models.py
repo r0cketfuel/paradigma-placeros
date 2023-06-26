@@ -15,6 +15,8 @@ class Incident(models.Model):
         max_length=20, choices=STATE_INCIDENTS, default='new')
     id_plan_trabajo = models.ForeignKey(
         PlanTrabajo, null=False, on_delete=models.CASCADE)
+    image = models.ImageField(
+        upload_to='incidente_images/', null=True, blank=True)
 
     def __str__(self):
         return self.description

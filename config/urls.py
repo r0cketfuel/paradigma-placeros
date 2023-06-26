@@ -16,6 +16,19 @@ from planilla_trabajo.views import PlanillaTrabajoViewSet, PresenteViewSet, Trab
 from cuestionario.views import CuestionarioViewSet
 from respuesta_cuestionario.views import RespuestaCuestionarioViewSet
 from evaluacion_desempeño.views import EvaluacionDesempeñoViewSet
+from drf_yasg.views import get_schema_view
+from drf_yasg import openapi
+from user_type.permisions import IsSuper
+
+schema_view = get_schema_view(
+    openapi.Info(
+        title="Paradigma - Plaza COntrol API",
+        default_version='v1',
+        description="documentacion API REST para Paradigma -  Plaza Control ",
+    ),
+    public=True,
+    permission_classes=[IsSuper],
+)
 
 
 routes = routers.DefaultRouter()
@@ -47,7 +60,17 @@ routes.register(r'respuesta_cuestionario', RespuestaCuestionarioViewSet,
 routes.register(r'evaluacion_desempeño', EvaluacionDesempeñoViewSet,
                 basename='evaluacion_desempeño')
 
+routes.registry.sort(key=lambda x: x[0])
+
+routes.get_api_root_view().cls.__name__ = "Paradigma Plaza Control Api Root"
+routes.get_api_root_view().cls.__doc__ = "Documentation in /snippets & /doc&test"
+
+
 urlpatterns = [
+    path(r'snippets/', schema_view.with_ui('redoc',
+                                           cache_timeout=0), name='schema-redoc'),
+    path(r'doc&test/', schema_view.with_ui('swagger',
+         cache_timeout=0), name='schema-swagger-ui'),
     path("admin/", admin.site.urls),
     path("api-auth/", include("rest_framework.urls")),
     path('', include(routes.urls)),
