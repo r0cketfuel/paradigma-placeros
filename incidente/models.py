@@ -1,5 +1,6 @@
 from django.db import models
 from plan_trabajo.models import PlanTrabajo
+# from django.contrib.postgres.fields import ArrayField
 
 
 class Incident(models.Model):
@@ -17,14 +18,12 @@ class Incident(models.Model):
         PlanTrabajo, null=False, on_delete=models.CASCADE)
     image = models.ImageField(
         upload_to='incidente_images/', null=True, blank=True)
+    latitude = models.DecimalField(
+        max_digits=9, decimal_places=6, default=0.0, blank=True)  # type: ignore
+    longitude = models.DecimalField(
+        max_digits=9, decimal_places=6, default=0.0, blank=True)  # type: ignore
+    # images = ArrayField(models.ImageField(
+    #     upload_to='incident_images/', blank=True), default=list, blank=True, null=True)
 
     def __str__(self):
         return self.description
-
-    @classmethod
-    def get_user_pks(cls):
-        return cls.objects.values_list('id', flat=True)
-
-
-# TODO
-# IMPLEMENT CLASSMETHOD FOR GET PK USERS

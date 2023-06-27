@@ -9,7 +9,7 @@ from user_type.views import UserTypeViewSet
 from cooperativa.views import CooperativaViewSet
 from espacio_trabajo.views import EspacioTrabajoViewSet
 from plan_trabajo.views import PlanTrabajoViewSet
-from incidente.views import IncidenteViewSet
+from incidente.views import IncidentViewSet
 from trabajador.views import TrabajadorViewSet
 from evaluacion_trabajador.views import EvaluacionTrabajadorViewSet
 from planilla_trabajo.views import PlanillaTrabajoViewSet, PresenteViewSet, TrabajadoresInPlanillaTrabajoByIdPlanTrabajoViewSet
@@ -41,7 +41,7 @@ routes.register(r'espacio_trabajo', EspacioTrabajoViewSet,
                 basename='espacio_trabajo')
 routes.register(r'plandetrabajo', PlanTrabajoViewSet,
                 basename='plandetrabajo')
-routes.register(r'incidente', IncidenteViewSet,
+routes.register(r'incidente', IncidentViewSet,
                 basename='incidente')
 routes.register(r'trabajador', TrabajadorViewSet,
                 basename='trabajador')
