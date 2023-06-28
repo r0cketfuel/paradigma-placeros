@@ -18,10 +18,6 @@ class Incident(models.Model):
         PlanTrabajo, null=False, on_delete=models.CASCADE)
     image = models.ImageField(
         upload_to='incidente_images/', null=True, blank=True)
-    latitude = models.DecimalField(
-        max_digits=9, decimal_places=6, default=0.0, blank=True)  # type: ignore
-    longitude = models.DecimalField(
-        max_digits=9, decimal_places=6, default=0.0, blank=True)  # type: ignore
     # images = ArrayField(models.ImageField(
     #     upload_to='incident_images/', blank=True), default=list, blank=True, null=True)
 

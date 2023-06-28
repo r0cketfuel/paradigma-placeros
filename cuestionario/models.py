@@ -37,6 +37,10 @@ class Cuestionario(models.Model):
         default="Fomentar buena relación con vecinas/os generando lazos de pertenecía e identificación con los espacios públicos.")
     question18 = models.TextField(
         default="Fomentar buena relación con vecinas/os generando lazos de pertenecía e identificación con los espacios públicos.")
+    latitud = models.DecimalField(
+        max_digits=9, decimal_places=6, default=0.0, blank=True)  # type: ignore
+    longitud = models.DecimalField(
+        max_digits=9, decimal_places=6, default=0.0, blank=True)  # type: ignore
 
     def __str__(self):
         return self.description
