@@ -10,7 +10,7 @@ from cooperativa.views import CooperativaViewSet
 from espacio_trabajo.views import EspacioTrabajoViewSet
 from plan_trabajo.views import PlanTrabajoViewSet
 from incidente.views import IncidentViewSet
-from trabajador.views import TrabajadorViewSet
+from trabajador.views import TrabajadorViewSet, TrabajadoresCargadosViewSet
 from evaluacion_trabajador.views import EvaluacionTrabajadorViewSet
 from planilla_trabajo.views import PlanillaTrabajoViewSet, PresenteViewSet, TrabajadoresInPlanillaTrabajoByIdPlanTrabajoViewSet
 from cuestionario.views import CuestionarioViewSet
@@ -59,6 +59,8 @@ routes.register(r'respuesta_cuestionario', RespuestaCuestionarioViewSet,
                 basename='respuesta_cuestionario')
 routes.register(r'evaluacion_desempeño', EvaluacionDesempeñoViewSet,
                 basename='evaluacion_desempeño')
+routes.register(r'trabajadores_cargados', TrabajadoresCargadosViewSet,
+                basename='trabajadores_cargados')
 
 routes.registry.sort(key=lambda x: x[0])
 
