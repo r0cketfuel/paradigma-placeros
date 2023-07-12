@@ -6,7 +6,7 @@ from django.urls import include, path
 from rest_framework import routers
 from users.views import UserRegisterationViewSet, UserLoginViewSet, UserLogoutViewSet
 from user_type.views import UserTypeViewSet
-from cooperativa.views import CooperativaViewSet
+from cooperativa.views import CooperativaViewSet, EmpleadosPorCooperativa
 from espacio_trabajo.views import EspacioTrabajoViewSet
 from plan_trabajo.views import PlanTrabajoViewSet
 from incidente.views import IncidentViewSet
@@ -61,8 +61,11 @@ routes.register(r'evaluacion_desempeño', EvaluacionDesempeñoViewSet,
                 basename='evaluacion_desempeño')
 routes.register(r'trabajadores_cargados', TrabajadoresCargadosViewSet,
                 basename='trabajadores_cargados')
+routes.register(r'empleados_por_cooperativa', EmpleadosPorCooperativa,
+                basename='empleados_por_cooperativa')
 
 routes.registry.sort(key=lambda x: x[0])
+
 
 routes.get_api_root_view().cls.__name__ = "Paradigma Plaza Control Api Root"
 routes.get_api_root_view().cls.__doc__ = "Documentation in /snippets & /doc&test"
