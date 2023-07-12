@@ -7,7 +7,7 @@ from rest_framework import routers
 from users.views import UserRegisterationViewSet, UserLoginViewSet, UserLogoutViewSet
 from user_type.views import UserTypeViewSet
 from cooperativa.views import CooperativaViewSet, EmpleadosPorCooperativa
-from espacio_trabajo.views import EspacioTrabajoViewSet
+from espacio_trabajo.views import EspacioTrabajoViewSet, PresentesPorEspacioDeTrabajo
 from plan_trabajo.views import PlanTrabajoViewSet
 from incidente.views import IncidentViewSet
 from trabajador.views import TrabajadorViewSet, TrabajadoresCargadosViewSet
@@ -63,6 +63,8 @@ routes.register(r'trabajadores_cargados', TrabajadoresCargadosViewSet,
                 basename='trabajadores_cargados')
 routes.register(r'empleados_por_cooperativa', EmpleadosPorCooperativa,
                 basename='empleados_por_cooperativa')
+routes.register(r'presentes_por_espacio_trabajo_hoy', PresentesPorEspacioDeTrabajo,
+                basename='presentes_por_espacio_trabajo_hoy')
 
 routes.registry.sort(key=lambda x: x[0])
 
