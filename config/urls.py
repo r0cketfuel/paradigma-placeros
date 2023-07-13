@@ -9,7 +9,7 @@ from user_type.views import UserTypeViewSet
 from cooperativa.views import CooperativaViewSet, EmpleadosPorCooperativa
 from espacio_trabajo.views import EspacioTrabajoViewSet, PresentesPorEspacioDeTrabajo
 from plan_trabajo.views import PlanTrabajoViewSet
-from incidente.views import IncidentViewSet
+from incidente.views import IncidentViewSet, IncidentByMonthViewSet
 from trabajador.views import TrabajadorViewSet, TrabajadoresCargadosViewSet
 from evaluacion_trabajador.views import EvaluacionTrabajadorViewSet
 from planilla_trabajo.views import PlanillaTrabajoViewSet, PresenteViewSet, TrabajadoresInPlanillaTrabajoByIdPlanTrabajoViewSet
@@ -65,6 +65,8 @@ routes.register(r'empleados_por_cooperativa', EmpleadosPorCooperativa,
                 basename='empleados_por_cooperativa')
 routes.register(r'presentes_por_espacio_trabajo_hoy', PresentesPorEspacioDeTrabajo,
                 basename='presentes_por_espacio_trabajo_hoy')
+routes.register(r'incidentes_por_mes', IncidentByMonthViewSet,
+                basename='incidentes_por_mes')
 
 routes.registry.sort(key=lambda x: x[0])
 

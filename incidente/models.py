@@ -18,8 +18,6 @@ class Incident(models.Model):
         PlanTrabajo, null=False, on_delete=models.CASCADE)
     image = models.ImageField(
         upload_to='incidente_images/', null=True, blank=True)
-    # images = ArrayField(models.ImageField(
-    #     upload_to='incident_images/', blank=True), default=list, blank=True, null=True)
 
     def __str__(self):
         return self.description
