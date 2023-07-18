@@ -1,3 +1,4 @@
+from django.utils import timezone
 from django.db import models
 from plan_trabajo.models import PlanTrabajo
 # from django.contrib.postgres.fields import ArrayField
@@ -18,6 +19,8 @@ class Incident(models.Model):
         PlanTrabajo, null=False, on_delete=models.CASCADE)
     image = models.ImageField(
         upload_to='incidente_images/', null=True, blank=True)
+    date = models.DateTimeField(
+        default=timezone.now, editable=False)  # type: ignore
 
     def __str__(self):
         return self.description

@@ -12,7 +12,7 @@ class CustomUser(AbstractUser):
     last_name = models.TextField(default="")
     dni = models.IntegerField(unique=True)
     type_user = models.ForeignKey(
-        UserType, default=1, null=False, on_delete=models.CASCADE)
+        UserType, default=1, null=False, on_delete=models.CASCADE)  # type: ignore
 
     USERNAME_FIELD = "dni"
     REQUIRED_FIELDS = ["username"]

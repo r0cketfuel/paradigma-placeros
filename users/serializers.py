@@ -1,6 +1,8 @@
 from django.contrib.auth import authenticate
 from rest_framework import serializers
 
+from user_type.serializer import UserTypeSerializer
+
 from .models import CustomUser
 
 
@@ -11,7 +13,7 @@ class CustomUserSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = CustomUser
-        fields = ("id", "username", "email")
+        fields = ("id", "username", "email", "type_user")
 
 
 class UserRegisterationSerializer(serializers.ModelSerializer):
@@ -36,8 +38,11 @@ class UserLoginSerializer(serializers.Serializer):
 
     dni = serializers.CharField()
     password = serializers.CharField(write_only=True)
+    type_user = UserTypeSerializer(
+        source='customuser.type_user', read_only=True)
 
     def validate(self, data):
+
         user = authenticate(**data)
         if user and user.is_active:
             return user
