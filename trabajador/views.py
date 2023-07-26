@@ -19,3 +19,6 @@ class TrabajadoresCargadosViewSet(viewsets.ViewSet):
         trabajadores = Trabajador.objects.all()
         cargados = len(trabajadores) if trabajadores else 0
         return Response({"trabajadores_cargados": cargados}, status=200)
+
+
+# TODO ESTADISTICAS
