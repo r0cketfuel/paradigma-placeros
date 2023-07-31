@@ -16,6 +16,7 @@ from planilla_trabajo.views import PlanillaTrabajoViewSet, PresenteViewSet, Trab
 from cuestionario.views import CuestionarioViewSet
 from respuesta_cuestionario.views import RespuestaCuestionarioViewSet
 from evaluacion_desempeño.views import EvaluacionDesempeñoViewSet
+from feriados.views import FeriadoViewSet
 from drf_yasg.views import get_schema_view
 from drf_yasg import openapi
 from user_type.permisions import IsSuper
@@ -67,6 +68,7 @@ routes.register(r'presentes_por_espacio_trabajo_hoy', PresentesPorEspacioDeTraba
                 basename='presentes_por_espacio_trabajo_hoy')
 routes.register(r'incidentes_por_mes', IncidentByMonthViewSet,
                 basename='incidentes_por_mes')
+routes.register(r'feriados', FeriadoViewSet)
 
 routes.registry.sort(key=lambda x: x[0])
 
