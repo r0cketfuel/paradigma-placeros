@@ -1,7 +1,9 @@
 from rest_framework import viewsets, status
+
+from feriados.models import Feriado
 from .models import PlanillaTrabajo
 from .serializer import PlanillaTrabajoSerializer
-from rest_framework.permissions import IsAuthenticated
+from user_type.permisions import IsAdministrador, IsSuper, IsSupervisor
 from rest_framework.response import Response
 from trabajador.models import Trabajador
 from trabajador.serializer import TrabajadorSerializer
@@ -11,7 +13,7 @@ import requests
 class PlanillaTrabajoViewSet(viewsets.ModelViewSet):
     queryset = PlanillaTrabajo.objects.all()
     serializer_class = PlanillaTrabajoSerializer
-    permission_classes = [IsAuthenticated]
+    permission_classes = [IsAdministrador | IsSuper]
 
     def create(self, request, *args, **kwargs):
         try:
@@ -23,12 +25,15 @@ class PlanillaTrabajoViewSet(viewsets.ModelViewSet):
 
             fecha = request.data.get("fecha")
             fecha = datetime.strptime(fecha, "%Y-%m-%d")
-            response = requests.get(
-                'http://nolaborables.com.ar/api/v2/feriados/2023?formato=mensual')
-            if response.status_code == 200:
-                response = response.json()
-                if str(fecha.day) in response[int(fecha.month) - 1].keys():
-                    return Response({'error': f"La fecha seleccionada es un dia no laborable: {fecha.day}-{fecha.month}:{response[int(fecha.month) - 1].get(str(fecha.day)).get('motivo')}"}, status=status.HTTP_400_BAD_REQUEST)
+            print(Feriado.objects.filter(fecha=fecha))
+            if Feriado.objects.filter(fecha=fecha):
+                return Response({'error': "La fecha seleccionada es un dia no laborable"}, status=status.HTTP_400_BAD_REQUEST)
+            # response = requests.get(
+            #     'http://nolaborables.com.ar/api/v2/feriados/2023?formato=mensual')
+            # if response.status_code == 200:
+            #     response = response.json()
+            #     if str(fecha.day) in response[int(fecha.month) - 1].keys():
+            #         return Response({'error': f"La fecha seleccionada es un dia no laborable: {fecha.day}-{fecha.month}:{response[int(fecha.month) - 1].get(str(fecha.day)).get('motivo')}"}, status=status.HTTP_400_BAD_REQUEST)
 
             # ************************************************************
 
@@ -43,6 +48,7 @@ class PlanillaTrabajoViewSet(viewsets.ModelViewSet):
 
 
 class PresenteViewSet(viewsets.ViewSet):
+    permission_classes = [IsAdministrador | IsSuper | IsSupervisor]
 
     def create(self, request):
         try:
@@ -68,6 +74,7 @@ class TrabajadoresInPlanillaTrabajoByIdPlanTrabajoViewSet(viewsets.ViewSet):
         "plan_trabajo_id":numero
 
     '''
+    permission_classes = [IsAdministrador | IsSuper | IsSupervisor]
 
     def create(self, request):
         try:

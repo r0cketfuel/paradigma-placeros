@@ -20,6 +20,7 @@ class PlanTrabajoSerializer(serializers.ModelSerializer):
             "supervisor": instance.id_supervisor.__str__(),
             "id_cooperativa": instance.id_cooperativa.id,
             "cooperativa": instance.id_cooperativa.__str__(),
+            "creado": instance.fecha_creacion.strftime('%Y-%m-%d %H:%M:%S')
 
         }
         return data

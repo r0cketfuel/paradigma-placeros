@@ -2,7 +2,7 @@ from rest_framework import viewsets
 from rest_framework.response import Response
 from .models import EspacioTrabajo
 from .serializer import EspacioTrabajoSerializer
-from rest_framework.permissions import IsAuthenticated
+from user_type.permisions import IsAdministrador, IsSuper, IsSupervisor
 from planilla_trabajo.models import PlanillaTrabajo
 from datetime import datetime
 
@@ -10,10 +10,11 @@ from datetime import datetime
 class EspacioTrabajoViewSet(viewsets.ModelViewSet):
     queryset = EspacioTrabajo.objects.all()
     serializer_class = EspacioTrabajoSerializer
-    permission_classes = [IsAuthenticated]
+    permission_classes = [IsAdministrador | IsSuper]
 
 
 class PresentesPorEspacioDeTrabajo(viewsets.ViewSet):
+    permission_classes = [IsAdministrador | IsSuper | IsSupervisor]
 
     def list(self, request):
         try:

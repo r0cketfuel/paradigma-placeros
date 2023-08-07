@@ -1,10 +1,10 @@
 from rest_framework import viewsets
 from .models import Cuestionario
 from .serializer import CuestionarioSerializer
-from rest_framework.permissions import IsAuthenticated
+from user_type.permisions import IsAdministrador, IsSuper, IsSupervisor
 
 
 class CuestionarioViewSet(viewsets.ModelViewSet):
     queryset = Cuestionario.objects.all()
     serializer_class = CuestionarioSerializer
-    permission_classes = [IsAuthenticated]
+    permission_classes = [IsAdministrador | IsSuper | IsSupervisor]

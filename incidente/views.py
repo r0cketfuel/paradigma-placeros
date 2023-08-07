@@ -1,5 +1,5 @@
 
-from rest_framework.permissions import IsAuthenticated
+from user_type.permisions import IsAdministrador, IsSuper, IsSupervisor
 from rest_framework import viewsets
 from .models import Incident
 from .serializer import IncidentSerializer
@@ -12,10 +12,12 @@ from .filter import IncidentFilter
 class IncidentViewSet(viewsets.ModelViewSet):
     queryset = Incident.objects.all()
     serializer_class = IncidentSerializer
-    permission_classes = [IsAuthenticated]
+    permission_classes = [IsAdministrador | IsSuper | IsSupervisor]
 
 
 class IncidentByMonthViewSet(viewsets.ModelViewSet):
+    # filter by month
     queryset = Incident.objects.all()
     serializer_class = IncidentSerializer
     filterset_class = IncidentFilter
+    permission_classes = [IsAdministrador | IsSuper | IsSupervisor]
