@@ -1,7 +1,8 @@
 from users import serializers
 from django.contrib.auth import get_user_model
 from rest_framework import status, viewsets
-from rest_framework.permissions import AllowAny, IsAuthenticated
+from rest_framework.permissions import AllowAny
+from user_type.permisions import IsAdministrador, IsSuper
 from rest_framework.response import Response
 from rest_framework_simplejwt.tokens import RefreshToken
 from django.contrib.auth.hashers import make_password
@@ -14,8 +15,8 @@ class UserRegisterationViewSet(viewsets.ModelViewSet):
     An endpoint for the client to create a new User.
     """
     queryset = User.objects.all()
-    permission_classes = (IsAuthenticated,)
     serializer_class = serializers.UserRegisterationSerializer
+    permission_classes = [IsAdministrador | IsSuper]
 
     def create(self, request, *args, **kwargs):
         serializer = self.get_serializer(data=request.data)
@@ -46,20 +47,24 @@ class UserLoginViewSet(viewsets.ModelViewSet):
     An endpoint to authenticate existing users using their dni and password.
     """
 
-    permission_classes = (AllowAny,)
     serializer_class = serializers.UserLoginSerializer
     queryset = []
+    permission_classes = [AllowAny]
 
     def create(self, request, *args, **kwargs):
-        serializer = self.get_serializer(data=request.data)
-        serializer.is_valid(raise_exception=True)
-        user = serializer.validated_data
-        serializer = serializers.CustomUserSerializer(user)
-        token = RefreshToken.for_user(user)
-        data = serializer.data
-        data["tokens"] = {"refresh": str(
-            token), "access": str(token.access_token)}
-        return Response(data, status=status.HTTP_200_OK)
+        try:
+            serializer = self.get_serializer(data=request.data)
+            serializer.is_valid(raise_exception=True)
+            user = serializer.validated_data
+            serializer = serializers.CustomUserSerializer(user)
+            token = RefreshToken.for_user(user)
+            data = serializer.data
+            data["tokens"] = {"refresh": str(
+                token), "access": str(token.access_token)}
+            return Response(data, status=status.HTTP_200_OK)
+        except Exception as e:
+            print(e)
+            return Response(data='error', status=status.HTTP_400_BAD_REQUEST)
 
 
 class UserLogoutViewSet(viewsets.ModelViewSet):

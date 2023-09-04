@@ -1,4 +1,6 @@
 *.pyc
 static
-*/__pycache__/
 .vscode/settings.json
+media
+static
+data/*

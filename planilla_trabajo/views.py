@@ -7,7 +7,7 @@ from user_type.permisions import IsAdministrador, IsSuper, IsSupervisor
 from rest_framework.response import Response
 from trabajador.models import Trabajador
 from trabajador.serializer import TrabajadorSerializer
-import requests
+from datetime import datetime
 
 
 class PlanillaTrabajoViewSet(viewsets.ModelViewSet):
@@ -17,30 +17,13 @@ class PlanillaTrabajoViewSet(viewsets.ModelViewSet):
 
     def create(self, request, *args, **kwargs):
         try:
-
-            # ************************************************************
-            # TODO: need to increase performance with cache
-            # all this must be a function
-            from datetime import datetime
-
             fecha = request.data.get("fecha")
             fecha = datetime.strptime(fecha, "%Y-%m-%d")
-            print(Feriado.objects.filter(fecha=fecha))
             if Feriado.objects.filter(fecha=fecha):
                 return Response({'error': "La fecha seleccionada es un dia no laborable"}, status=status.HTTP_400_BAD_REQUEST)
-            # response = requests.get(
-            #     'http://nolaborables.com.ar/api/v2/feriados/2023?formato=mensual')
-            # if response.status_code == 200:
-            #     response = response.json()
-            #     if str(fecha.day) in response[int(fecha.month) - 1].keys():
-            #         return Response({'error': f"La fecha seleccionada es un dia no laborable: {fecha.day}-{fecha.month}:{response[int(fecha.month) - 1].get(str(fecha.day)).get('motivo')}"}, status=status.HTTP_400_BAD_REQUEST)
-
-            # ************************************************************
-
             serializer = self.get_serializer(data=request.data)
             serializer.is_valid(raise_exception=True)
             self.perform_create(serializer)
-
             return Response(serializer.data, status=status.HTTP_201_CREATED)
         except Exception as e:
             # Manejo de excepciones

@@ -1,7 +1,4 @@
-from rest_framework.response import Response
 from rest_framework.permissions import IsAuthenticated
-from rest_framework.decorators import api_view, permission_classes
-from rest_framework.reverse import reverse
 from rest_framework_simplejwt.views import TokenRefreshView
 from django.conf import settings
 from django.conf.urls.static import static
@@ -61,8 +58,8 @@ routes.register(r'cuestionario', CuestionarioViewSet,
                 basename='cuestionario')
 routes.register(r'respuesta_cuestionario', RespuestaCuestionarioViewSet,
                 basename='respuesta_cuestionario')
-routes.register(r'evaluacion_desempeño', EvaluacionDesempeñoViewSet,
-                basename='evaluacion_desempeño')
+routes.register(r'evaluacion_desempenio', EvaluacionDesempeñoViewSet,
+                basename='evaluacion_desempenio')
 routes.register(r'trabajadores_cargados', TrabajadoresCargadosViewSet,
                 basename='trabajadores_cargados')
 routes.register(r'empleados_por_cooperativa', EmpleadosPorCooperativa,
@@ -78,49 +75,9 @@ routes.registry.sort(key=lambda x: x[0])
 
 routes.get_api_root_view().cls.__name__ = "Paradigma Plaza Control Api Root"
 routes.get_api_root_view().cls.__doc__ = "Documentation in /snippets & /doc&test"
-
-
-@api_view(['GET'])
-@permission_classes([IsAuthenticated])
-def paradigma_plaza_control_api_root(request, format=None):
-    """
-    Documentation:
-    /snippets
-    /doc&test
-    """
-    if request.user.is_authenticated:
-        # Si el usuario está autenticado, muestra las rutas protegidas
-        data = {
-            'users': reverse('user-list', request=request, format=format),
-            'usertypes': reverse('usertype-list', request=request, format=format),
-            'cooperativa': reverse('cooperativa-list', request=request, format=format),
-            'espacio_trabajo': reverse('espacio_trabajo-list', request=request, format=format),
-            'plandetrabajo': reverse('plandetrabajo-list', request=request, format=format),
-            'incidente': reverse('incidente-list', request=request, format=format),
-            'trabajador': reverse('trabajador-list', request=request, format=format),
-            'evaluacion': reverse('evaluacion-list', request=request, format=format),
-            'planilla_trabajo': reverse('planilla_trabajo-list', request=request, format=format),
-            'presente': reverse('presente-list', request=request, format=format),
-            'trabajadores_por_id_plantrabajo': reverse('trabajadores_por_id_plantrabajo-list', request=request, format=format),
-            'cuestionario': reverse('cuestionario-list', request=request, format=format),
-            'respuesta_cuestionario': reverse('respuesta_cuestionario-list', request=request, format=format),
-            'evaluacion_desempeño': reverse('evaluacion_desempeño-list', request=request, format=format),
-            'trabajadores_cargados': reverse('trabajadores_cargados-list', request=request, format=format),
-            'empleados_por_cooperativa': reverse('empleados_por_cooperativa-list', request=request, format=format),
-            'presentes_por_espacio_trabajo_hoy': reverse('presentes_por_espacio_trabajo_hoy-list', request=request, format=format),
-            'incidentes_por_mes': reverse('incidentes_por_mes-list', request=request, format=format),
-            'feriados': reverse('feriado-list', request=request, format=format),
-        }
-        return Response(data)
-    else:
-        # Si el usuario no está autenticado, redirige a la página de autenticación
-        return Response({
-            'auth': reverse('api-auth:login', request=request, format=format),
-        })
-
+routes.get_api_root_view().cls.permission_classes = [IsAuthenticated]
 
 urlpatterns = [
-    path('', paradigma_plaza_control_api_root, name='api-root'),
     path(r'snippets/', schema_view.with_ui('redoc',
                                            cache_timeout=0), name='schema-redoc'),
     path(r'doc&test/', schema_view.with_ui('swagger',
