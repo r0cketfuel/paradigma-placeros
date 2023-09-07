@@ -28,7 +28,7 @@ class HistorialPresentesSerializer(serializers.ModelSerializer):
     - presente: Estado de asistencia (True o False).
 
     """
-    
+
     class Meta:
         model = PlanillaTrabajo
         fields = '__all__'
