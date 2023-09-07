@@ -12,7 +12,21 @@ User = get_user_model()
 
 class UserRegisterationViewSet(viewsets.ModelViewSet):
     """
-    An endpoint for the client to create a new User.
+    Vista para el registro de nuevos usuarios.
+
+    Esta vista permite a los clientes crear un nuevo usuario enviando una solicitud POST
+    con los datos de registro. Los usuarios creados se guardan en la base de datos, y se les
+    asigna un token de acceso y un token de actualización para la autenticación.
+
+    Atributos:
+    - queryset: Conjunto de usuarios, utilizado para consultar usuarios existentes.
+    - serializer_class: Clase de serialización utilizada para validar y crear usuarios.
+    - permission_classes: Permisos requeridos para acceder a esta vista (administradores o superusuarios).
+
+    Métodos:
+    - create: Crea un nuevo usuario utilizando los datos proporcionados en la solicitud POST.
+    - update: Actualiza los datos de un usuario existente, incluida la contraseña si se proporciona.
+
     """
     queryset = User.objects.all()
     serializer_class = serializers.UserRegisterationSerializer
@@ -44,7 +58,20 @@ class UserRegisterationViewSet(viewsets.ModelViewSet):
 
 class UserLoginViewSet(viewsets.ModelViewSet):
     """
-    An endpoint to authenticate existing users using their dni and password.
+    Vista para la autenticación de usuarios existentes.
+
+    Esta vista permite a los usuarios autenticarse utilizando su número de DNI y contraseña.
+    Los usuarios autenticados reciben un token de acceso y un token de actualización para su
+    autenticación futura.
+
+    Atributos:
+    - serializer_class: Clase de serialización utilizada para validar las credenciales de inicio de sesión.
+    - queryset: Conjunto vacío, no se utilizan datos de la base de datos.
+    - permission_classes: Permisos requeridos para acceder a esta vista (permitido para todos).
+
+    Métodos:
+    - create: Valida las credenciales de inicio de sesión, autentica al usuario y emite tokens de acceso y actualización.
+
     """
 
     serializer_class = serializers.UserLoginSerializer
@@ -69,7 +96,19 @@ class UserLoginViewSet(viewsets.ModelViewSet):
 
 class UserLogoutViewSet(viewsets.ModelViewSet):
     """
-    An endpoint to logout users.
+    Vista para cerrar la sesión de usuarios.
+
+    Esta vista permite a los usuarios cerrar la sesión al proporcionar un token de actualización
+    que se desactiva, lo que invalida los tokens de acceso emitidos anteriormente.
+
+    Atributos:
+    - permission_classes: Permisos requeridos para acceder a esta vista (permitido para todos).
+    - serializer_class: Clase de serialización utilizada para validar los datos de la solicitud.
+    - queryset: Conjunto vacío, no se utilizan datos de la base de datos.
+
+    Métodos:
+    - create: Invalida el token de actualización proporcionado, lo que cierra la sesión del usuario.
+
     """
 
     permission_classes = (AllowAny,)

@@ -3,6 +3,19 @@ from cuestionario.models import Cuestionario
 
 
 class RespuestaCuestionario(models.Model):
+    """
+    Modelo para representar respuestas a un cuestionario.
+
+    Este modelo define los campos necesarios para representar las respuestas a un cuestionario,
+    incluyendo la descripción, el cuestionario al que está asociado y una serie de respuestas
+    booleanas para cada pregunta del cuestionario.
+
+    Campos del modelo:
+    - description: Descripción de la respuesta.
+    - id_cuestionario: Referencia al cuestionario al que pertenece la respuesta.
+    - answer1 a answer18: Respuestas booleanas a las preguntas del cuestionario.
+
+    """
     description = models.TextField()
     id_cuestionario = models.ForeignKey(
         Cuestionario, on_delete=models.CASCADE, null=False, default=None)
@@ -27,5 +40,4 @@ class RespuestaCuestionario(models.Model):
 
     def __str__(self):
         return self.description
-# TODO
-# IMPLEMENT CLASSMETHOD FOR GET PK USERS
+

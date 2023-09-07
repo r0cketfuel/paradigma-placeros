@@ -3,6 +3,17 @@ from .models import PlanTrabajo
 
 
 class PlanTrabajoSerializer(serializers.ModelSerializer):
+    """
+    Serializador para la clase PlanTrabajo.
+
+    Este serializador se utiliza para convertir instancias de la clase PlanTrabajo
+    en representaciones JSON y viceversa. Se utiliza en la vista para realizar operaciones
+    CRUD (Crear, Leer, Actualizar, Eliminar) en los planes de trabajo.
+
+    Campos serializados:
+    - Todos los campos de la clase PlanTrabajo.
+
+    """
 
     class Meta:
         model = PlanTrabajo

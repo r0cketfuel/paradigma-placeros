@@ -7,6 +7,28 @@ from .managers import CustomUserManager
 
 
 class CustomUser(AbstractUser):
+    """
+    Usuario personalizado de la aplicación.
+
+    Esta clase define un usuario personalizado que extiende la funcionalidad de
+    la clase AbstractUser de Django. Los usuarios personalizados tienen campos
+    adicionales como el DNI, el tipo de usuario y se autentican utilizando el DNI
+    como campo de inicio de sesión.
+
+    Atributos:
+    - email: Dirección de correo electrónico del usuario.
+    - name: Nombre del usuario.
+    - last_name: Apellido del usuario.
+    - dni: Número de DNI del usuario (debe ser único).
+    - type_user: Tipo de usuario al que pertenece el usuario.
+    - USERNAME_FIELD: Campo utilizado para iniciar sesión (DNI en este caso).
+    - REQUIRED_FIELDS: Campos requeridos para la creación de usuarios.
+    - objects: Gestor personalizado de usuarios.
+
+    Métodos:
+    - __str__: Devuelve una representación de cadena del usuario en el formato "apellido, nombre".
+
+    """
     email = models.EmailField(_("email address"))
     name = models.TextField(default="")
     last_name = models.TextField(default="")

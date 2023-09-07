@@ -8,9 +8,15 @@ from .models import CustomUser
 
 class CustomUserSerializer(serializers.ModelSerializer):
     """
-    Serializer class to serialize CustomUser model.
-    """
+    Serializer de clase para serializar el modelo CustomUser.
 
+    Este serializer se utiliza para convertir instancias del modelo CustomUser en
+    representaciones JSON y viceversa. Define los campos a incluir en la serialización.
+
+    Atributos:
+    - Meta: Define el modelo y los campos a incluir en la serialización.
+
+    """
     class Meta:
         model = CustomUser
         fields = ("id", "username", 'name', 'last_name', "email", "type_user")
@@ -18,7 +24,18 @@ class CustomUserSerializer(serializers.ModelSerializer):
 
 class UserRegisterationSerializer(serializers.ModelSerializer):
     """
-    Serializer class to serialize registration requests and create a new user.
+    Serializer de clase para serializar las solicitudes de registro y crear un nuevo usuario.
+
+    Este serializer se utiliza para convertir solicitudes de registro en instancias
+    del modelo CustomUser y crear nuevos usuarios. Define los campos requeridos para
+    el registro y oculta la contraseña en la respuesta.
+
+    Atributos:
+    - Meta: Define el modelo, los campos requeridos y los campos de escritura en la serialización.
+
+    Métodos:
+    - create: Crea un nuevo usuario utilizando los datos validados.
+
     """
 
     class Meta:
@@ -28,12 +45,26 @@ class UserRegisterationSerializer(serializers.ModelSerializer):
         extra_kwargs = {"password": {"write_only": True}}
 
     def create(self, validated_data):
-        return CustomUser.objects.create_user(**validated_data)
+        return CustomUser.objects.create_user(**validated_data)  # type:ignore
 
 
 class UserLoginSerializer(serializers.Serializer):
     """
-    Serializer class to authenticate users with email and password.
+    Serializer de clase para autenticar usuarios con DNI y contraseña.
+
+    Este serializer se utiliza para validar las credenciales de inicio de sesión
+    de los usuarios utilizando su DNI y contraseña. Si las credenciales son válidas,
+    devuelve el usuario autenticado.
+
+    Atributos:
+    - dni: Campo para ingresar el número de DNI del usuario.
+    - password: Campo para ingresar la contraseña del usuario.
+    - type_user: Serializer para el tipo de usuario del usuario autenticado.
+
+    Métodos:
+    - validate: Valida las credenciales del usuario y devuelve el usuario autenticado
+      si las credenciales son correctas.
+
     """
 
     dni = serializers.CharField()
@@ -47,23 +78,3 @@ class UserLoginSerializer(serializers.Serializer):
         if user and user.is_active:
             return user
         raise serializers.ValidationError("Incorrect Credentials")
-
-
-# class ProfileSerializer(CustomUserSerializer):
-#     """
-#     Serializer class to serialize the user Profile model
-#     """
-
-#     class Meta:
-#         model = Profile
-#         fields = ("bio",)
-
-
-# class ProfileAvatarSerializer(serializers.ModelSerializer):
-#     """
-#     Serializer class to serialize the avatar
-#     """
-
-#     class Meta:
-#         model = Profile
-#         fields = ("avatar",)

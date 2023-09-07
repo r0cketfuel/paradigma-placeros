@@ -7,12 +7,33 @@ from planilla_trabajo.models import PlanillaTrabajo
 
 
 class CooperativaViewSet(viewsets.ModelViewSet):
+    """
+    Vista para gestionar cooperativas.
+
+    Esta vista permite realizar operaciones CRUD (Crear, Leer, Actualizar, Eliminar) en
+    las cooperativas. Los usuarios con permisos de administrador o superusuario pueden
+    acceder a esta vista.
+
+    Campos serializados:
+    - Todos los campos de la clase Cooperativa.
+
+    """
     queryset = Cooperativa.objects.all()
     serializer_class = CooperativaSerializer
     permission_classes = [IsAdministrador | IsSuper]
 
 
 class EmpleadosPorCooperativa(viewsets.ViewSet):
+    """
+    Vista para obtener el total de trabajadores por cooperativa.
+
+    Esta vista permite obtener el número total de trabajadores por cooperativa. Los usuarios
+    pueden acceder a esta vista sin restricciones de permisos.
+
+    La vista realiza una consulta en la base de datos para contar los trabajadores por cada
+    cooperativa y devuelve el resultado.
+
+    """
 
     def list(self, request):
         try:
@@ -20,7 +41,6 @@ class EmpleadosPorCooperativa(viewsets.ViewSet):
             total_trabajadores_por_cooperativa = {}
             for planilla in planillas:
                 cooperativa = planilla.id_plan_trabajo.id_cooperativa
-                print(cooperativa)
                 if cooperativa.description in total_trabajadores_por_cooperativa:
                     total_trabajadores_por_cooperativa[cooperativa.description] += 1
                 else:

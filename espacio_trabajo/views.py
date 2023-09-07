@@ -8,12 +8,34 @@ from datetime import datetime
 
 
 class EspacioTrabajoViewSet(viewsets.ModelViewSet):
+    """
+    Vista para gestionar espacios de trabajo.
+
+    Esta vista permite realizar operaciones CRUD (Crear, Leer, Actualizar, Eliminar) en
+    los espacios de trabajo. Los usuarios con permisos de administrador o superusuario
+    pueden acceder a esta vista.
+
+    Campos serializados:
+    - Todos los campos de la clase EspacioTrabajo.
+
+    """
     queryset = EspacioTrabajo.objects.all()
     serializer_class = EspacioTrabajoSerializer
     permission_classes = [IsAdministrador | IsSuper]
 
 
 class PresentesPorEspacioDeTrabajo(viewsets.ViewSet):
+    """
+    Vista para obtener el total de trabajadores presentes en espacios de trabajo hoy.
+
+    Esta vista permite obtener el número total de trabajadores presentes en los espacios de
+    trabajo hoy. Los usuarios con permisos de administrador, superusuario o supervisor pueden
+    acceder a esta vista.
+
+    La vista realiza una consulta en la base de datos para contar los trabajadores presentes
+    en cada espacio de trabajo y devuelve el resultado.
+
+    """
     permission_classes = [IsAdministrador | IsSuper | IsSupervisor]
 
     def list(self, request):
@@ -34,3 +56,4 @@ class PresentesPorEspacioDeTrabajo(viewsets.ViewSet):
             return Response(total_presentes_por_espacio_trabajo_today, status=200)
         except Exception as e:
             return Response({"error": str(e)}, status=400)
+

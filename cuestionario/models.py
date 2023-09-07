@@ -2,6 +2,20 @@ from django.db import models
 
 
 class Cuestionario(models.Model):
+    """
+    Modelo para representar un cuestionario.
+
+    Este modelo define los campos necesarios para representar un cuestionario, que
+    incluye una descripción y una serie de preguntas relacionadas con las tareas
+    realizadas en espacios públicos.
+
+    Campos del modelo:
+    - description: Descripción del cuestionario.
+    - question1 a question18: Preguntas relacionadas con tareas específicas.
+    - latitud: Coordenada de latitud (decimal) asociada al cuestionario.
+    - longitud: Coordenada de longitud (decimal) asociada al cuestionario.
+
+    """
     description = models.TextField()
     question1 = models.TextField(default="Cumplimiento del horario de inicio.")
     question2 = models.TextField(
@@ -44,5 +58,3 @@ class Cuestionario(models.Model):
 
     def __str__(self):
         return self.description
-# TODO
-# IMPLEMENT CLASSMETHOD FOR GET PK USERS

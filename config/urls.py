@@ -12,7 +12,12 @@ from plan_trabajo.views import PlanTrabajoViewSet
 from incidente.views import IncidentViewSet, IncidentByMonthViewSet
 from trabajador.views import TrabajadorViewSet, TrabajadoresCargadosViewSet
 from evaluacion_trabajador.views import EvaluacionTrabajadorViewSet
-from planilla_trabajo.views import PlanillaTrabajoViewSet, PresenteViewSet, TrabajadoresInPlanillaTrabajoByIdPlanTrabajoViewSet
+from planilla_trabajo.views import (
+    PlanillaTrabajoViewSet,
+    PresenteViewSet,
+    TrabajadoresInPlanillaTrabajoByIdPlanTrabajoViewSet,
+    HistorialPresentesEntreFechasPorIdTrabajador
+)
 from cuestionario.views import CuestionarioViewSet
 from respuesta_cuestionario.views import RespuestaCuestionarioViewSet
 from evaluacion_desempeño.views import EvaluacionDesempeñoViewSet
@@ -69,6 +74,7 @@ routes.register(r'presentes_por_espacio_trabajo_hoy', PresentesPorEspacioDeTraba
 routes.register(r'incidentes_por_mes', IncidentByMonthViewSet,
                 basename='incidentes_por_mes')
 routes.register(r'feriados', FeriadoViewSet)
+routes.register(r'asistencias_entre_fechas_por_trabajador', HistorialPresentesEntreFechasPorIdTrabajador, basename='asistencias_entre_fechas_por_trabajador')
 
 routes.registry.sort(key=lambda x: x[0])
 

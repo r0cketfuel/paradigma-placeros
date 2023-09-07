@@ -4,8 +4,17 @@ from django.utils.translation import gettext_lazy as _
 
 class CustomUserManager(BaseUserManager):
     """
-    Custom user model manager where email is the unique identifier
-    for authentication instead of usernames.
+    Gestor personalizado de usuarios.
+
+    Este gestor se utiliza para crear y gestionar usuarios personalizados en la aplicación.
+    Define métodos para crear usuarios y superusuarios, estableciendo los campos necesarios
+    como el DNI y la contraseña. También proporciona métodos para definir las propiedades
+    de los usuarios, como el estado de activo, el estado de personal de staff y el estado de superusuario.
+
+    Métodos:
+    - create_user: Crea un usuario normal con DNI y contraseña.
+    - create_superuser: Crea un superusuario con DNI y contraseña y establece las propiedades de staff y superusuario.
+
     """
 
     def create_user(self, dni, password, **extra_fields):

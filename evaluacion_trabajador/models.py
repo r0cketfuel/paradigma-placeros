@@ -4,6 +4,20 @@ from users.models import CustomUser
 
 
 class EvaluacionTrabajador(models.Model):
+    """
+    Modelo para representar una evaluación de trabajador.
+
+    Este modelo define los campos necesarios para representar una evaluación de trabajador,
+    incluyendo el trabajador evaluado, el coordinador que realiza la evaluación, el resultado
+    de la evaluación y el tipo de evaluación (por ejemplo, uniforme, EPP, herramientas).
+
+    Campos del modelo:
+    - id_trabajador: Referencia al trabajador evaluado.
+    - id_coordinador: Referencia al coordinador que realiza la evaluación.
+    - evaluation_result: Resultado de la evaluación (opciones: bueno, regular, malo).
+    - evaluation_type: Tipo de evaluación (opciones: uniforme, EPP, herramientas).
+
+    """
     EVALUATION_RESULT = [
         ('bueno', 'Bueno'),
         ('regular', 'Regular'),
@@ -26,5 +40,3 @@ class EvaluacionTrabajador(models.Model):
 
     def __str__(self):
         return f"{self.id_trabajador}  {self.id_coordinador}"
-# TODO
-# IMPLEMENT CLASSMETHOD FOR GET PK USERS
