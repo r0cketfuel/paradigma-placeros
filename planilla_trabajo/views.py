@@ -2,7 +2,7 @@ from rest_framework import viewsets, status
 
 from feriados.models import Feriado
 from .models import PlanillaTrabajo
-from .serializer import PlanillaTrabajoSerializer, HistorialAsistenciaSerializer
+from .serializer import PlanillaTrabajoSerializer, HistorialPresentesSerializer
 from user_type.permisions import IsAdministrador, IsSuper, IsSupervisor
 from rest_framework.response import Response
 from trabajador.models import Trabajador
@@ -147,7 +147,7 @@ class TrabajadoresInPlanillaTrabajoByIdPlanTrabajoViewSet(viewsets.ViewSet):
             return Response({"error": str(e)}, status=status.HTTP_400_BAD_REQUEST)
 
 
-class HistorialPresentesEntreFechasPorIdTrabajador(viewsets.ViewSet):
+class PresentesEntreFechasPorIdTrabajador(viewsets.ViewSet):
     """
     Vista para obtener el historial de asistencia de un trabajador entre dos fechas.
 
@@ -188,7 +188,7 @@ class HistorialPresentesEntreFechasPorIdTrabajador(viewsets.ViewSet):
                 id_trabajador=id_trabajador,
                 fecha__range=(fecha_inicio, fecha_fin)
             )
-            serializer = HistorialAsistenciaSerializer(queryset, many=True)
+            serializer = HistorialPresentesSerializer(queryset, many=True)
 
             return Response(serializer.data)
         except ValueError as e:

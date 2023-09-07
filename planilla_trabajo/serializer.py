@@ -18,7 +18,7 @@ class PlanillaTrabajoSerializer(serializers.ModelSerializer):
         fields = '__all__'
 
 
-class HistorialAsistenciaSerializer(serializers.ModelSerializer):
+class HistorialPresentesSerializer(serializers.ModelSerializer):
     """
     Este serializador se utiliza para convertir instancias de la clase PlanillaTrabajo
     en representaciones JSON personalizadas para mostrar el historial de asistencia.
@@ -28,6 +28,7 @@ class HistorialAsistenciaSerializer(serializers.ModelSerializer):
     - presente: Estado de asistencia (True o False).
 
     """
+    
     class Meta:
         model = PlanillaTrabajo
         fields = '__all__'
