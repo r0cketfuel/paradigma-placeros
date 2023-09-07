@@ -182,8 +182,14 @@ class PresentesEntreFechasPorIdTrabajador(viewsets.ViewSet):
             id_trabajador = request.data.get('id_trabajador')
             fecha_inicio = request.data.get('fecha_inicio')
             fecha_fin = request.data.get('fecha_fin')
+
+            # Verificar si fecha_inicio es menor que fecha_fin
+            if fecha_inicio >= fecha_fin:
+                return Response({"error": "La fecha de inicio debe ser anterior a la fecha de fin"}, status=status.HTTP_400_BAD_REQUEST)
+
             fecha_inicio = date.fromisoformat(fecha_inicio)
             fecha_fin = date.fromisoformat(fecha_fin)
+
             queryset = PlanillaTrabajo.objects.filter(
                 id_trabajador=id_trabajador,
                 fecha__range=(fecha_inicio, fecha_fin)
