@@ -64,7 +64,7 @@ routes.register(r'asistencias_entre_fechas_por_trabajador', PresentesEntreFechas
 routes.registry.sort(key=lambda x: x[0])
 
 routes.get_api_root_view().cls.__name__ = "Paradigma Plaza Control Api Root"
-routes.get_api_root_view().cls.__doc__ = "Documentacion en /snippets & /doc&test"
+routes.get_api_root_view().cls.__doc__  = "Documentacion en /snippets & /doc&test"
 routes.get_api_root_view().cls.permission_classes = [IsAuthenticated]
 
 urlpatterns = [
