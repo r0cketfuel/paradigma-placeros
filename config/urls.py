@@ -4,27 +4,27 @@ from django.conf import settings
 from django.conf.urls.static import static
 from django.urls import include, path
 from rest_framework import routers
-from users.views import UserRegisterationViewSet, UserLoginViewSet, UserLogoutViewSet
-from user_type.views import UserTypeViewSet
-from cooperativa.views import CooperativaViewSet, EmpleadosPorCooperativa
-from espacio_trabajo.views import EspacioTrabajoViewSet, PresentesPorEspacioDeTrabajo
-from plan_trabajo.views import PlanTrabajoViewSet
-from incidente.views import IncidentViewSet, IncidentByMonthViewSet
-from trabajador.views import TrabajadorViewSet, TrabajadoresCargadosViewSet
-from evaluacion_trabajador.views import EvaluacionTrabajadorViewSet
-from planilla_trabajo.views import (
+from apps.users.views import UserRegisterationViewSet, UserLoginViewSet, UserLogoutViewSet
+from apps.user_type.views import UserTypeViewSet
+from apps.cooperativa.views import CooperativaViewSet, EmpleadosPorCooperativa
+from apps.espacio_trabajo.views import EspacioTrabajoViewSet, PresentesPorEspacioDeTrabajo
+from apps.plan_trabajo.views import PlanTrabajoViewSet
+from apps.incidente.views import IncidentViewSet, IncidentByMonthViewSet
+from apps.trabajador.views import TrabajadorViewSet, TrabajadoresCargadosViewSet
+from apps.evaluacion_trabajador.views import EvaluacionTrabajadorViewSet
+from apps.planilla_trabajo.views import (
     PlanillaTrabajoViewSet,
     PresenteViewSet,
     TrabajadoresInPlanillaTrabajoByIdPlanTrabajoViewSet,
     PresentesEntreFechasPorIdTrabajador
 )
-from cuestionario.views import CuestionarioViewSet
-from respuesta_cuestionario.views import RespuestaCuestionarioViewSet
-from evaluacion_desempeño.views import EvaluacionDesempeñoViewSet
-from feriados.views import FeriadoViewSet
+from apps.cuestionario.views import CuestionarioViewSet
+from apps.respuesta_cuestionario.views import RespuestaCuestionarioViewSet
+from apps.evaluacion_desempeño.views import EvaluacionDesempeñoViewSet
+from apps.feriados.views import FeriadoViewSet
 from drf_yasg.views import get_schema_view
 from drf_yasg import openapi
-from user_type.permisions import IsSuper
+from apps.user_type.permisions import IsSuper
 
 schema_view = get_schema_view(
     openapi.Info(

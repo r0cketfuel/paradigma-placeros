@@ -10,13 +10,13 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = "blog-api"
+SECRET_KEY = "ñs1465465465486656765846786786867ñ8ñ67ñ86dflñsdfñsalfñ4lñtlñ4glñlñ"
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
 ALLOWED_HOSTS = ["*"]
-
+CORS_ORIGIN_ALLOW_ALL = True
 
 # Application definition
 
@@ -27,28 +27,32 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
+    "corsheaders",
 
     # Third-part apps
     "rest_framework",
     "rest_framework_simplejwt.token_blacklist",
+    "drf_yasg",
 
     # Local apps
-    "users",
-    "user_type",
-    "cooperativa",
-    "espacio_trabajo",
-    "plan_trabajo",
-    "incidente",
-    "trabajador",
-    "evaluacion_trabajador",
-    "planilla_trabajo",
-    "cuestionario",
-    "respuesta_cuestionario",
-    "evaluacion_desempeño"
+    "apps.users",
+    "apps.user_type",
+    "apps.cooperativa",
+    "apps.espacio_trabajo",
+    "apps.plan_trabajo",
+    "apps.incidente",
+    "apps.trabajador",
+    "apps.evaluacion_trabajador",
+    "apps.planilla_trabajo",
+    "apps.cuestionario",
+    "apps.respuesta_cuestionario",
+    "apps.evaluacion_desempeño",
+    "apps.feriados"
 
 ]
 
 MIDDLEWARE = [
+    'corsheaders.middleware.CorsMiddleware',
     "django.middleware.security.SecurityMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
     "django.middleware.common.CommonMiddleware",
@@ -151,7 +155,7 @@ REST_FRAMEWORK = {
 
 SIMPLE_JWT = {
     "ACCESS_TOKEN_LIFETIME": timedelta(days=365),
-    "REFRESH_TOKEN_LIFETIME": timedelta(days=14),
+    "REFRESH_TOKEN_LIFETIME": timedelta(days=400),
     "ROTATE_REFRESH_TOKENS": True,
     "BLACKLIST_AFTER_ROTATION": True,
     "UPDATE_LAST_LOGIN": False,
@@ -174,8 +178,6 @@ SIMPLE_JWT = {
     "SLIDING_TOKEN_LIFETIME": timedelta(minutes=5),
     "SLIDING_TOKEN_REFRESH_LIFETIME": timedelta(days=1),
 }
-# CSRF_TRUSTED_ORIGINS = [
-#     "https://0460-190-1-47-195.ngrok-free.app"]
 
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 SECURE_SSL_REDIRECT = True
@@ -185,3 +187,7 @@ SECURE_HSTS_SECONDS = 3600
 SECURE_HSTS_INCLUDE_SUBDOMAINS = True
 SECURE_HSTS_PRELOAD = True
 SECURE_REFERRER_POLICY = 'same-origin'
+
+FILE_UPLOAD_MAX_MEMORY_SIZE = 31457280
+
+DATA_UPLOAD_MAX_MEMORY_SIZE = 31457280

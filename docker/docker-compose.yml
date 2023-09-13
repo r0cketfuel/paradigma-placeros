@@ -18,8 +18,9 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
+    restart: always
     command: >
-      sh -c "python manage.py collectstatic --no-input && gunicorn config.wsgi:application --bind 0.0.0.0:8000"  # sh -c "python manage.py runserver 0.0.0.0:8000"
+      sh -c "python manage.py loaddata seed_data/users_types_seed.json && python manage.py collectstatic --no-input && gunicorn config.wsgi:application --bind 0.0.0.0:8000"  # sh -c "python manage.py runserver 0.0.0.0:8000"
     volumes:
       - ../:/plaza_web_paradigma/
       - static_volume:/plaza_web_paradigma/static
@@ -33,6 +34,7 @@ services:
     build:
       context: .
       dockerfile: Dockerfile.nginx
+    restart: always
     ports:
       - "80:80"
       - "443:443"
@@ -46,7 +48,6 @@ services:
       - plazaweb
 
 volumes:
-  # postgresql-data:
   static_volume:
   static_media:
 
