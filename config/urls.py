@@ -1,30 +1,25 @@
-from rest_framework.permissions import IsAuthenticated
-from rest_framework_simplejwt.views import TokenRefreshView
-from django.conf import settings
-from django.conf.urls.static import static
-from django.urls import include, path
-from rest_framework import routers
-from apps.users.views import UserRegisterationViewSet, UserLoginViewSet, UserLogoutViewSet
-from apps.user_type.views import UserTypeViewSet
-from apps.cooperativa.views import CooperativaViewSet, EmpleadosPorCooperativa
-from apps.espacio_trabajo.views import EspacioTrabajoViewSet, PresentesPorEspacioDeTrabajo
-from apps.plan_trabajo.views import PlanTrabajoViewSet
-from apps.incidente.views import IncidentViewSet, IncidentByMonthViewSet
-from apps.trabajador.views import TrabajadorViewSet, TrabajadoresCargadosViewSet
-from apps.evaluacion_trabajador.views import EvaluacionTrabajadorViewSet
-from apps.planilla_trabajo.views import (
-    PlanillaTrabajoViewSet,
-    PresenteViewSet,
-    TrabajadoresInPlanillaTrabajoByIdPlanTrabajoViewSet,
-    PresentesEntreFechasPorIdTrabajador
-)
-from apps.cuestionario.views import CuestionarioViewSet
-from apps.respuesta_cuestionario.views import RespuestaCuestionarioViewSet
-from apps.evaluacion_desempeño.views import EvaluacionDesempeñoViewSet
-from apps.feriados.views import FeriadoViewSet
-from drf_yasg.views import get_schema_view
-from drf_yasg import openapi
-from apps.user_type.permisions import IsSuper
+from rest_framework.permissions             import IsAuthenticated
+from rest_framework_simplejwt.views         import TokenRefreshView
+from django.conf                            import settings
+from django.conf.urls.static                import static
+from django.urls                            import include, path
+from rest_framework                         import routers
+from apps.users.views                       import UserRegisterationViewSet, UserLoginViewSet, UserLogoutViewSet
+from apps.user_type.views                   import UserTypeViewSet
+from apps.cooperativa.views                 import CooperativaViewSet, EmpleadosPorCooperativa
+from apps.espacio_trabajo.views             import EspacioTrabajoViewSet, PresentesPorEspacioDeTrabajo
+from apps.plan_trabajo.views                import PlanTrabajoViewSet
+from apps.incidente.views                   import IncidentViewSet, IncidentByMonthViewSet
+from apps.trabajador.views                  import TrabajadorViewSet, TrabajadoresCargadosViewSet
+from apps.evaluacion_trabajador.views       import EvaluacionTrabajadorViewSet
+from apps.planilla_trabajo.views            import (PlanillaTrabajoViewSet, PresenteViewSet, TrabajadoresInPlanillaTrabajoByIdPlanTrabajoViewSet, PresentesEntreFechasPorIdTrabajador)
+from apps.cuestionario.views                import CuestionarioViewSet
+from apps.respuesta_cuestionario.views      import RespuestaCuestionarioViewSet
+from apps.evaluacion_desempeño.views        import EvaluacionDesempeñoViewSet
+from apps.feriados.views                    import FeriadoViewSet
+from apps.user_type.permisions              import IsSuper
+from drf_yasg.views                         import get_schema_view
+from drf_yasg                               import openapi
 
 schema_view = get_schema_view(
     openapi.Info(
@@ -35,7 +30,6 @@ schema_view = get_schema_view(
     public=True,
     permission_classes=[IsSuper],
 )
-
 
 routes = routers.DefaultRouter()
 
