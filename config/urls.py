@@ -23,9 +23,9 @@ from drf_yasg                               import openapi
 
 schema_view = get_schema_view(
     openapi.Info(
-        title="Paradigma - Plaza COntrol API",
-        default_version='v1',
-        description="documentacion API REST para Paradigma -  Plaza Control ",
+        title           = 'Paradigma - Plaza COntrol API',
+        default_version = 'v1',
+        description     = 'documentacion API REST para Paradigma -  Plaza Control ',
     ),
     public=True,
     permission_classes=[IsSuper],
@@ -63,14 +63,14 @@ routes.register(r'asistencias_entre_fechas_por_trabajador', PresentesEntreFechas
 
 routes.registry.sort(key=lambda x: x[0])
 
-routes.get_api_root_view().cls.__name__ = "Paradigma Plaza Control Api Root"
-routes.get_api_root_view().cls.__doc__  = "Documentacion en /snippets & /doc&test"
+routes.get_api_root_view().cls.__name__ = 'Paradigma Plaza Control Api Root'
+routes.get_api_root_view().cls.__doc__  = 'Documentacion en /snippets & /doc&test'
 routes.get_api_root_view().cls.permission_classes = [IsAuthenticated]
 
 urlpatterns = [
     path(r'snippets/', schema_view.with_ui('redoc', cache_timeout=0), name='schema-redoc'),
     path(r'doc&test/', schema_view.with_ui('swagger',cache_timeout=0), name='schema-swagger-ui'),
-    path("api-auth/", include("rest_framework.urls")),
+    path('api-auth/', include('rest_framework.urls')),
     path('', include(routes.urls)),
-    path("token/refresh/", TokenRefreshView.as_view(), name="token-refresh"),
+    path('token/refresh/', TokenRefreshView.as_view(), name='token-refresh'),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
