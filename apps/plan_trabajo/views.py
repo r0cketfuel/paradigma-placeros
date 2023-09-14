@@ -17,7 +17,7 @@ class PlanTrabajoViewSet(viewsets.ModelViewSet):
 
     """
     queryset = PlanTrabajo.objects.select_related('id_cooperativa', 'id_espacio', 'id_supervisor').annotate(
-        cooperativa_name    = F('id_cooperativa__description'),
+        cooperativa_name    = F('id_cooperativa__nombre'),
         espacio_nombre      = F('id_espacio__description'),
         supervisor_nombre   = F('id_supervisor__username')
     )
