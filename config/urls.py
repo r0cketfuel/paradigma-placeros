@@ -38,7 +38,7 @@ routes.register(r'usertype',                                UserTypeViewSet,    
 routes.register(r'login',                                   UserLoginViewSet,                                       basename='login')
 routes.register(r'logout',                                  UserLogoutViewSet,                                      basename='logout')
 
-routes.register(r'feriados',                                FeriadoViewSet)
+routes.register(r'feriados',                                FeriadoViewSet,                                         basename='feriados')
 
 routes.register(r'cooperativas',                            CooperativaViewSet,                                     basename='cooperativa')
 routes.register(r'espacios_trabajo',                        EspacioTrabajoViewSet,                                  basename='espacio_trabajo')
