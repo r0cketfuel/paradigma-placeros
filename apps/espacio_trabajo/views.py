@@ -1,11 +1,10 @@
-from rest_framework import viewsets
-from rest_framework.response import Response
-from .models import EspacioTrabajo
-from .serializer import EspacioTrabajoSerializer
-from apps.user_type.permisions import IsAdministrador, IsSuper, IsSupervisor
-from apps.planilla_trabajo.models import PlanillaTrabajo
-from datetime import datetime
-
+from rest_framework                 import viewsets
+from rest_framework.response        import Response
+from .models                        import EspacioTrabajo
+from .serializer                    import EspacioTrabajoSerializer
+from apps.user_type.permisions      import IsAdministrador, IsSuper, IsSupervisor
+from apps.planilla_trabajo.models   import PlanillaTrabajo
+from datetime                       import datetime
 
 class EspacioTrabajoViewSet(viewsets.ModelViewSet):
     """
