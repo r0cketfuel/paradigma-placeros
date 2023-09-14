@@ -1,11 +1,11 @@
 from rest_framework             import viewsets
-from rest_framework             import status
-from rest_framework.response    import Response
 from .models                    import Feriado
 from .serializers               import FeriadoSerializer
+from apps.user_type.permisions  import IsAdministrador, IsSuper
 
 class FeriadoViewSet(viewsets.ModelViewSet):
     serializer_class = FeriadoSerializer
+    permission_classes = [IsAdministrador | IsSuper]
 
     def get_queryset(self):
         queryset = Feriado.objects.all()
