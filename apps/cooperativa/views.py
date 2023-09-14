@@ -41,10 +41,10 @@ class EmpleadosPorCooperativa(viewsets.ViewSet):
             total_trabajadores_por_cooperativa = {}
             for planilla in planillas:
                 cooperativa = planilla.id_plan_trabajo.id_cooperativa
-                if cooperativa.description in total_trabajadores_por_cooperativa:
-                    total_trabajadores_por_cooperativa[cooperativa.description] += 1
+                if cooperativa.nombre in total_trabajadores_por_cooperativa:
+                    total_trabajadores_por_cooperativa[cooperativa.nombre] += 1
                 else:
-                    total_trabajadores_por_cooperativa[cooperativa.description] = 1
+                    total_trabajadores_por_cooperativa[cooperativa.nombre] = 1
             return Response(total_trabajadores_por_cooperativa, status=200)
         except Exception as e:
             return Response({"error": str(e)}, status=400)

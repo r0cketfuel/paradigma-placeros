@@ -9,10 +9,10 @@ class Cooperativa(models.Model):
     descripción.
 
     Campos del modelo:
-    - description: Descripción de la cooperativa.
+    - nombre: Descripción de la cooperativa.
 
     """
-    description = models.TextField(max_length=50)
+    nombre = models.TextField(max_length=50)
 
     def __str__(self):
         return self.description
