@@ -1,7 +1,7 @@
-from django.db import models
-from apps.cooperativa.models import Cooperativa
-from apps.espacio_trabajo.models import EspacioTrabajo
-from apps.users.models import CustomUser
+from django.db                      import models
+from apps.cooperativa.models        import Cooperativa
+from apps.espacio_trabajo.models    import EspacioTrabajo
+from apps.users.models              import CustomUser
 
 
 class PlanTrabajo(models.Model):
