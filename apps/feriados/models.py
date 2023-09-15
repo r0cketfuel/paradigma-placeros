@@ -1,6 +1,5 @@
 from django.db import models
 
-
 class Feriado(models.Model):
     """
     Modelo para representar un feriado.
@@ -14,7 +13,7 @@ class Feriado(models.Model):
 
     """
     descripcion = models.CharField(max_length=200)
-    fecha = models.DateField()
+    fecha       = models.DateField()
 
     def __str__(self):
         return self.descripcion

@@ -1,7 +1,6 @@
-from django.db import models
-from apps.cuestionario.models import Cuestionario
-from apps.plan_trabajo.models import PlanTrabajo
-
+from django.db                  import models
+from apps.cuestionario.models   import Cuestionario
+from apps.plan_trabajo.models   import PlanTrabajo
 
 class EvaluacionDesempeño(models.Model):
     """
@@ -19,13 +18,11 @@ class EvaluacionDesempeño(models.Model):
     - ubicación: Ubicación donde se realizó la evaluación.
 
     """
-    description = models.TextField()
-    id_cuestionario = models.ForeignKey(
-        Cuestionario, on_delete=models.CASCADE, null=False, default=None)
-    id_plan_trabajo = models.ForeignKey(
-        PlanTrabajo, on_delete=models.CASCADE, null=False, default=None)
-    fecha = models.DateField(null=False)
-    ubicacion = models.TextField()
+    description     = models.TextField()
+    id_cuestionario = models.ForeignKey(Cuestionario,   on_delete=models.CASCADE, null=False, default=None)
+    id_plan_trabajo = models.ForeignKey(PlanTrabajo,    on_delete=models.CASCADE, null=False, default=None)
+    fecha           = models.DateField(null=False)
+    ubicacion       = models.TextField()
 
     def __str__(self):
         return self.description

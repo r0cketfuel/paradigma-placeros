@@ -1,0 +1,37 @@
+[
+    {
+        "model": "cooperativa.cooperativa",
+        "pk": 1,
+        "fields": {
+            "nombre": "Cooperativa 1"
+        }
+    },
+    {
+        "model": "cooperativa.cooperativa",
+        "pk": 2,
+        "fields": {
+            "nombre": "Cooperativa 2"
+        }
+    },
+    {
+        "model": "cooperativa.cooperativa",
+        "pk": 3,
+        "fields": {
+            "nombre": "Cooperativa 3"
+        }
+    },
+    {
+        "model": "cooperativa.cooperativa",
+        "pk": 4,
+        "fields": {
+            "nombre": "Cooperativa 4"
+        }
+    },
+    {
+        "model": "cooperativa.cooperativa",
+        "pk": 5,
+        "fields": {
+            "nombre": "Cooperativa 5"
+        }
+    }
+]

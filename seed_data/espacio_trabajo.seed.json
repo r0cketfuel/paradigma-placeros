@@ -1,0 +1,47 @@
+[
+    {
+        "model": "espacio_trabajo.espaciotrabajo",
+        "pk": 1,
+        "fields": {
+            "description":  "Espacio de trabajo 1",
+            "image":        "espacio_trabajo_1.jpg",
+            "address":      "Dirección espacio trabajo 1"
+        }
+    },
+    {
+        "model": "espacio_trabajo.espaciotrabajo",
+        "pk": 2,
+        "fields": {
+            "description":  "Espacio de trabajo 2",
+            "image":        "espacio_trabajo_2.jpg",
+            "address":      "Dirección espacio trabajo 2"
+        }
+    },
+    {
+        "model": "espacio_trabajo.espaciotrabajo",
+        "pk": 3,
+        "fields": {
+            "description":  "Espacio de trabajo 3",
+            "image":        "espacio_trabajo_3.jpg",
+            "address":      "Dirección espacio trabajo 3"
+        }
+    },
+    {
+        "model": "espacio_trabajo.espaciotrabajo",
+        "pk": 4,
+        "fields": {
+            "description":  "Espacio de trabajo 4",
+            "image":        "espacio_trabajo_4.jpg",
+            "address":      "Dirección espacio trabajo 4"
+        }
+    },
+    {
+        "model": "espacio_trabajo.espaciotrabajo",
+        "pk": 5,
+        "fields": {
+            "description":  "Espacio de trabajo 5",
+            "image":        "espacio_trabajo_5.jpg",
+            "address":      "Dirección espacio trabajo 5"
+        }
+    }
+]

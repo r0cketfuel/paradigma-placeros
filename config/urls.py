@@ -42,7 +42,7 @@ routes.register(r'feriados',                                FeriadoViewSet,     
 
 routes.register(r'cooperativas',                            CooperativaViewSet,                                     basename='cooperativa')
 routes.register(r'espacios_trabajo',                        EspacioTrabajoViewSet,                                  basename='espacio_trabajo')
-routes.register(r'planes_trabajo',                          PlanTrabajoViewSet,                                     basename='plandetrabajo')
+routes.register(r'planes_trabajo',                          PlanTrabajoViewSet,                                     basename='plantrabajo')
 
 routes.register(r'incidentes',                              IncidentViewSet,                                        basename='incidente')
 routes.register(r'incidentes_mes',                          IncidentByMonthViewSet,                                 basename='incidentes_por_mes')

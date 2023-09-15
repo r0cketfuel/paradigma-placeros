@@ -3,7 +3,6 @@ from apps.cooperativa.models        import Cooperativa
 from apps.espacio_trabajo.models    import EspacioTrabajo
 from apps.users.models              import CustomUser
 
-
 class PlanTrabajo(models.Model):
     """
     Modelo para representar un plan de trabajo.
