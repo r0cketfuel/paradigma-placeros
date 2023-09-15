@@ -13,8 +13,6 @@ services:
       - ../data/db:/var/lib/postgresql/data
     networks:
       - plazaweb
-    ports:
-      - "7000:5432"
 
   plazaweb:
     build:

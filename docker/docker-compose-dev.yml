@@ -11,26 +11,26 @@ services:
       POSTGRES_DB: test_plaza_web
     volumes:
       - ../data_dev/db:/var/lib/postgresql/data
+    networks:
+      - plazaweb_dev
     ports:
-      - 5432:5432
-    # networks:
-    #   - plazaweb_dev
+      - 7000:5432
 
   plazaweb_dev:
     build:
       context: .
-      dockerfile: Dockerfile_dev
+      dockerfile: Dockerfile
     command: >
-      sh -c "python manage.py runserver"
+      sh -c "python manage.py makemigrations && python manage.py migrate && python manage.py loaddata seed_data/users_types_seed.json && python manage.py loaddata seed_data/user.seed.json && python manage.py loaddata seed_data/feriado.seed.json && python manage.py loaddata seed_data/trabajador.seed.json && python manage.py loaddata seed_data/cooperativa.seed.json && python manage.py loaddata seed_data/espacio_trabajo.seed.json && python manage.py collectstatic --no-input && python manage.py runserver"
     volumes:
       - ../:/plaza_web_paradigma/
     ports:
       - 8000:8000
     depends_on:
       - postgresql_plaza_dj_dev
-    # networks:
-    #   - plazaweb_dev
+    networks:
+      - plazaweb_dev
 
-    # networks:
-    #   plazaweb_dev:
-    #     driver: bridge
+networks:
+  plazaweb_dev:
+    driver: bridge
