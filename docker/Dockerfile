@@ -15,8 +15,8 @@ ENV PYTHONUNBUFFERED 1
 # RUN apk add postgresql-dev gcc python3-dev musl-dev
 RUN pip install --upgrade pip
 #RUN pip install psycopg2-binary
-COPY requeriments.txt .
-RUN pip install -r requeriments.txt
+COPY requirements.txt .
+RUN pip install -r requirements.txt
 
 # copy project
 
