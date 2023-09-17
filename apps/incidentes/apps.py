@@ -1,6 +1,5 @@
 from django.apps import AppConfig
 
-
 class IncidenteConfig(AppConfig):
-    default_auto_field = 'django.db.models.BigAutoField'
-    name = 'apps.incidentes'
+    default_auto_field  = 'django.db.models.BigAutoField'
+    name                = 'apps.incidentes'
