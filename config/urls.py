@@ -6,7 +6,7 @@ from rest_framework_simplejwt.views         import TokenRefreshView
 from rest_framework                         import routers
 from apps.users.views                       import UserRegisterationViewSet, UserLoginViewSet, UserLogoutViewSet
 from apps.user_type.views                   import UserTypeViewSet
-from apps.cooperativa.views                 import CooperativaViewSet, EmpleadosPorCooperativa
+from apps.cooperativas.views                import CooperativaViewSet, EmpleadosPorCooperativa
 from apps.espacio_trabajo.views             import EspacioTrabajoViewSet, PresentesPorEspacioDeTrabajo
 from apps.plan_trabajo.views                import PlanTrabajoViewSet
 from apps.incidente.views                   import IncidentViewSet, IncidentByMonthViewSet

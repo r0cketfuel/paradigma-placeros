@@ -1,5 +1,5 @@
 from django.db                      import models
-from apps.cooperativa.models        import Cooperativa
+from apps.cooperativas.models       import Cooperativa
 from apps.espacio_trabajo.models    import EspacioTrabajo
 from apps.users.models              import CustomUser
 
