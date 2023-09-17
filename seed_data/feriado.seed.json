@@ -41,7 +41,7 @@
     },
     {
         "model": "feriados.feriado",
-        "pk": 5,
+        "pk": 6,
         "fields": {
             "descripcion":  "Feriado 6",
             "fecha":        "2023-03-10"

@@ -43,5 +43,41 @@
             "last_name":    "Apellido 5",
             "dni":          "55555555"
         }
+    },
+    {
+        "model": "trabajador.trabajador",
+        "pk": 6,
+        "fields": {
+            "name":         "Nombre 6",
+            "last_name":    "Apellido 6",
+            "dni":          "66666666"
+        }
+    },
+    {
+        "model": "trabajador.trabajador",
+        "pk": 7,
+        "fields": {
+            "name":         "Nombre 7",
+            "last_name":    "Apellido 7",
+            "dni":          "77777777"
+        }
+    },
+    {
+        "model": "trabajador.trabajador",
+        "pk": 8,
+        "fields": {
+            "name":         "Nombre 8",
+            "last_name":    "Apellido 8",
+            "dni":          "88888888"
+        }
+    },
+    {
+        "model": "trabajador.trabajador",
+        "pk": 9,
+        "fields": {
+            "name":         "Nombre 9",
+            "last_name":    "Apellido 9",
+            "dni":          "99999999"
+        }
     }
 ]

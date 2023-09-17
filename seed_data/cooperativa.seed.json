@@ -33,5 +33,110 @@
         "fields": {
             "nombre": "Cooperativa 5"
         }
+    },
+    {
+        "model": "cooperativa.cooperativa",
+        "pk": 6,
+        "fields": {
+            "nombre": "Cooperativa 6"
+        }
+    },
+    {
+        "model": "cooperativa.cooperativa",
+        "pk": 7,
+        "fields": {
+            "nombre": "Cooperativa 6"
+        }
+    },
+    {
+        "model": "cooperativa.cooperativa",
+        "pk": 8,
+        "fields": {
+            "nombre": "Cooperativa 8"
+        }
+    },
+    {
+        "model": "cooperativa.cooperativa",
+        "pk": 9,
+        "fields": {
+            "nombre": "Cooperativa 9"
+        }
+    },
+    {
+        "model": "cooperativa.cooperativa",
+        "pk": 10,
+        "fields": {
+            "nombre": "Cooperativa 10"
+        }
+    },
+    {
+        "model": "cooperativa.cooperativa",
+        "pk": 11,
+        "fields": {
+            "nombre": "Cooperativa 11"
+        }
+    },
+    {
+        "model": "cooperativa.cooperativa",
+        "pk": 12,
+        "fields": {
+            "nombre": "Cooperativa 12"
+        }
+    },
+    {
+        "model": "cooperativa.cooperativa",
+        "pk": 13,
+        "fields": {
+            "nombre": "Cooperativa 13"
+        }
+    },
+    {
+        "model": "cooperativa.cooperativa",
+        "pk": 14,
+        "fields": {
+            "nombre": "Cooperativa 14"
+        }
+    },
+    {
+        "model": "cooperativa.cooperativa",
+        "pk": 15,
+        "fields": {
+            "nombre": "Cooperativa 15"
+        }
+    },
+    {
+        "model": "cooperativa.cooperativa",
+        "pk": 16,
+        "fields": {
+            "nombre": "Cooperativa 16"
+        }
+    },
+    {
+        "model": "cooperativa.cooperativa",
+        "pk": 17,
+        "fields": {
+            "nombre": "Cooperativa 16"
+        }
+    },
+    {
+        "model": "cooperativa.cooperativa",
+        "pk": 18,
+        "fields": {
+            "nombre": "Cooperativa 18"
+        }
+    },
+    {
+        "model": "cooperativa.cooperativa",
+        "pk": 19,
+        "fields": {
+            "nombre": "Cooperativa 19"
+        }
+    },
+    {
+        "model": "cooperativa.cooperativa",
+        "pk": 20,
+        "fields": {
+            "nombre": "Cooperativa 20"
+        }
     }
 ]
