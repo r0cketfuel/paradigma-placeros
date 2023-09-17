@@ -1,6 +1,5 @@
 from django.db import models
 
-
 class UserType(models.Model):
     description = models.TextField(max_length=50)
 

@@ -29,12 +29,11 @@ class CustomUser(AbstractUser):
     - __str__: Devuelve una representación de cadena del usuario en el formato "apellido, nombre".
 
     """
-    email = models.EmailField(_("email address"))
-    name = models.TextField(default="")
-    last_name = models.TextField(default="")
-    dni = models.IntegerField(unique=True)
-    type_user = models.ForeignKey(
-        UserType, default=1, null=False, on_delete=models.CASCADE)  # type: ignore
+    email       = models.EmailField(_("email address"))
+    name        = models.TextField(default="")
+    last_name   = models.TextField(default="")
+    dni         = models.IntegerField(unique=True)
+    type_user   = models.ForeignKey(UserType, default=1, null=False, on_delete=models.CASCADE)  # type: ignore
 
     USERNAME_FIELD = "dni"
     REQUIRED_FIELDS = ["username"]
