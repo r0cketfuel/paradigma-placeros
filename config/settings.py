@@ -40,7 +40,7 @@ INSTALLED_APPS = [
     "apps.cooperativas",
     "apps.espacio_trabajo",
     "apps.plan_trabajo",
-    "apps.incidente",
+    "apps.incidentes",
     "apps.trabajador",
     "apps.evaluacion_trabajador",
     "apps.planilla_trabajo",
