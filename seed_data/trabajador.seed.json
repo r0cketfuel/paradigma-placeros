@@ -1,6 +1,6 @@
 [
     {
-        "model": "trabajador.trabajador",
+        "model": "trabajadores.trabajador",
         "pk": 1,
         "fields": {
             "name":         "Nombre 1",
@@ -9,7 +9,7 @@
         }
     },
     {
-        "model": "trabajador.trabajador",
+        "model": "trabajadores.trabajador",
         "pk": 2,
         "fields": {
             "name":         "Nombre 2",
@@ -18,7 +18,7 @@
         }
     },
     {
-        "model": "trabajador.trabajador",
+        "model": "trabajadores.trabajador",
         "pk": 3,
         "fields": {
             "name":         "Nombre 3",
@@ -27,7 +27,7 @@
         }
     },
     {
-        "model": "trabajador.trabajador",
+        "model": "trabajadores.trabajador",
         "pk": 4,
         "fields": {
             "name":         "Nombre 4",
@@ -36,7 +36,7 @@
         }
     },
     {
-        "model": "trabajador.trabajador",
+        "model": "trabajadores.trabajador",
         "pk": 5,
         "fields": {
             "name":         "Nombre 5",
@@ -45,7 +45,7 @@
         }
     },
     {
-        "model": "trabajador.trabajador",
+        "model": "trabajadores.trabajador",
         "pk": 6,
         "fields": {
             "name":         "Nombre 6",
@@ -54,7 +54,7 @@
         }
     },
     {
-        "model": "trabajador.trabajador",
+        "model": "trabajadores.trabajador",
         "pk": 7,
         "fields": {
             "name":         "Nombre 7",
@@ -63,7 +63,7 @@
         }
     },
     {
-        "model": "trabajador.trabajador",
+        "model": "trabajadores.trabajador",
         "pk": 8,
         "fields": {
             "name":         "Nombre 8",
@@ -72,7 +72,7 @@
         }
     },
     {
-        "model": "trabajador.trabajador",
+        "model": "trabajadores.trabajador",
         "pk": 9,
         "fields": {
             "name":         "Nombre 9",

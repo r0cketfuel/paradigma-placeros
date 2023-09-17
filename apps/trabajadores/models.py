@@ -14,9 +14,9 @@ class Trabajador(models.Model):
     - dni: Número de documento de identidad único del trabajador.
 
     """
-    name = models.CharField(max_length=50)
-    last_name = models.CharField(max_length=50)
-    dni = models.IntegerField(unique=True)
+    name        = models.CharField(max_length=50)
+    last_name   = models.CharField(max_length=50)
+    dni         = models.IntegerField(unique=True)
 
     def __str__(self):
         return f"{self.id}"  # type: ignore

@@ -1,6 +1,6 @@
-from django.db import models
-from apps.trabajador.models import Trabajador
-from apps.users.models import CustomUser
+from django.db                  import models
+from apps.trabajadores.models   import Trabajador
+from apps.users.models          import CustomUser
 
 
 class EvaluacionTrabajador(models.Model):

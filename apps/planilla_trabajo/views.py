@@ -1,14 +1,12 @@
-from rest_framework import viewsets, status
-
-from apps.feriados.models import Feriado
-from .models import PlanillaTrabajo
-from .serializer import PlanillaTrabajoSerializer, HistorialPresentesSerializer
-from apps.user_type.permisions import IsAdministrador, IsSuper, IsSupervisor
-from rest_framework.response import Response
-from apps.trabajador.models import Trabajador
-from apps.trabajador.serializer import TrabajadorSerializer
-from datetime import datetime, date
-
+from rest_framework                 import viewsets, status
+from apps.feriados.models           import Feriado
+from .models                        import PlanillaTrabajo
+from .serializer                    import PlanillaTrabajoSerializer, HistorialPresentesSerializer
+from apps.user_type.permisions      import IsAdministrador, IsSuper, IsSupervisor
+from rest_framework.response        import Response
+from apps.trabajadores.models       import Trabajador
+from apps.trabajadores.serializer   import TrabajadorSerializer
+from datetime                       import datetime, date
 
 class PlanillaTrabajoViewSet(viewsets.ModelViewSet):
     """
@@ -40,9 +38,9 @@ class PlanillaTrabajoViewSet(viewsets.ModelViewSet):
     - El usuario debe tener permisos de administrador o superusuario para acceder
       a esta vista.
     """
-    queryset = PlanillaTrabajo.objects.all()
-    serializer_class = PlanillaTrabajoSerializer
-    permission_classes = [IsAdministrador | IsSuper]
+    queryset            = PlanillaTrabajo.objects.all()
+    serializer_class    = PlanillaTrabajoSerializer
+    permission_classes  = [IsAdministrador | IsSuper]
 
     def create(self, request, *args, **kwargs):
         try:
