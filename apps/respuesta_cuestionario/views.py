@@ -1,7 +1,7 @@
-from rest_framework import viewsets
-from .models import RespuestaCuestionario
-from .serializer import RespuestaCuestionarioSerializer
-from apps.user_type.permisions import IsAdministrador, IsSuper, IsSupervisor
+from rest_framework             import viewsets
+from .models                    import RespuestaCuestionario
+from .serializer                import RespuestaCuestionarioSerializer
+from apps.user_type.permisions  import IsAdministrador, IsSuper, IsSupervisor
 
 
 class RespuestaCuestionarioViewSet(viewsets.ModelViewSet):
@@ -16,6 +16,6 @@ class RespuestaCuestionarioViewSet(viewsets.ModelViewSet):
     - Todos los campos de la clase RespuestaCuestionario.
 
     """
-    queryset = RespuestaCuestionario.objects.all()
-    serializer_class = RespuestaCuestionarioSerializer
-    permission_classes = [IsAdministrador | IsSuper | IsSupervisor]
+    queryset            = RespuestaCuestionario.objects.all()
+    serializer_class    = RespuestaCuestionarioSerializer
+    permission_classes  = [IsAdministrador | IsSuper | IsSupervisor]
