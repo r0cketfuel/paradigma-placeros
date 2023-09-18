@@ -1,9 +1,8 @@
-
 from django.contrib.auth.models import AbstractUser
-from django.db import models
-from django.utils.translation import gettext_lazy as _
-from apps.user_type.models import UserType
-from .managers import CustomUserManager
+from django.db                  import models
+from django.utils.translation   import gettext_lazy as _
+from apps.user_type.models      import UserType
+from .managers                  import CustomUserManager
 
 
 class CustomUser(AbstractUser):

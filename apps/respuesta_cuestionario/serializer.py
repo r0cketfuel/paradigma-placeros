@@ -1,6 +1,5 @@
-from rest_framework import serializers
-from .models import RespuestaCuestionario
-
+from rest_framework     import serializers
+from .models            import RespuestaCuestionario
 
 class RespuestaCuestionarioSerializer(serializers.ModelSerializer):
     """
