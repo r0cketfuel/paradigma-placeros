@@ -27,5 +27,8 @@ class PlanTrabajo(models.Model):
     tipo_servicio   = models.TextField()
     fecha_creacion  = models.DateTimeField(auto_now_add=True, null=True)
 
+    class Meta:
+        db_table = 'planes_trabajo'
+
     def __str__(self):
         return self.name

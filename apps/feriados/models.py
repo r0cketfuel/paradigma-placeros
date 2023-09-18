@@ -15,5 +15,8 @@ class Feriado(models.Model):
     descripcion = models.CharField(max_length=200)
     fecha       = models.DateField()
 
+    class Meta:
+        db_table = 'feriados'
+
     def __str__(self):
         return self.descripcion

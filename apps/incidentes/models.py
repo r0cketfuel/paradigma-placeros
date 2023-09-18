@@ -18,5 +18,8 @@ class Incident(models.Model):
     image           = models.ImageField(upload_to='incidente_images/', null=True, blank=True)
     date            = models.DateTimeField(default=timezone.now, editable=False)  # type: ignore
 
+    class Meta:
+        db_table = 'incidentes'
+
     def __str__(self):
         return self.description

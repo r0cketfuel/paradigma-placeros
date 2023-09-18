@@ -29,5 +29,8 @@ class PlanillaTrabajo(models.Model):
     laborable       = models.BooleanField(default=True)
     presente        = models.BooleanField(default=False)
 
+    class Meta:
+        db_table = 'planillas_trabajo'
+
     def __str__(self):
         return self.id_plan_trabajo.name

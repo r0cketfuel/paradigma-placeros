@@ -1,0 +1,27 @@
+[
+    {
+        "model": "cuestionario.cuestionario",
+        "pk": 1,
+        "fields": {
+            "nombre":       "Cuestionario 1",
+            "pregunta1":    "Cuestionario 1 - Pregunta 1",
+            "pregunta2":    "Cuestionario 1 - Pregunta 2",
+            "pregunta3":    "Cuestionario 1 - Pregunta 3",
+            "pregunta4":    "Cuestionario 1 - Pregunta 4",
+            "pregunta5":    "Cuestionario 1 - Pregunta 5",
+            "pregunta6":    "Cuestionario 1 - Pregunta 6",
+            "pregunta7":    "Cuestionario 1 - Pregunta 7",
+            "pregunta8":    "Cuestionario 1 - Pregunta 8",
+            "pregunta9":    "Cuestionario 1 - Pregunta 9",
+            "pregunta10":   "Cuestionario 1 - Pregunta 10",
+            "pregunta11":   "Cuestionario 1 - Pregunta 11",
+            "pregunta12":   "Cuestionario 1 - Pregunta 12",
+            "pregunta13":   "Cuestionario 1 - Pregunta 13",
+            "pregunta14":   "Cuestionario 1 - Pregunta 14",
+            "pregunta15":   "Cuestionario 1 - Pregunta 15",
+            "pregunta16":   "Cuestionario 1 - Pregunta 16",
+            "pregunta17":   "Cuestionario 1 - Pregunta 17",
+            "pregunta18":   "Cuestionario 1 - Pregunta 18"
+        }
+    }
+]

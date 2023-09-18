@@ -19,24 +19,24 @@ class EvaluacionTrabajador(models.Model):
 
     """
     EVALUATION_RESULT = [
-        ('bueno', 'Bueno'),
+        ('bueno',   'Bueno'),
         ('regular', 'Regular'),
-        ('malo', 'Malo'),
+        ('malo',    'Malo'),
     ]
+    
     EVALUATION_TYPE = [
-        ('uniforme', 'Uniforme'),
-        ('epp', 'EPP'),
-        ('herramientas', 'Herramientas'),
+        ('uniforme',        'Uniforme'),
+        ('epp',             'EPP'),
+        ('herramientas',    'Herramientas'),
     ]
 
-    id_trabajador = models.ForeignKey(
-        Trabajador, null=False, on_delete=models.CASCADE)
-    id_coordinador = models.ForeignKey(
-        CustomUser, null=False, on_delete=models.CASCADE)
-    evaluation_result = models.CharField(
-        max_length=20, choices=EVALUATION_RESULT, default='malo', null=False)
-    evaluation_type = models.CharField(
-        max_length=20, choices=EVALUATION_TYPE, default='Uniforme', null=False)
+    id_trabajador       = models.ForeignKey(Trabajador, null=False, on_delete=models.CASCADE)
+    id_coordinador      = models.ForeignKey(CustomUser, null=False, on_delete=models.CASCADE)
+    evaluation_result   = models.CharField(max_length=20, choices=EVALUATION_RESULT, default='malo', null=False)
+    evaluation_type     = models.CharField(max_length=20, choices=EVALUATION_TYPE, default='Uniforme', null=False)
+
+    class Meta:
+        db_table = 'evaluaciones_trabajador'
 
     def __str__(self):
         return f"{self.id_trabajador}  {self.id_coordinador}"

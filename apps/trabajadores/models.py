@@ -19,5 +19,8 @@ class Trabajador(models.Model):
     documento_nro   = models.IntegerField(unique=True)
     id_cooperativa  = models.ForeignKey(Cooperativa, null=False, on_delete=models.RESTRICT)
 
+    class Meta:
+        db_table = 'trabajadores'
+
     def __str__(self):
         return f"{self.id}"  # type: ignore

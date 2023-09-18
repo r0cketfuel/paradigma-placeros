@@ -24,5 +24,8 @@ class EvaluacionDesempeño(models.Model):
     fecha           = models.DateField(null=False)
     ubicacion       = models.TextField()
 
+    class Meta:
+        db_table = 'evaluacion_desempeño'
+
     def __str__(self):
         return self.description

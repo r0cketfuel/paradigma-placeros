@@ -13,7 +13,15 @@ class Cooperativa(models.Model):
 
     """
     nombre = models.TextField(max_length=50)
+    activo = models.BooleanField(null=False, default=True)
+
+    class Meta:
+        db_table = 'cooperativas'
 
     def __str__(self):
         return self.nombre
+
+    def delete(self):
+        self.activo = False
+        self.save()
 
