@@ -6,11 +6,11 @@ from rest_framework_simplejwt.views         import TokenRefreshView
 from rest_framework                         import routers
 from apps.users.views                       import UserRegisterationViewSet, UserLoginViewSet, UserLogoutViewSet
 from apps.user_type.views                   import UserTypeViewSet
-from apps.cooperativas.views                import CooperativaViewSet, EmpleadosPorCooperativa
+from apps.cooperativas.views                import CooperativaViewSet, TrabajadoresPorCooperativa
 from apps.espacio_trabajo.views             import EspacioTrabajoViewSet, PresentesPorEspacioDeTrabajo
 from apps.plan_trabajo.views                import PlanTrabajoViewSet
 from apps.incidentes.views                  import IncidentViewSet, IncidentByMonthViewSet
-from apps.trabajadores.views                  import TrabajadorViewSet, TrabajadoresCargadosViewSet
+from apps.trabajadores.views                import TrabajadorViewSet, TrabajadoresCargadosViewSet
 from apps.evaluacion_trabajador.views       import EvaluacionTrabajadorViewSet
 from apps.planilla_trabajo.views            import PlanillaTrabajoViewSet, PresenteViewSet, TrabajadoresInPlanillaTrabajoByIdPlanTrabajoViewSet, PresentesEntreFechasPorIdTrabajador
 from apps.cuestionario.views                import CuestionarioViewSet
@@ -58,7 +58,7 @@ routes.register(r'respuestas_cuestionario',                 RespuestaCuestionari
 routes.register(r'evaluaciones_desempenio',                 EvaluacionDesempeñoViewSet,                             basename='evaluacion_desempenio')
 
 routes.register(r'trabajadores_cargados',                   TrabajadoresCargadosViewSet,                            basename='trabajadores_cargados')
-routes.register(r'empleados_por_cooperativa',               EmpleadosPorCooperativa,                                basename='empleados_por_cooperativa')
+routes.register(r'trabajadores_cooperativa',                TrabajadoresPorCooperativa,                             basename='trabajadores_cooperativa')
 
 routes.register(r'presentes_por_espacio_trabajo_hoy',       PresentesPorEspacioDeTrabajo,                           basename='presentes_por_espacio_trabajo_hoy')
 routes.register(r'asistencias_entre_fechas_por_trabajador', PresentesEntreFechasPorIdTrabajador,                    basename='asistencias_entre_fechas_por_trabajador')
