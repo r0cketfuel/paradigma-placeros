@@ -23,7 +23,7 @@ class UserType(models.Model):
         try:
             id_tipo_agente = 0
             tipo_agente = UserType.objects.filter(
-                t='Administrador').first()
+                description='Administrador').first()
             if tipo_agente is not None:
                 id_tipo_agente = tipo_agente.id  # type: ignore
             return id_tipo_agente
@@ -35,7 +35,7 @@ class UserType(models.Model):
         try:
             id_tipo_agente = 0
             tipo_agente = UserType.objects.filter(
-                t='Supervisor').first()
+                description='Supervisor').first()
             if tipo_agente is not None:
                 id_tipo_agente = tipo_agente.id  # type: ignore
             return id_tipo_agente

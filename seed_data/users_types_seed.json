@@ -10,21 +10,21 @@
         "model": "user_type.usertype",
         "pk": 2,
         "fields": {
-            "description": "administrador"
+            "description": "Administrador"
         }
     },
     {
         "model": "user_type.usertype",
         "pk": 3,
         "fields": {
-            "description": "supervisor"
+            "description": "Supervisor"
         }
     },
     {
         "model": "user_type.usertype",
         "pk": 4,
         "fields": {
-            "description": "coordinador"
+            "description": "Coordinador"
         }
     }
 ]
