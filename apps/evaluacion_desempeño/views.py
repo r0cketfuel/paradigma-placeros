@@ -1,6 +1,6 @@
-from rest_framework import viewsets
-from .models import EvaluacionDesempeño
-from .serializer import EvaluacionDesempeñoSerializer
+from rest_framework             import viewsets
+from .models                    import EvaluacionDesempeño
+from .serializer                import EvaluacionDesempeñoSerializer
 from rest_framework.permissions import IsAuthenticated
 
 
@@ -15,6 +15,6 @@ class EvaluacionDesempeñoViewSet(viewsets.ModelViewSet):
     - Todos los campos de la clase EvaluacionDesempeño.
 
     """
-    queryset = EvaluacionDesempeño.objects.all()
-    serializer_class = EvaluacionDesempeñoSerializer
-    permission_classes = [IsAuthenticated]
+    queryset            = EvaluacionDesempeño.objects.all()
+    serializer_class    = EvaluacionDesempeñoSerializer
+    permission_classes  = [IsAuthenticated]
