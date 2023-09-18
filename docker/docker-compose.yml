@@ -20,7 +20,7 @@ services:
       dockerfile: Dockerfile
     restart: always
     command: >
-      sh -c "python manage.py makemigrations && python manage.py migrate && python manage.py loaddata seed_data/users_types_seed.json && python manage.py loaddata seed_data/user.seed.json && python manage.py loaddata seed_data/feriado.seed.json && python manage.py loaddata seed_data/trabajador.seed.json && python manage.py loaddata seed_data/cooperativa.seed.json && python manage.py loaddata seed_data/espacio_trabajo.seed.json && python manage.py collectstatic --no-input && gunicorn config.wsgi:application --bind 0.0.0.0:8000"
+      sh -c "python manage.py makemigrations && python manage.py migrate && python manage.py loaddata seed_data/users_types_seed.json && python manage.py loaddata seed_data/user.seed.json && python manage.py loaddata seed_data/feriado.seed.json && python manage.py loaddata seed_data/cooperativa.seed.json && python manage.py loaddata seed_data/trabajador.seed.json && python manage.py loaddata seed_data/espacio_trabajo.seed.json && python manage.py collectstatic --no-input && gunicorn config.wsgi:application --bind 0.0.0.0:8000"
     volumes:
       - ../:/plaza_web_paradigma/
       - static_volume:/plaza_web_paradigma/static

@@ -1,8 +1,8 @@
-from rest_framework.response import Response
-from rest_framework import viewsets
-from .models import Trabajador
-from .serializer import TrabajadorSerializer
-from apps.user_type.permisions import IsAdministrador, IsSuper
+from rest_framework.response    import Response
+from rest_framework             import viewsets
+from .models                    import Trabajador
+from .serializer                import TrabajadorSerializer
+from apps.user_type.permisions  import IsAdministrador, IsSuper
 
 
 class TrabajadorViewSet(viewsets.ModelViewSet):
@@ -17,9 +17,9 @@ class TrabajadorViewSet(viewsets.ModelViewSet):
     - Todos los campos de la clase Trabajador.
 
     """
-    queryset = Trabajador.objects.all()
-    serializer_class = TrabajadorSerializer
-    permission_classes = [IsAdministrador | IsSuper]
+    queryset            = Trabajador.objects.all()
+    serializer_class    = TrabajadorSerializer
+    permission_classes  = [IsAdministrador | IsSuper]
 
 
 class TrabajadoresCargadosViewSet(viewsets.ViewSet):
@@ -33,10 +33,10 @@ class TrabajadoresCargadosViewSet(viewsets.ViewSet):
     - 'trabajadores_cargados': Número de trabajadores cargados en la base de datos.
 
     """
-    serializer_class = TrabajadorSerializer
-    permission_classes = [IsAdministrador | IsSuper]
+    serializer_class    = TrabajadorSerializer
+    permission_classes  = [IsAdministrador | IsSuper]
 
     def list(self, request):
-        trabajadores = Trabajador.objects.all()
-        cargados = len(trabajadores) if trabajadores else 0
+        trabajadores    = Trabajador.objects.all()
+        cargados        = len(trabajadores) if trabajadores else 0
         return Response({"trabajadores_cargados": cargados}, status=200)

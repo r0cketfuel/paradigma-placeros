@@ -1,5 +1,5 @@
-from django.db import models
-
+from django.db                  import models
+from apps.cooperativas.models   import Cooperativa
 
 class Trabajador(models.Model):
     """
@@ -9,14 +9,15 @@ class Trabajador(models.Model):
     nombre, apellido y número de documento de identidad (DNI).
 
     Campos del modelo:
-    - name: Nombre del trabajador.
+    - nombre: Nombre del trabajador.
     - last_name: Apellido del trabajador.
     - dni: Número de documento de identidad único del trabajador.
 
     """
-    name        = models.CharField(max_length=50)
-    last_name   = models.CharField(max_length=50)
-    dni         = models.IntegerField(unique=True)
+    apellido        = models.CharField(max_length=50)
+    nombre          = models.CharField(max_length=50)
+    documento_nro   = models.IntegerField(unique=True)
+    id_cooperativa  = models.ForeignKey(Cooperativa, null=False, on_delete=models.RESTRICT)
 
     def __str__(self):
         return f"{self.id}"  # type: ignore

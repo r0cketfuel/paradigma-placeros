@@ -3,81 +3,90 @@
         "model": "trabajadores.trabajador",
         "pk": 1,
         "fields": {
-            "name":         "Nombre 1",
-            "last_name":    "Apellido 1",
-            "dni":          "11111111"
+            "nombre":           "Nombre 1",
+            "apellido":         "Apellido 1",
+            "documento_nro":    "11111111",
+            "id_cooperativa":   1
         }
     },
     {
         "model": "trabajadores.trabajador",
         "pk": 2,
         "fields": {
-            "name":         "Nombre 2",
-            "last_name":    "Apellido 2",
-            "dni":          "22222222"
+            "nombre":           "Nombre 2",
+            "apellido":         "Apellido 2",
+            "documento_nro":    "22222222",
+            "id_cooperativa":   2
         }
     },
     {
         "model": "trabajadores.trabajador",
         "pk": 3,
         "fields": {
-            "name":         "Nombre 3",
-            "last_name":    "Apellido 3",
-            "dni":          "33333333"
+            "nombre":           "Nombre 3",
+            "apellido":         "Apellido 3",
+            "documento_nro":    "33333333",
+            "id_cooperativa":   2
         }
     },
     {
         "model": "trabajadores.trabajador",
         "pk": 4,
         "fields": {
-            "name":         "Nombre 4",
-            "last_name":    "Apellido 4",
-            "dni":          "44444444"
+            "nombre":           "Nombre 4",
+            "apellido":         "Apellido 4",
+            "documento_nro":    "44444444",
+            "id_cooperativa":   3
         }
     },
     {
         "model": "trabajadores.trabajador",
         "pk": 5,
         "fields": {
-            "name":         "Nombre 5",
-            "last_name":    "Apellido 5",
-            "dni":          "55555555"
+            "nombre":           "Nombre 5",
+            "apellido":         "Apellido 5",
+            "documento_nro":    "55555555",
+            "id_cooperativa":   3
         }
     },
     {
         "model": "trabajadores.trabajador",
         "pk": 6,
         "fields": {
-            "name":         "Nombre 6",
-            "last_name":    "Apellido 6",
-            "dni":          "66666666"
+            "nombre":           "Nombre 6",
+            "apellido":         "Apellido 6",
+            "documento_nro":    "66666666",
+            "id_cooperativa":   3
         }
     },
     {
         "model": "trabajadores.trabajador",
         "pk": 7,
         "fields": {
-            "name":         "Nombre 7",
-            "last_name":    "Apellido 7",
-            "dni":          "77777777"
+            "nombre":           "Nombre 7",
+            "apellido":         "Apellido 7",
+            "documento_nro":    "77777777",
+            "id_cooperativa":   4
         }
     },
     {
         "model": "trabajadores.trabajador",
         "pk": 8,
         "fields": {
-            "name":         "Nombre 8",
-            "last_name":    "Apellido 8",
-            "dni":          "88888888"
+            "nombre":           "Nombre 8",
+            "apellido":         "Apellido 8",
+            "documento_nro":    "88888888",
+            "id_cooperativa":   5
         }
     },
     {
         "model": "trabajadores.trabajador",
         "pk": 9,
         "fields": {
-            "name":         "Nombre 9",
-            "last_name":    "Apellido 9",
-            "dni":          "99999999"
+            "nombre":           "Nombre 9",
+            "apellido":         "Apellido 9",
+            "documento_nro":    "99999999",
+            "id_cooperativa":   6
         }
     }
 ]
