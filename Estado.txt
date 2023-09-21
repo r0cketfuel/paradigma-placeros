@@ -16,3 +16,8 @@ Feriados
 ABM Completo.
 
 
+Planes de trabajo
+-----------------
+
+ABM Completo. Bajas con Soft delete.
+

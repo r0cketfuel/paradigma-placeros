@@ -45,7 +45,7 @@ routes.register(r'espacios_trabajo',                        EspacioTrabajoViewSe
 routes.register(r'planes_trabajo',                          PlanTrabajoViewSet,                                     basename='plantrabajo')
 
 routes.register(r'incidentes',                              IncidenteViewSet,                                       basename='incidentes')
-routes.register(r'incidentes_mes',                          IncidentByMonthViewSet,                                 basename='incidentes_por_mes')
+#routes.register(r'incidentes_mes',                          IncidentByMonthViewSet,                                 basename='incidentes_por_mes')
 
 routes.register(r'trabajadores',                            TrabajadorViewSet,                                      basename='trabajadores')
 routes.register(r'evaluaciones',                            EvaluacionTrabajadorViewSet,                            basename='evaluacion')

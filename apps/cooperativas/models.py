@@ -24,4 +24,3 @@ class Cooperativa(models.Model):
     def delete(self):
         self.activo = False
         self.save()
-

@@ -26,9 +26,14 @@ class PlanTrabajo(models.Model):
     id_supervisor   = models.ForeignKey(CustomUser,     null=False, on_delete=models.CASCADE)
     tipo_servicio   = models.TextField()
     fecha_creacion  = models.DateTimeField(auto_now_add=True, null=True)
+    activo          = models.BooleanField(null=False, default=True)
 
     class Meta:
         db_table = 'planes_trabajo'
 
     def __str__(self):
         return self.name
+    
+    def delete(self):
+        self.activo = False
+        self.save()
