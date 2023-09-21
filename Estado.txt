@@ -6,12 +6,12 @@ evaluaciones_desempenio:
 evaluaciones_trabajadores:          ABM Completo. Faltaría hacer los JOINS
 feriados:                           ABM Completo.
 incidentes:                         ABM Completo. Bajas con Soft delete.
-login:
-logout:
+login:                              N/A
+logout:                             N/A
 planes_trabajo:                     ABM Completo. Bajas con Soft delete.
-planillas_trabajo:
-respuestas_cuestionario:
-trabajadores:
+planillas_trabajo:                  FALTA HACER MODIFICACION COMPLETA
+respuestas_cuestionario:            ABM Completo.
+trabajadores:                       ABM Completo. Bajas con Soft delete.
 trabajadores_cargados:
 trabajadores_cooperativa:
 trabajadores_por_id_plantrabajo:

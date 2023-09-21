@@ -18,9 +18,14 @@ class Trabajador(models.Model):
     nombre          = models.CharField(max_length=50)
     documento_nro   = models.IntegerField(unique=True)
     id_cooperativa  = models.ForeignKey(Cooperativa, null=False, on_delete=models.RESTRICT)
-
+    activo          = models.BooleanField(null=False, default=True)
+    
     class Meta:
         db_table = 'trabajadores'
 
     def __str__(self):
         return f"{self.id}"  # type: ignore
+
+    def delete(self):
+        self.activo = False
+        self.save()
