@@ -14,7 +14,7 @@ class Incident(models.Model):
     description     = models.TextField()
     state           = models.CharField(max_length=20, choices=STATE_INCIDENTS, default='new')
     id_plan_trabajo = models.ForeignKey(PlanTrabajo, null=False, on_delete=models.CASCADE)
-    image           = models.ImageField(upload_to='incidente_images/', null=True, blank=True)
+    image           = models.ImageField(upload_to='incidente_images/', blank=True)
     date            = models.DateTimeField(default=timezone.now, editable=False)  # type: ignore
 
     class Meta:
