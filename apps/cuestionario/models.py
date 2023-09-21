@@ -9,7 +9,7 @@ class Cuestionario(models.Model):
     incluye una descripción y una serie de preguntas relacionadas con las tareas
     realizadas en espacios públicos.
     """
-    nombre      = models.TextField(null=True)
+    descripcion = models.TextField(null=True)
     pregunta1   = models.TextField(null=True)
     pregunta2   = models.TextField(null=True)
     pregunta3   = models.TextField(null=True)
