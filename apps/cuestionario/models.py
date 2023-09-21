@@ -36,7 +36,7 @@ class Cuestionario(models.Model):
         db_table = 'cuestionario'
 
     def __str__(self):
-        return self.nombre
+        return self.descripcion
     
     def delete(self):
         self.activo = False
