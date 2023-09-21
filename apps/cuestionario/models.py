@@ -28,9 +28,16 @@ class Cuestionario(models.Model):
     pregunta16  = models.TextField(null=True)
     pregunta17  = models.TextField(null=True)
     pregunta18  = models.TextField(null=True)
+    pregunta19  = models.TextField(null=True)
+    pregunta20  = models.TextField(null=True)
+    activo      = models.BooleanField(null=False, default=True)
 
     class Meta:
         db_table = 'cuestionario'
 
     def __str__(self):
         return self.nombre
+    
+    def delete(self):
+        self.activo = False
+        self.save()

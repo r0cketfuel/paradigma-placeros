@@ -1,5 +1,5 @@
 Cooperativas:                   ABM Completo. Bajas con Soft delete.
-cuestionarios:
+Cuestionarios:                  ABM Completo. Bajas con Soft delete.
 Dias no laborables:             ABM Completo.
 Espacios de trabajo:            ABM Completo. Bajas con Soft delete.
 Evaluación trabajador:          ABM Completo. Faltaría hacer los JOINS

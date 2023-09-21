@@ -3,7 +3,7 @@
         "model": "cuestionario.cuestionario",
         "pk": 1,
         "fields": {
-            "nombre":       "Cuestionario 1",
+            "descripcion":  "Cuestionario 1",
             "pregunta1":    "Cuestionario 1 - Pregunta 1",
             "pregunta2":    "Cuestionario 1 - Pregunta 2",
             "pregunta3":    "Cuestionario 1 - Pregunta 3",
@@ -21,7 +21,48 @@
             "pregunta15":   "Cuestionario 1 - Pregunta 15",
             "pregunta16":   "Cuestionario 1 - Pregunta 16",
             "pregunta17":   "Cuestionario 1 - Pregunta 17",
-            "pregunta18":   "Cuestionario 1 - Pregunta 18"
+            "pregunta18":   "Cuestionario 1 - Pregunta 18",
+            "pregunta19":   "Cuestionario 1 - Pregunta 19",
+            "pregunta20":   "Cuestionario 1 - Pregunta 20"
+        }
+    },
+    {
+        "model": "cuestionario.cuestionario",
+        "pk": 2,
+        "fields": {
+            "descripcion":  "Cuestionario 2",
+            "pregunta1":    "Cuestionario 2 - Pregunta 1",
+            "pregunta2":    "Cuestionario 2 - Pregunta 2",
+            "pregunta3":    "Cuestionario 2 - Pregunta 3",
+            "pregunta4":    "Cuestionario 2 - Pregunta 4",
+            "pregunta5":    "Cuestionario 2 - Pregunta 5",
+            "pregunta6":    "Cuestionario 2 - Pregunta 6",
+            "pregunta7":    "Cuestionario 2 - Pregunta 7",
+            "pregunta8":    "Cuestionario 2 - Pregunta 8",
+            "pregunta9":    "Cuestionario 2 - Pregunta 9",
+            "pregunta10":   "Cuestionario 2 - Pregunta 10",
+            "pregunta11":   "Cuestionario 2 - Pregunta 11",
+            "pregunta12":   "Cuestionario 2 - Pregunta 12",
+            "pregunta13":   "Cuestionario 2 - Pregunta 13",
+            "pregunta14":   "Cuestionario 2 - Pregunta 14",
+            "pregunta15":   "Cuestionario 2 - Pregunta 15"
+        }
+    },
+    {
+        "model": "cuestionario.cuestionario",
+        "pk": 3,
+        "fields": {
+            "descripcion":  "Cuestionario 3",
+            "pregunta1":    "Cuestionario 3 - Pregunta 1",
+            "pregunta2":    "Cuestionario 3 - Pregunta 2",
+            "pregunta3":    "Cuestionario 3 - Pregunta 3",
+            "pregunta4":    "Cuestionario 3 - Pregunta 4",
+            "pregunta5":    "Cuestionario 3 - Pregunta 5",
+            "pregunta6":    "Cuestionario 3 - Pregunta 6",
+            "pregunta7":    "Cuestionario 3 - Pregunta 7",
+            "pregunta8":    "Cuestionario 3 - Pregunta 8",
+            "pregunta9":    "Cuestionario 3 - Pregunta 9",
+            "pregunta10":   "Cuestionario 3 - Pregunta 10"
         }
     }
 ]
