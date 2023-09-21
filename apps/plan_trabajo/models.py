@@ -21,11 +21,11 @@ class PlanTrabajo(models.Model):
 
     """
     name            = models.TextField()
-    id_cooperativa  = models.ForeignKey(Cooperativa,    null=False, on_delete=models.CASCADE)
-    id_espacio      = models.ForeignKey(EspacioTrabajo, null=False, on_delete=models.CASCADE)
-    id_supervisor   = models.ForeignKey(CustomUser,     null=False, on_delete=models.CASCADE)
     tipo_servicio   = models.TextField()
-    fecha_creacion  = models.DateTimeField(auto_now_add=True, null=True)
+    id_cooperativa  = models.ForeignKey(Cooperativa, null=False, on_delete=models.CASCADE)
+    id_espacio      = models.ForeignKey(EspacioTrabajo, null=False, on_delete=models.CASCADE)
+    id_supervisor   = models.ForeignKey(CustomUser, null=False, on_delete=models.CASCADE)
+    fecha_creacion  = models.DateField(auto_now_add=True, null=True)
     activo          = models.BooleanField(null=False, default=True)
 
     class Meta:

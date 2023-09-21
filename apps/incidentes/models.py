@@ -1,7 +1,6 @@
-from django.utils import timezone
-from django.db import models
-from apps.plan_trabajo.models import PlanTrabajo
-# from django.contrib.postgres.fields import ArrayField
+from django.utils               import timezone
+from django.db                  import models
+from apps.plan_trabajo.models   import PlanTrabajo
 
 
 class Incident(models.Model):

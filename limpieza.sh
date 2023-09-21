@@ -8,8 +8,13 @@ cd ..
 # Elimina todas las migraciones que coincidan con el patrón "nnnn_nombre.py"
 cd apps
 find . -name '????_*.py' -delete
-
 cd ..
+
+# Elimina el contenido de las carpetas de media
+cd media
+rm -r *
+cd ..
+
 cd data
 sudo rm -r db
 cd ..

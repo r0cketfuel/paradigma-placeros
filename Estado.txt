@@ -21,3 +21,9 @@ Planes de trabajo
 
 ABM Completo. Bajas con Soft delete.
 
+
+Incidentes
+----------
+
+ABM Completo. Hay que implementar vista edición con PUT y PATCH (por tema de imágenes)
+
