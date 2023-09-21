@@ -16,9 +16,14 @@ class Incident(models.Model):
     id_plan_trabajo = models.ForeignKey(PlanTrabajo, null=False, on_delete=models.CASCADE)
     image           = models.ImageField(upload_to='incidente_images/', blank=True)
     date            = models.DateTimeField(default=timezone.now, editable=False)  # type: ignore
+    activo          = models.BooleanField(null=False, default=True)
 
     class Meta:
         db_table = 'incidentes'
 
     def __str__(self):
         return self.description
+
+    def delete(self):
+        self.activo = False
+        self.save()

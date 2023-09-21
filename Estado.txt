@@ -25,5 +25,6 @@ ABM Completo. Bajas con Soft delete.
 Incidentes
 ----------
 
-ABM Completo. Hay que implementar vista edición con PUT y PATCH (por tema de imágenes)
+ABM Completo. Imágen opcional. Se puede agregar luego. Bajas con Soft delete.
+
 
