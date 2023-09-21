@@ -1,30 +1,8 @@
-Cooperativas
-------------
-
-ABM Completo. Bajas con Soft delete.
-
-
-Trabajadores por cooperativa
-----------------------------
-
-Vista que muestra los datos de la cooperativa y la cantidad de trabajadores asociados.
+Cooperativas:                   ABM Completo. Bajas con Soft delete.
+Feriados:                       ABM Completo.
+Dias no laborables:             ABM Completo.
+Planes de trabajo:              ABM Completo. Bajas con Soft delete.
+Incidentes:                     ABM Completo. Bajas con Soft delete.
 
 
-Feriados
---------
-
-ABM Completo.
-
-
-Planes de trabajo
------------------
-
-ABM Completo. Bajas con Soft delete.
-
-
-Incidentes
-----------
-
-ABM Completo. Imágen opcional. Se puede agregar luego. Bajas con Soft delete.
-
-
+Trabajadores por cooperativa:   Vista que muestra los datos de la cooperativa y la cantidad de trabajadores asociados.

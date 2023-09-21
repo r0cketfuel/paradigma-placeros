@@ -17,6 +17,7 @@ from apps.cuestionario.views                import CuestionarioViewSet
 from apps.respuesta_cuestionario.views      import RespuestaCuestionarioViewSet
 from apps.evaluacion_desempeño.views        import EvaluacionDesempeñoViewSet
 from apps.feriados.views                    import FeriadoViewSet
+from apps.dias_no_laborables.views          import DiaNoLaborableViewSet
 from apps.user_type.permisions              import IsSuper
 from drf_yasg.views                         import get_schema_view
 from drf_yasg                               import openapi
@@ -39,6 +40,7 @@ routes.register(r'login',                                   UserLoginViewSet,   
 routes.register(r'logout',                                  UserLogoutViewSet,                                      basename='logout')
 
 routes.register(r'feriados',                                FeriadoViewSet,                                         basename='feriados')
+routes.register(r'dias_no_laborables',                      DiaNoLaborableViewSet,                                  basename='dias_no_laborables')
 
 routes.register(r'cooperativas',                            CooperativaViewSet,                                     basename='cooperativa')
 routes.register(r'espacios_trabajo',                        EspacioTrabajoViewSet,                                  basename='espacio_trabajo')

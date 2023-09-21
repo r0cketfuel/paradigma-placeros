@@ -1,0 +1,50 @@
+[
+    {
+        "model": "dias_no_laborables.dianolaborable",
+        "pk": 1,
+        "fields": {
+            "fecha":        "2022-09-21",
+            "descripcion":  "Día no laborable 1"
+        }
+    },
+    {
+        "model": "dias_no_laborables.dianolaborable",
+        "pk": 2,
+        "fields": {
+            "fecha":        "2022-11-01",
+            "descripcion":  "Día no laborable 2"
+        }
+    },
+    {
+        "model": "dias_no_laborables.dianolaborable",
+        "pk": 3,
+        "fields": {
+            "fecha":        "2023-01-10",
+            "descripcion":  "Día no laborable 3"
+        }
+    },
+    {
+        "model": "dias_no_laborables.dianolaborable",
+        "pk": 4,
+        "fields": {
+            "fecha":        "2023-02-20",
+            "descripcion":  "Día no laborable 4"
+        }
+    },
+    {
+        "model": "dias_no_laborables.dianolaborable",
+        "pk": 5,
+        "fields": {
+            "fecha":        "2023-04-02",
+            "descripcion":  "Día no laborable 5"
+        }
+    },
+    {
+        "model": "dias_no_laborables.dianolaborable",
+        "pk": 6,
+        "fields": {
+            "fecha":        "2023-08-10",
+            "descripcion":  "Día no laborable 6"
+        }
+    }
+]

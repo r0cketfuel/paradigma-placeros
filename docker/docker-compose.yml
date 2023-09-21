@@ -26,6 +26,7 @@ services:
               python manage.py loaddata seed_data/users_types_seed.json && 
               python manage.py loaddata seed_data/user.seed.json && 
               python manage.py loaddata seed_data/feriado.seed.json && 
+              python manage.py loaddata seed_data/dia_no_laborable.seed.json && 
               python manage.py loaddata seed_data/cooperativa.seed.json && 
               python manage.py loaddata seed_data/trabajador.seed.json && 
               python manage.py loaddata seed_data/espacio_trabajo.seed.json && 

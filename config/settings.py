@@ -47,8 +47,8 @@ INSTALLED_APPS = [
     "apps.cuestionario",
     "apps.respuesta_cuestionario",
     "apps.evaluacion_desempeño",
-    "apps.feriados"
-
+    "apps.feriados",
+    "apps.dias_no_laborables",
 ]
 
 MIDDLEWARE = [
