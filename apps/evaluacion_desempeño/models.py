@@ -1,6 +1,9 @@
 from django.db                          import models
 from apps.respuesta_cuestionario.models import RespuestaCuestionario
 from apps.plan_trabajo.models           import PlanTrabajo
+from apps.cooperativas.models           import Cooperativa
+from apps.espacio_trabajo.models        import EspacioTrabajo
+from apps.users.models                  import CustomUser
 
 class EvaluacionDesempeño(models.Model):
     """
@@ -18,14 +21,13 @@ class EvaluacionDesempeño(models.Model):
     - ubicación: Ubicación donde se realizó la evaluación.
 
     """
-    description                 = models.TextField()
-    id_respuesta_cuestionario   = models.ForeignKey(RespuestaCuestionario, on_delete=models.CASCADE, null=False, default=None)
+    id_cooperativa              = models.ForeignKey(Cooperativa, on_delete=models.CASCADE, null=False, default=None)
+    id_espacio_trabajo          = models.ForeignKey(EspacioTrabajo, on_delete=models.CASCADE, null=False, default=None)
+    id_supervisor               = models.ForeignKey(CustomUser, on_delete=models.RESTRICT, null=False, default=None)
     id_plan_trabajo             = models.ForeignKey(PlanTrabajo, on_delete=models.CASCADE, null=False, default=None)
+    id_respuesta_cuestionario   = models.ForeignKey(RespuestaCuestionario, on_delete=models.CASCADE, null=False, default=None)
     fecha                       = models.DateField(null=False)
     ubicacion                   = models.TextField()
 
     class Meta:
         db_table = 'evaluacion_desempeño'
-
-    def __str__(self):
-        return self.description

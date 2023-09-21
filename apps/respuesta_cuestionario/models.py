@@ -1,6 +1,5 @@
 from django.db                  import models
 from apps.cuestionario.models   import Cuestionario
-from apps.users.models          import CustomUser
 
 class RespuestaCuestionario(models.Model):
     """
@@ -11,7 +10,6 @@ class RespuestaCuestionario(models.Model):
     booleanas para cada pregunta del cuestionario.
     """
 
-    id_supervisor       = models.ForeignKey(CustomUser, on_delete=models.RESTRICT, null=False, default=None)
     id_cuestionario     = models.ForeignKey(Cuestionario, on_delete=models.RESTRICT, null=False, default=None)
     respuesta1          = models.BooleanField(default=False)
     respuesta2          = models.BooleanField(default=False)

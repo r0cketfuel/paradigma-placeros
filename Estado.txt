@@ -1,12 +1,19 @@
-Cooperativas:                   ABM Completo. Bajas con Soft delete.
-Cuestionarios:                  ABM Completo. Bajas con Soft delete.
-Dias no laborables:             ABM Completo.
-Espacios de trabajo:            ABM Completo. Bajas con Soft delete.
-Evaluación trabajador:          ABM Completo. Faltaría hacer los JOINS
-
-Feriados:                       ABM Completo.
-Planes de trabajo:              ABM Completo. Bajas con Soft delete.
-Incidentes:                     ABM Completo. Bajas con Soft delete.
-
-
-Trabajadores por cooperativa:   Vista que muestra los datos de la cooperativa y la cantidad de trabajadores asociados.
+cooperativas:                       ABM Completo. Bajas con Soft delete.
+cuestionarios:                      ABM Completo. Bajas con Soft delete.
+dias_no_laborables:                 ABM Completo.
+espacios_trabajo:                   ABM Completo. Bajas con Soft delete.
+evaluaciones_desempenio:
+evaluaciones_trabajadores:          ABM Completo. Faltaría hacer los JOINS
+feriados:                           ABM Completo.
+incidentes:                         ABM Completo. Bajas con Soft delete.
+login:
+logout:
+planes_trabajo:                     ABM Completo. Bajas con Soft delete.
+planillas_trabajo:
+respuestas_cuestionario:
+trabajadores:
+trabajadores_cargados:
+trabajadores_cooperativa:
+trabajadores_por_id_plantrabajo:
+user:
+usertype:
