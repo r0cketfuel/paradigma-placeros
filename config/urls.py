@@ -50,9 +50,9 @@ routes.register(r'incidentes',                              IncidenteViewSet,   
 #routes.register(r'incidentes_mes',                          IncidentByMonthViewSet,                                 basename='incidentes_por_mes')
 
 routes.register(r'trabajadores',                            TrabajadorViewSet,                                      basename='trabajadores')
-routes.register(r'evaluaciones',                            EvaluacionTrabajadorViewSet,                            basename='evaluacion')
+routes.register(r'evaluaciones_trabajadores',               EvaluacionTrabajadorViewSet,                            basename='evaluaciones_trabajador')
 routes.register(r'planillas_trabajo',                       PlanillaTrabajoViewSet,                                 basename='planilla_trabajo')
-routes.register(r'presentes',                               PresenteViewSet,                                        basename='presente')
+#routes.register(r'presentes',                               PresenteViewSet,                                        basename='presente')
 
 routes.register(r'trabajadores_por_id_plantrabajo',         TrabajadoresInPlanillaTrabajoByIdPlanTrabajoViewSet,    basename='trabajadores_por_id_plantrabajo')
 routes.register(r'cuestionarios',                           CuestionarioViewSet,                                    basename='cuestionario')
@@ -62,8 +62,8 @@ routes.register(r'evaluaciones_desempenio',                 EvaluacionDesempeño
 routes.register(r'trabajadores_cargados',                   TrabajadoresCargadosViewSet,                            basename='trabajadores_cargados')
 routes.register(r'trabajadores_cooperativa',                TrabajadoresPorCooperativa,                             basename='trabajadores_cooperativa')
 
-routes.register(r'presentes_por_espacio_trabajo_hoy',       PresentesPorEspacioDeTrabajo,                           basename='presentes_por_espacio_trabajo_hoy')
-routes.register(r'asistencias_entre_fechas_por_trabajador', PresentesEntreFechasPorIdTrabajador,                    basename='asistencias_entre_fechas_por_trabajador')
+#routes.register(r'presentes_por_espacio_trabajo_hoy',       PresentesPorEspacioDeTrabajo,                           basename='presentes_por_espacio_trabajo_hoy')
+#routes.register(r'asistencias_entre_fechas_por_trabajador', PresentesEntreFechasPorIdTrabajador,                    basename='asistencias_entre_fechas_por_trabajador')
 
 routes.registry.sort(key=lambda x: x[0])
 

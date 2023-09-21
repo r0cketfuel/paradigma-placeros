@@ -8,13 +8,6 @@ class Cuestionario(models.Model):
     Este modelo define los campos necesarios para representar un cuestionario, que
     incluye una descripción y una serie de preguntas relacionadas con las tareas
     realizadas en espacios públicos.
-
-    Campos del modelo:
-    - description: Descripción del cuestionario.
-    - question1 a question18: Preguntas relacionadas con tareas específicas.
-    - latitud: Coordenada de latitud (decimal) asociada al cuestionario.
-    - longitud: Coordenada de longitud (decimal) asociada al cuestionario.
-
     """
     nombre      = models.TextField(null=True)
     pregunta1   = models.TextField(null=True)

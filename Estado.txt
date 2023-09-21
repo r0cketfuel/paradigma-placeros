@@ -1,6 +1,10 @@
 Cooperativas:                   ABM Completo. Bajas con Soft delete.
-Feriados:                       ABM Completo.
+cuestionarios:
 Dias no laborables:             ABM Completo.
+Espacios de trabajo:            ABM Completo. Bajas con Soft delete.
+Evaluación trabajador:          ABM Completo. Faltaría hacer los JOINS
+
+Feriados:                       ABM Completo.
 Planes de trabajo:              ABM Completo. Bajas con Soft delete.
 Incidentes:                     ABM Completo. Bajas con Soft delete.
 

@@ -15,7 +15,7 @@ class EspacioTrabajo(models.Model):
 
     """
     description = models.TextField(max_length=50)
-    image       = models.ImageField(upload_to='espacio_trabajo_images/', null=True, blank=True)
+    image       = models.ImageField(upload_to='espacio_trabajo_images/', blank=True)
     address     = models.CharField(blank=True, max_length=30)
     activo      = models.BooleanField(null=False, default=True)
 
