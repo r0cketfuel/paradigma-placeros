@@ -9,7 +9,7 @@ from apps.user_type.views                   import UserTypeViewSet
 from apps.cooperativas.views                import CooperativaViewSet, TrabajadoresPorCooperativa
 from apps.espacio_trabajo.views             import EspacioTrabajoViewSet, PresentesPorEspacioDeTrabajo
 from apps.plan_trabajo.views                import PlanTrabajoViewSet
-from apps.incidentes.views                  import IncidentViewSet, IncidentByMonthViewSet
+from apps.incidentes.views                  import IncidenteViewSet, IncidentByMonthViewSet
 from apps.trabajadores.views                import TrabajadorViewSet, TrabajadoresCargadosViewSet
 from apps.evaluacion_trabajador.views       import EvaluacionTrabajadorViewSet
 from apps.planilla_trabajo.views            import PlanillaTrabajoViewSet, PresenteViewSet, TrabajadoresInPlanillaTrabajoByIdPlanTrabajoViewSet, PresentesEntreFechasPorIdTrabajador
@@ -44,7 +44,7 @@ routes.register(r'cooperativas',                            CooperativaViewSet, 
 routes.register(r'espacios_trabajo',                        EspacioTrabajoViewSet,                                  basename='espacio_trabajo')
 routes.register(r'planes_trabajo',                          PlanTrabajoViewSet,                                     basename='plantrabajo')
 
-routes.register(r'incidentes',                              IncidentViewSet,                                        basename='incidentes')
+routes.register(r'incidentes',                              IncidenteViewSet,                                       basename='incidentes')
 routes.register(r'incidentes_mes',                          IncidentByMonthViewSet,                                 basename='incidentes_por_mes')
 
 routes.register(r'trabajadores',                            TrabajadorViewSet,                                      basename='trabajadores')

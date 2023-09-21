@@ -1,0 +1,18 @@
+Cooperativas
+------------
+
+ABM Completo. Bajas con Soft delete.
+
+
+Trabajadores por cooperativa
+----------------------------
+
+Vista que muestra los datos de la cooperativa y la cantidad de trabajadores asociados.
+
+
+Feriados
+--------
+
+ABM Completo.
+
+

@@ -35,8 +35,6 @@ class TrabajadoresPorCooperativa(viewsets.ViewSet):
 
     """
 
-class TrabajadoresPorCooperativa(viewsets.ViewSet):
-
     def list(self, request):
         cooperativas = Cooperativa.objects.all()
         data = []
