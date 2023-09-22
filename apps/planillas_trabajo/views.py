@@ -80,8 +80,7 @@ class PresenteViewSet(viewsets.ViewSet):
     asistencia en la base de datos.
 
     Permisos requeridos:
-    - El usuario debe tener permisos de administrador, superusuario o supervisor
-      para acceder a esta vista.
+    - El usuario debe tener permisos de administrador, superusuario o supervisor para acceder a esta vista.
     """
     permission_classes = [IsAdministrador | IsSuper | IsSupervisor]
 
@@ -119,8 +118,7 @@ class TrabajadoresInPlanillaTrabajoByIdPlanTrabajoViewSet(viewsets.ViewSet):
     asignados a la planilla de trabajo especificada.
 
     Permisos requeridos:
-    - El usuario debe tener permisos de administrador, superusuario o supervisor
-      para acceder a esta vista.
+    - El usuario debe tener permisos de administrador, superusuario o supervisor para acceder a esta vista.
     """
 
     permission_classes = [IsAdministrador | IsSuper | IsSupervisor]

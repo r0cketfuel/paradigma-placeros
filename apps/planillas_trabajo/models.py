@@ -1,5 +1,5 @@
 from django.db                  import models
-from apps.plan_trabajo.models   import PlanTrabajo
+from apps.planes_trabajo.models import PlanTrabajo
 from apps.trabajadores.models   import Trabajador
 
 

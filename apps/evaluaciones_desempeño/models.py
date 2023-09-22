@@ -1,6 +1,6 @@
 from django.db                              import models
 from apps.respuestas_cuestionarios.models   import RespuestaCuestionario
-from apps.plan_trabajo.models               import PlanTrabajo
+from apps.planes_trabajo.models             import PlanTrabajo
 from apps.cooperativas.models               import Cooperativa
 from apps.espacios_trabajo.models           import EspacioTrabajo
 from apps.users.models                      import CustomUser

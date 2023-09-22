@@ -1,6 +1,6 @@
 [
     {
-        "model": "plan_trabajo.PlanTrabajo",
+        "model": "planes_trabajo.PlanTrabajo",
         "pk": 1,
         "fields": {
             "name":             "Plan de trabajo 1",
@@ -13,7 +13,7 @@
         }
     },
     {
-        "model": "plan_trabajo.PlanTrabajo",
+        "model": "planes_trabajo.PlanTrabajo",
         "pk": 2,
         "fields": {
             "name":             "Plan de trabajo 2",
@@ -26,7 +26,7 @@
         }
     },
     {
-        "model": "plan_trabajo.PlanTrabajo",
+        "model": "planes_trabajo.PlanTrabajo",
         "pk": 3,
         "fields": {
             "name":             "Plan de trabajo 3",
