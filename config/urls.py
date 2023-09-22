@@ -15,7 +15,7 @@ from apps.evaluacion_trabajador.views       import EvaluacionTrabajadorViewSet
 from apps.planillas_trabajo.views           import PlanillaTrabajoViewSet, PresenteViewSet, TrabajadoresInPlanillaTrabajoByIdPlanTrabajoViewSet, PresentesEntreFechasPorIdTrabajador
 from apps.cuestionarios.views               import CuestionarioViewSet
 from apps.respuestas_cuestionarios.views    import RespuestaCuestionarioViewSet
-from apps.evaluacion_desempeño.views        import EvaluacionDesempeñoViewSet
+from apps.evaluaciones_desempeño.views      import EvaluacionDesempeñoViewSet
 from apps.feriados.views                    import FeriadoViewSet
 from apps.dias_no_laborables.views          import DiaNoLaborableViewSet
 from apps.user_type.permisions              import IsSuper

@@ -30,4 +30,4 @@ class EvaluacionDesempeño(models.Model):
     ubicacion                   = models.TextField()
 
     class Meta:
-        db_table = 'evaluacion_desempeño'
+        db_table = 'evaluaciones_desempeño'
