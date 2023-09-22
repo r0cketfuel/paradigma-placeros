@@ -12,7 +12,7 @@ from apps.plan_trabajo.views                import PlanTrabajoViewSet
 from apps.incidentes.views                  import IncidenteViewSet, IncidentByMonthViewSet
 from apps.trabajadores.views                import TrabajadorViewSet, TrabajadoresCargadosViewSet, TrabajadoresActivosViewSet
 from apps.evaluacion_trabajador.views       import EvaluacionTrabajadorViewSet
-from apps.planilla_trabajo.views            import PlanillaTrabajoViewSet, PresenteViewSet, TrabajadoresInPlanillaTrabajoByIdPlanTrabajoViewSet, PresentesEntreFechasPorIdTrabajador
+from apps.planillas_trabajo.views           import PlanillaTrabajoViewSet, PresenteViewSet, TrabajadoresInPlanillaTrabajoByIdPlanTrabajoViewSet, PresentesEntreFechasPorIdTrabajador
 from apps.cuestionarios.views               import CuestionarioViewSet
 from apps.respuestas_cuestionarios.views    import RespuestaCuestionarioViewSet
 from apps.evaluacion_desempeño.views        import EvaluacionDesempeñoViewSet
@@ -51,7 +51,7 @@ routes.register(r'incidentes',                              IncidenteViewSet,   
 
 routes.register(r'trabajadores',                            TrabajadorViewSet,                                      basename='trabajadores')
 routes.register(r'evaluaciones_trabajadores',               EvaluacionTrabajadorViewSet,                            basename='evaluaciones_trabajador')
-routes.register(r'planillas_trabajo',                       PlanillaTrabajoViewSet,                                 basename='planilla_trabajo')
+routes.register(r'planillas_trabajo',                       PlanillaTrabajoViewSet,                                 basename='planillas_trabajo')
 #routes.register(r'presentes',                               PresenteViewSet,                                        basename='presente')
 
 routes.register(r'trabajadores_por_id_plantrabajo',         TrabajadoresInPlanillaTrabajoByIdPlanTrabajoViewSet,    basename='trabajadores_por_id_plantrabajo')

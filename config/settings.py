@@ -43,7 +43,7 @@ INSTALLED_APPS = [
     "apps.incidentes",
     "apps.trabajadores",
     "apps.evaluacion_trabajador",
-    "apps.planilla_trabajo",
+    "apps.planillas_trabajo",
     "apps.cuestionarios",
     "apps.respuestas_cuestionarios",
     "apps.evaluacion_desempeño",
