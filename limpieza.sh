@@ -22,5 +22,6 @@ cd ..
 # Creación docker
 cd docker
 # docker-compose -f docker-compose-dev.yml up --build
-docker-compose up --build -d
+docker-compose build
+docker-compose up -d
 cd ..
