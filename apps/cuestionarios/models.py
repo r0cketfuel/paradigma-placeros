@@ -33,7 +33,7 @@ class Cuestionario(models.Model):
     activo      = models.BooleanField(null=False, default=True)
 
     class Meta:
-        db_table = 'cuestionario'
+        db_table = 'cuestionarios'
 
     def __str__(self):
         return self.descripcion

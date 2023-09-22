@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import Cuestionario
+from .models        import Cuestionario
 
 
 class CuestionarioSerializer(serializers.ModelSerializer):

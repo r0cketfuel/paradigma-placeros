@@ -1,5 +1,5 @@
 from django.db                  import models
-from apps.cuestionario.models   import Cuestionario
+from apps.cuestionarios.models  import Cuestionario
 
 class RespuestaCuestionario(models.Model):
     """

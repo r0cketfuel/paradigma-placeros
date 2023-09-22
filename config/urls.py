@@ -13,7 +13,7 @@ from apps.incidentes.views                  import IncidenteViewSet, IncidentByM
 from apps.trabajadores.views                import TrabajadorViewSet, TrabajadoresCargadosViewSet, TrabajadoresActivosViewSet
 from apps.evaluacion_trabajador.views       import EvaluacionTrabajadorViewSet
 from apps.planilla_trabajo.views            import PlanillaTrabajoViewSet, PresenteViewSet, TrabajadoresInPlanillaTrabajoByIdPlanTrabajoViewSet, PresentesEntreFechasPorIdTrabajador
-from apps.cuestionario.views                import CuestionarioViewSet
+from apps.cuestionarios.views               import CuestionarioViewSet
 from apps.respuesta_cuestionario.views      import RespuestaCuestionarioViewSet
 from apps.evaluacion_desempeño.views        import EvaluacionDesempeñoViewSet
 from apps.feriados.views                    import FeriadoViewSet
