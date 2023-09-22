@@ -33,4 +33,4 @@ class RespuestaCuestionario(models.Model):
     respuesta20         = models.BooleanField(default=False)
 
     class Meta:
-        db_table = 'respuestas_cuestionario'
+        db_table = 'respuestas_cuestionarios'
