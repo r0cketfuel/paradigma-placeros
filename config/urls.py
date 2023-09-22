@@ -7,7 +7,7 @@ from rest_framework                         import routers
 from apps.users.views                       import UserRegisterationViewSet, UserLoginViewSet, UserLogoutViewSet
 from apps.user_type.views                   import UserTypeViewSet
 from apps.cooperativas.views                import CooperativaViewSet, TrabajadoresPorCooperativa
-from apps.espacio_trabajo.views             import EspacioTrabajoViewSet, PresentesPorEspacioDeTrabajo
+from apps.espacios_trabajo.views            import EspacioTrabajoViewSet, PresentesPorEspacioDeTrabajo
 from apps.plan_trabajo.views                import PlanTrabajoViewSet
 from apps.incidentes.views                  import IncidenteViewSet, IncidentByMonthViewSet
 from apps.trabajadores.views                import TrabajadorViewSet, TrabajadoresCargadosViewSet, TrabajadoresActivosViewSet

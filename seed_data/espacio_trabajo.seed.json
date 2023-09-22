@@ -1,6 +1,6 @@
 [
     {
-        "model": "espacio_trabajo.espaciotrabajo",
+        "model": "espacios_trabajo.espaciotrabajo",
         "pk": 1,
         "fields": {
             "description":  "Espacio de trabajo 1",
@@ -9,7 +9,7 @@
         }
     },
     {
-        "model": "espacio_trabajo.espaciotrabajo",
+        "model": "espacios_trabajo.espaciotrabajo",
         "pk": 2,
         "fields": {
             "description":  "Espacio de trabajo 2",
@@ -18,7 +18,7 @@
         }
     },
     {
-        "model": "espacio_trabajo.espaciotrabajo",
+        "model": "espacios_trabajo.espaciotrabajo",
         "pk": 3,
         "fields": {
             "description":  "Espacio de trabajo 3",
@@ -27,7 +27,7 @@
         }
     },
     {
-        "model": "espacio_trabajo.espaciotrabajo",
+        "model": "espacios_trabajo.espaciotrabajo",
         "pk": 4,
         "fields": {
             "description":  "Espacio de trabajo 4",
@@ -36,7 +36,7 @@
         }
     },
     {
-        "model": "espacio_trabajo.espaciotrabajo",
+        "model": "espacios_trabajo.espaciotrabajo",
         "pk": 5,
         "fields": {
             "description":  "Espacio de trabajo 5",
@@ -45,7 +45,7 @@
         }
     },
     {
-        "model": "espacio_trabajo.espaciotrabajo",
+        "model": "espacios_trabajo.espaciotrabajo",
         "pk": 6,
         "fields": {
             "description":  "Espacio de trabajo 6",
@@ -54,7 +54,7 @@
         }
     },
     {
-        "model": "espacio_trabajo.espaciotrabajo",
+        "model": "espacios_trabajo.espaciotrabajo",
         "pk": 7,
         "fields": {
             "description":  "Espacio de trabajo 7",
@@ -63,7 +63,7 @@
         }
     },
     {
-        "model": "espacio_trabajo.espaciotrabajo",
+        "model": "espacios_trabajo.espaciotrabajo",
         "pk": 8,
         "fields": {
             "description":  "Espacio de trabajo 8",
@@ -72,7 +72,7 @@
         }
     },
     {
-        "model": "espacio_trabajo.espaciotrabajo",
+        "model": "espacios_trabajo.espaciotrabajo",
         "pk": 9,
         "fields": {
             "description":  "Espacio de trabajo 9",
@@ -81,7 +81,7 @@
         }
     },
     {
-        "model": "espacio_trabajo.espaciotrabajo",
+        "model": "espacios_trabajo.espaciotrabajo",
         "pk": 10,
         "fields": {
             "description":  "Espacio de trabajo 10",
