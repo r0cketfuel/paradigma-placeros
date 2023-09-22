@@ -10,7 +10,8 @@
         "model": "cooperativas.cooperativa",
         "pk": 2,
         "fields": {
-            "nombre": "Cooperativa 2"
+            "nombre": "Cooperativa 2",
+            "activo": "False"
         }
     },
     {

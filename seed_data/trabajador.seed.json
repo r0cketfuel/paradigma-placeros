@@ -56,7 +56,8 @@
             "nombre":           "Nombre 6",
             "apellido":         "Apellido 6",
             "documento_nro":    "66666666",
-            "id_cooperativa":   3
+            "id_cooperativa":   3,
+            "activo":           "False"
         }
     },
     {
@@ -87,6 +88,17 @@
             "apellido":         "Apellido 9",
             "documento_nro":    "99999999",
             "id_cooperativa":   6
+        }
+    },
+    {
+        "model": "trabajadores.trabajador",
+        "pk": 10,
+        "fields": {
+            "nombre":           "Nombre 10",
+            "apellido":         "Apellido 10",
+            "documento_nro":    "00000000",
+            "id_cooperativa":   6,
+            "activo":           "False"
         }
     }
 ]
