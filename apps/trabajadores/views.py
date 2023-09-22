@@ -24,8 +24,6 @@ class TrabajadorViewSet(viewsets.ModelViewSet):
 
 class TrabajadoresCargadosViewSet(viewsets.ViewSet):
     """
-    Vista para obtener la cantidad de trabajadores cargados en la base de datos.
-
     Esta vista permite obtener la cantidad de registros de trabajadores existentes en la
     base de datos.
 
@@ -37,6 +35,24 @@ class TrabajadoresCargadosViewSet(viewsets.ViewSet):
     permission_classes  = [IsAdministrador | IsSuper]
 
     def list(self, request):
-        trabajadores    = Trabajador.objects.all().filter(activo=True)
+        trabajadores    = Trabajador.objects.all()
         cargados        = len(trabajadores) if trabajadores else 0
         return Response({"trabajadores_cargados": cargados}, status=200)
+
+
+class TrabajadoresActivosViewSet(viewsets.ViewSet):
+    """
+    Esta vista permite obtener la cantidad de registros de trabajadores activos en la
+    base de datos.
+
+    Campos serializados:
+    - 'trabajadores_activos': Número de trabajadores cargados en la base de datos.
+
+    """
+    serializer_class    = TrabajadorSerializer
+    permission_classes  = [IsAdministrador | IsSuper]
+
+    def list(self, request):
+        trabajadores    = Trabajador.objects.all().filter(activo=True)
+        activos         = len(trabajadores) if trabajadores else 0
+        return Response({"trabajadores_activos": activos}, status=200)

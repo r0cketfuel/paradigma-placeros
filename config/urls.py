@@ -10,7 +10,7 @@ from apps.cooperativas.views                import CooperativaViewSet, Trabajado
 from apps.espacio_trabajo.views             import EspacioTrabajoViewSet, PresentesPorEspacioDeTrabajo
 from apps.plan_trabajo.views                import PlanTrabajoViewSet
 from apps.incidentes.views                  import IncidenteViewSet, IncidentByMonthViewSet
-from apps.trabajadores.views                import TrabajadorViewSet, TrabajadoresCargadosViewSet
+from apps.trabajadores.views                import TrabajadorViewSet, TrabajadoresCargadosViewSet, TrabajadoresActivosViewSet
 from apps.evaluacion_trabajador.views       import EvaluacionTrabajadorViewSet
 from apps.planilla_trabajo.views            import PlanillaTrabajoViewSet, PresenteViewSet, TrabajadoresInPlanillaTrabajoByIdPlanTrabajoViewSet, PresentesEntreFechasPorIdTrabajador
 from apps.cuestionario.views                import CuestionarioViewSet
@@ -59,7 +59,11 @@ routes.register(r'cuestionarios',                           CuestionarioViewSet,
 routes.register(r'respuestas_cuestionario',                 RespuestaCuestionarioViewSet,                           basename='respuesta_cuestionario')
 routes.register(r'evaluaciones_desempenio',                 EvaluacionDesempeñoViewSet,                             basename='evaluacion_desempenio')
 
+#====================#
+# Rutas estadísticas #
+#====================#
 routes.register(r'trabajadores_cargados',                   TrabajadoresCargadosViewSet,                            basename='trabajadores_cargados')
+routes.register(r'trabajadores_activos',                    TrabajadoresActivosViewSet,                             basename='trabajadores_activos')
 routes.register(r'trabajadores_cooperativa',                TrabajadoresPorCooperativa,                             basename='trabajadores_cooperativa')
 
 #routes.register(r'presentes_por_espacio_trabajo_hoy',       PresentesPorEspacioDeTrabajo,                           basename='presentes_por_espacio_trabajo_hoy')
