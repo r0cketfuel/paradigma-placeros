@@ -37,6 +37,6 @@ class TrabajadoresCargadosViewSet(viewsets.ViewSet):
     permission_classes  = [IsAdministrador | IsSuper]
 
     def list(self, request):
-        trabajadores    = Trabajador.objects.all()
+        trabajadores    = Trabajador.objects.all().filter(activo=True)
         cargados        = len(trabajadores) if trabajadores else 0
         return Response({"trabajadores_cargados": cargados}, status=200)

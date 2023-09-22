@@ -12,8 +12,8 @@ planes_trabajo:                     ABM Completo. Bajas con Soft delete.
 planillas_trabajo:                  FALTA HACER MODIFICACION COMPLETA
 respuestas_cuestionario:            ABM Completo.
 trabajadores:                       ABM Completo. Bajas con Soft delete.
-trabajadores_cargados:              Devuelve la cantidad total de trabajadores (Falta descontar los dados de baja)
-trabajadores_cooperativa:           Devuelve la cantidad total de trabajadores por cooperativa (Falta descontar los dados de baja)
+trabajadores_cargados:              Devuelve la cantidad total de trabajadores activos
+trabajadores_cooperativa:           Devuelve la cantidad total de trabajadores activos por cooperativa
 trabajadores_por_id_plantrabajo:    
 user:
 usertype:

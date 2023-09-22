@@ -24,7 +24,7 @@ class Trabajador(models.Model):
         db_table = 'trabajadores'
 
     def __str__(self):
-        return f"{self.id}"  # type: ignore
+        return f"{self.id}"
 
     def delete(self):
         self.activo = False
