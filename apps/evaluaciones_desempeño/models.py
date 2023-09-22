@@ -27,7 +27,8 @@ class EvaluacionDesempeño(models.Model):
     id_plan_trabajo             = models.ForeignKey(PlanTrabajo, on_delete=models.CASCADE, null=False, default=None)
     id_respuesta_cuestionario   = models.ForeignKey(RespuestaCuestionario, on_delete=models.CASCADE, null=False, default=None)
     fecha                       = models.DateField(null=False)
-    ubicacion                   = models.TextField()
+    latitud                     = models.TextField()
+    longitud                    = models.TextField()
 
     class Meta:
         db_table = 'evaluaciones_desempeño'
