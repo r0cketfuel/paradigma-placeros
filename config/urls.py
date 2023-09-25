@@ -6,23 +6,25 @@ from rest_framework_simplejwt.views         import TokenRefreshView
 from rest_framework                         import routers
 from apps.users.views                       import UserRegisterationViewSet, UserLoginViewSet, UserLogoutViewSet
 from apps.user_type.views                   import UserTypeViewSet
-from apps.planes_trabajo.views              import PlanTrabajoViewSet
-from apps.incidentes.views                  import IncidenteViewSet, IncidentByMonthViewSet
-from apps.evaluacion_trabajador.views       import EvaluacionTrabajadorViewSet
-from apps.planillas_trabajo.views           import PlanillaTrabajoViewSet, TrabajadoresInPlanillaTrabajoByIdPlanTrabajoViewSet, PresentesEntreFechasPorIdTrabajador
-from apps.respuestas_cuestionarios.views    import RespuestaCuestionarioViewSet
-from apps.evaluaciones_desempeño.views      import EvaluacionDesempeñoViewSet
 from apps.user_type.permisions              import IsSuper
 from drf_yasg.views                         import get_schema_view
 from drf_yasg                               import openapi
 
 # Importa los routers de las aplicaciones
 from apps.cooperativas.urls                 import router as cooperativas_router
-from apps.trabajadores.urls                 import router as trabajadores_router
 from apps.cuestionarios.urls                import router as cuestionarios_router
 from apps.dias_no_laborables.urls           import router as dias_no_laborables_router
+from apps.espacios_trabajo.urls             import router as espacios_trabajo_router
+from apps.evaluacion_trabajador.urls        import router as evaluaciones_trabajador_router
+from apps.evaluaciones_desempeño.urls       import router as evaluaciones_desempeño_router
 from apps.feriados.urls                     import router as feriados_router
+from apps.incidentes.urls                   import router as incidentes_router
+from apps.planes_trabajo.urls               import router as planes_trabajo_router
+from apps.planillas_trabajo.urls            import router as planillas_trabajo_router
+from apps.respuestas_cuestionarios.urls     import router as respuestas_cuestionarios_router
+from apps.trabajadores.urls                 import router as trabajadores_router
 
+# Define el esquema de documentación
 schema_view = get_schema_view(
     openapi.Info(
         title           = 'Paradigma - Plaza Control API',
@@ -33,34 +35,29 @@ schema_view = get_schema_view(
     permission_classes=[IsSuper],
 )
 
+# Define el router de nivel superior
 router = routers.DefaultRouter()
 
 # Registra los routers de las aplicaciones en el router de nivel superior
 router.registry.extend(cooperativas_router.registry)
-router.registry.extend(trabajadores_router.registry)
 router.registry.extend(cuestionarios_router.registry)
 router.registry.extend(dias_no_laborables_router.registry)
+router.registry.extend(espacios_trabajo_router.registry)
+router.registry.extend(evaluaciones_trabajador_router.registry)
+router.registry.extend(evaluaciones_desempeño_router.registry)
 router.registry.extend(feriados_router.registry)
+router.registry.extend(incidentes_router.registry)
+router.registry.extend(planes_trabajo_router.registry)
+router.registry.extend(planillas_trabajo_router.registry)
+router.registry.extend(respuestas_cuestionarios_router.registry)
+router.registry.extend(trabajadores_router.registry)
 
 router.register(r'user',                                    UserRegisterationViewSet,                               basename='user')
 router.register(r'usertype',                                UserTypeViewSet,                                        basename='usertype')
 router.register(r'login',                                   UserLoginViewSet,                                       basename='login')
 router.register(r'logout',                                  UserLogoutViewSet,                                      basename='logout')
 
-router.register(r'planes_trabajo',                          PlanTrabajoViewSet,                                     basename='plantrabajo')
-
-router.register(r'incidentes',                              IncidenteViewSet,                                       basename='incidentes')
-#router.register(r'incidentes_mes',                          IncidentByMonthViewSet,                                 basename='incidentes_por_mes')
-
-router.register(r'evaluaciones_trabajadores',               EvaluacionTrabajadorViewSet,                            basename='evaluaciones_trabajador')
-router.register(r'planillas_trabajo',                       PlanillaTrabajoViewSet,                                 basename='planillas_trabajo')
 #router.register(r'presentes',                               PresenteViewSet,                                        basename='presente')
-
-router.register(r'trabajadores_por_id_plantrabajo',         TrabajadoresInPlanillaTrabajoByIdPlanTrabajoViewSet,    basename='trabajadores_por_id_plantrabajo')
-
-router.register(r'respuestas_cuestionario',                 RespuestaCuestionarioViewSet,                           basename='respuesta_cuestionario')
-router.register(r'evaluaciones_desempenio',                 EvaluacionDesempeñoViewSet,                             basename='evaluacion_desempenio')
-
 #router.register(r'presentes_por_espacio_trabajo_hoy',       PresentesPorEspacioDeTrabajo,                           basename='presentes_por_espacio_trabajo_hoy')
 #router.register(r'asistencias_entre_fechas_por_trabajador', PresentesEntreFechasPorIdTrabajador,                    basename='asistencias_entre_fechas_por_trabajador')
 
@@ -72,7 +69,6 @@ router.get_api_root_view().cls.permission_classes = [IsAuthenticated]
 
 urlpatterns = [
     path('', include(router.urls)),
-
     path(r'snippets/', schema_view.with_ui('redoc', cache_timeout=0), name='schema-redoc'),
     path(r'doc&test/', schema_view.with_ui('swagger',cache_timeout=0), name='schema-swagger-ui'),
     path('api-auth/', include('rest_framework.urls')),
