@@ -6,13 +6,13 @@ from rest_framework_simplejwt.views         import TokenRefreshView
 from rest_framework                         import routers
 from apps.users.views                       import UserRegisterationViewSet, UserLoginViewSet, UserLogoutViewSet
 from apps.user_type.views                   import UserTypeViewSet
-from apps.cooperativas.views                import CooperativaViewSet, TrabajadoresPorCooperativa
+from apps.cooperativas.views                import CooperativaViewSet, CantidadTrabajadoresPorCooperativa
 from apps.espacios_trabajo.views            import EspacioTrabajoViewSet, PresentesPorEspacioDeTrabajo
 from apps.planes_trabajo.views              import PlanTrabajoViewSet
 from apps.incidentes.views                  import IncidenteViewSet, IncidentByMonthViewSet
-from apps.trabajadores.views                import TrabajadorViewSet, TrabajadoresCargadosViewSet, TrabajadoresActivosViewSet
+from apps.trabajadores.views                import TrabajadorViewSet, CantidadTrabajadoresCargadosViewSet, CantidadTrabajadoresActivosViewSet
 from apps.evaluacion_trabajador.views       import EvaluacionTrabajadorViewSet
-from apps.planillas_trabajo.views           import PlanillaTrabajoViewSet, PresenteViewSet, TrabajadoresInPlanillaTrabajoByIdPlanTrabajoViewSet, PresentesEntreFechasPorIdTrabajador
+from apps.planillas_trabajo.views           import PlanillaTrabajoViewSet, TrabajadoresInPlanillaTrabajoByIdPlanTrabajoViewSet, PresentesEntreFechasPorIdTrabajador
 from apps.cuestionarios.views               import CuestionarioViewSet
 from apps.respuestas_cuestionarios.views    import RespuestaCuestionarioViewSet
 from apps.evaluaciones_desempeño.views      import EvaluacionDesempeñoViewSet
@@ -43,6 +43,7 @@ routes.register(r'feriados',                                FeriadoViewSet,     
 routes.register(r'dias_no_laborables',                      DiaNoLaborableViewSet,                                  basename='dias_no_laborables')
 
 routes.register(r'cooperativas',                            CooperativaViewSet,                                     basename='cooperativa')
+
 routes.register(r'espacios_trabajo',                        EspacioTrabajoViewSet,                                  basename='espacio_trabajo')
 routes.register(r'planes_trabajo',                          PlanTrabajoViewSet,                                     basename='plantrabajo')
 
@@ -62,9 +63,9 @@ routes.register(r'evaluaciones_desempenio',                 EvaluacionDesempeño
 #====================#
 # Rutas estadísticas #
 #====================#
-routes.register(r'trabajadores_cargados',                   TrabajadoresCargadosViewSet,                            basename='trabajadores_cargados')
-routes.register(r'trabajadores_activos',                    TrabajadoresActivosViewSet,                             basename='trabajadores_activos')
-routes.register(r'trabajadores_cooperativa',                TrabajadoresPorCooperativa,                             basename='trabajadores_cooperativa')
+routes.register(r'cantidad_trabajadores_cargados',          CantidadTrabajadoresCargadosViewSet,                    basename='cantidad_trabajadores_cargados')
+routes.register(r'cantidad_trabajadores_activos',           CantidadTrabajadoresActivosViewSet,                     basename='cantidad_trabajadores_activos')
+routes.register(r'cantidad_trabajadores_cooperativas',      CantidadTrabajadoresPorCooperativa,                     basename='cantidad_trabajadores_cooperativa')
 
 #routes.register(r'presentes_por_espacio_trabajo_hoy',       PresentesPorEspacioDeTrabajo,                           basename='presentes_por_espacio_trabajo_hoy')
 #routes.register(r'asistencias_entre_fechas_por_trabajador', PresentesEntreFechasPorIdTrabajador,                    basename='asistencias_entre_fechas_por_trabajador')

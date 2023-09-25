@@ -23,7 +23,7 @@ class CooperativaViewSet(viewsets.ModelViewSet):
     permission_classes  = [IsAdministrador | IsSuper]
 
 
-class TrabajadoresPorCooperativa(viewsets.ViewSet):
+class CantidadTrabajadoresPorCooperativa(viewsets.ViewSet):
     """
     Vista para obtener el total de trabajadores por cooperativa.
 

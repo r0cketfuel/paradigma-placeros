@@ -1,7 +1,7 @@
 from rest_framework                 import viewsets, status
 from apps.feriados.models           import Feriado
 from .models                        import PlanillaTrabajo
-from .serializer                    import PlanillaTrabajoSerializer, HistorialPresentesSerializer
+from .serializer                    import PlanillaTrabajoSerializer
 from apps.user_type.permisions      import IsAdministrador, IsSuper, IsSupervisor
 from rest_framework.response        import Response
 from apps.trabajadores.models       import Trabajador
@@ -15,47 +15,10 @@ class PlanillaTrabajoViewSet(viewsets.ModelViewSet):
     Esta vista permite realizar operaciones CRUD (Crear, Leer, Actualizar, Eliminar) en
     las planillas de trabajo. Los usuarios con permisos de administrador o superusuario
     pueden acceder a esta vista.
-
-    Parámetros de la solicitud:
-    - fecha: Fecha de la planilla de trabajo en formato 'YYYY-MM-DD'.
-
-    Ejemplo de solicitud JSON para crear una planilla de trabajo:
-    {
-        "id_plan_trabajo": 1,
-        "id_trabajador": 1,
-        "fecha": "2023-09-06",
-        "horario_inicio": "09:00:00",
-        "horario_fin": "17:00:00",
-        "laborable": true,
-        "presente": false
-    }
-
-    La vista verifica si la fecha proporcionada es un día no laborable consultando
-    la base de datos de feriados. Si la fecha es un día no laborable, se devuelve un
-    error.
-
-    Permisos requeridos:
-    - El usuario debe tener permisos de administrador o superusuario para acceder
-      a esta vista.
     """
     queryset            = PlanillaTrabajo.objects.all()
     serializer_class    = PlanillaTrabajoSerializer
     permission_classes  = [IsAdministrador | IsSuper]
-
-    def create(self, request, *args, **kwargs):
-        try:
-            fecha = request.data.get("fecha")
-            fecha = datetime.strptime(fecha, "%Y-%m-%d")
-            if Feriado.objects.filter(fecha=fecha):
-                return Response({'error': "La fecha seleccionada es un dia no laborable"}, status=status.HTTP_400_BAD_REQUEST)
-            serializer = self.get_serializer(data=request.data)
-            serializer.is_valid(raise_exception=True)
-            self.perform_create(serializer)
-            return Response(serializer.data, status=status.HTTP_201_CREATED)
-        except Exception as e:
-            # Manejo de excepciones
-            return Response({'error': str(e)}, status=status.HTTP_400_BAD_REQUEST)
-
 
 class PresenteViewSet(viewsets.ViewSet):
     """
@@ -168,8 +131,7 @@ class PresentesEntreFechasPorIdTrabajador(viewsets.ViewSet):
     de asistencia en el formato deseado.
 
     Permisos requeridos:
-    - El usuario debe tener permisos de administrador, superusuario o supervisor
-      para acceder a esta vista.
+    - El usuario debe tener permisos de administrador, superusuario o supervisor para acceder a esta vista.
     """
     permission_classes = [IsAdministrador | IsSuper | IsSupervisor]
 

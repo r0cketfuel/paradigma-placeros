@@ -22,7 +22,7 @@ class TrabajadorViewSet(viewsets.ModelViewSet):
     permission_classes  = [IsAdministrador | IsSuper]
 
 
-class TrabajadoresCargadosViewSet(viewsets.ViewSet):
+class CantidadTrabajadoresCargadosViewSet(viewsets.ViewSet):
     """
     Esta vista permite obtener la cantidad de registros de trabajadores existentes en la
     base de datos.
@@ -40,7 +40,7 @@ class TrabajadoresCargadosViewSet(viewsets.ViewSet):
         return Response({"trabajadores_cargados": cargados}, status=200)
 
 
-class TrabajadoresActivosViewSet(viewsets.ViewSet):
+class CantidadTrabajadoresActivosViewSet(viewsets.ViewSet):
     """
     Esta vista permite obtener la cantidad de registros de trabajadores activos en la
     base de datos.

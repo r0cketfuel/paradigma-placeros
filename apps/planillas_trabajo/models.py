@@ -23,11 +23,9 @@ class PlanillaTrabajo(models.Model):
     """
     id_plan_trabajo = models.ForeignKey(PlanTrabajo, null=False, on_delete=models.CASCADE)
     id_trabajador   = models.ForeignKey(Trabajador, null=False, on_delete=models.CASCADE)
-    fecha           = models.DateField()
+    dias_semana     = models.CharField(max_length=7)
     horario_inicio  = models.TimeField()
     horario_fin     = models.TimeField()
-    laborable       = models.BooleanField(default=True)
-    presente        = models.BooleanField(default=False)
 
     class Meta:
         db_table = 'planillas_trabajo'
