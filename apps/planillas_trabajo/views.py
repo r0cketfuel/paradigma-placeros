@@ -1,12 +1,11 @@
 from rest_framework                 import viewsets, status
-from apps.feriados.models           import Feriado
 from .models                        import PlanillaTrabajo
 from .serializer                    import PlanillaTrabajoSerializer
 from apps.user_type.permisions      import IsAdministrador, IsSuper, IsSupervisor
 from rest_framework.response        import Response
 from apps.trabajadores.models       import Trabajador
 from apps.trabajadores.serializer   import TrabajadorSerializer
-from datetime                       import datetime, date
+from datetime                       import date
 
 class PlanillaTrabajoViewSet(viewsets.ModelViewSet):
     """

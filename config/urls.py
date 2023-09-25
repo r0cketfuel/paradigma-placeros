@@ -5,7 +5,6 @@ from rest_framework.permissions             import IsAuthenticated
 from rest_framework_simplejwt.views         import TokenRefreshView
 from rest_framework                         import routers
 from apps.users.views                       import UserRegisterationViewSet, UserLoginViewSet, UserLogoutViewSet
-from apps.user_type.views                   import UserTypeViewSet
 from apps.user_type.permisions              import IsSuper
 from drf_yasg.views                         import get_schema_view
 from drf_yasg                               import openapi
@@ -23,6 +22,7 @@ from apps.planes_trabajo.urls               import router as planes_trabajo_rout
 from apps.planillas_trabajo.urls            import router as planillas_trabajo_router
 from apps.respuestas_cuestionarios.urls     import router as respuestas_cuestionarios_router
 from apps.trabajadores.urls                 import router as trabajadores_router
+from apps.user_type.urls                    import router as user_type_router
 
 # Define el esquema de documentación
 schema_view = get_schema_view(
@@ -51,15 +51,11 @@ router.registry.extend(planes_trabajo_router.registry)
 router.registry.extend(planillas_trabajo_router.registry)
 router.registry.extend(respuestas_cuestionarios_router.registry)
 router.registry.extend(trabajadores_router.registry)
+router.registry.extend(user_type_router.registry)
 
-router.register(r'user',                                    UserRegisterationViewSet,                               basename='user')
-router.register(r'usertype',                                UserTypeViewSet,                                        basename='usertype')
-router.register(r'login',                                   UserLoginViewSet,                                       basename='login')
-router.register(r'logout',                                  UserLogoutViewSet,                                      basename='logout')
-
-#router.register(r'presentes',                               PresenteViewSet,                                        basename='presente')
-#router.register(r'presentes_por_espacio_trabajo_hoy',       PresentesPorEspacioDeTrabajo,                           basename='presentes_por_espacio_trabajo_hoy')
-#router.register(r'asistencias_entre_fechas_por_trabajador', PresentesEntreFechasPorIdTrabajador,                    basename='asistencias_entre_fechas_por_trabajador')
+router.register(r'user',        UserRegisterationViewSet,   basename='user')
+router.register(r'login',       UserLoginViewSet,           basename='login')
+router.register(r'logout',      UserLogoutViewSet,          basename='logout')
 
 router.registry.sort(key=lambda x: x[0])
 
