@@ -1,7 +1,7 @@
-from rest_framework import viewsets
-from .models import EvaluacionTrabajador
-from .serializer import EvaluacionTrabajadorSerializer
-from apps.user_type.permisions import IsAdministrador, IsSuper, IsCoordinador
+from rest_framework             import viewsets
+from .models                    import EvaluacionTrabajador
+from .serializer                import EvaluacionTrabajadorSerializer
+from apps.user_type.permisions  import IsAdministrador, IsSuper, IsCoordinador
 
 
 class EvaluacionTrabajadorViewSet(viewsets.ModelViewSet):
@@ -16,6 +16,6 @@ class EvaluacionTrabajadorViewSet(viewsets.ModelViewSet):
     - Todos los campos de la clase EvaluacionTrabajador.
 
     """
-    queryset = EvaluacionTrabajador.objects.all()
-    serializer_class = EvaluacionTrabajadorSerializer
-    permission_classes = [IsAdministrador | IsSuper | IsCoordinador]
+    queryset            = EvaluacionTrabajador.objects.all()
+    serializer_class    = EvaluacionTrabajadorSerializer
+    permission_classes  = [IsAdministrador | IsSuper | IsCoordinador]

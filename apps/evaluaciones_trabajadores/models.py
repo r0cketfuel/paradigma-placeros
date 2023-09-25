@@ -36,7 +36,7 @@ class EvaluacionTrabajador(models.Model):
     evaluation_type     = models.CharField(max_length=20, choices=EVALUATION_TYPE, default='Uniforme', null=False)
 
     class Meta:
-        db_table = 'evaluaciones_trabajador'
+        db_table = 'evaluaciones_trabajadores'
 
     def __str__(self):
         return f"{self.id_trabajador}  {self.id_coordinador}"

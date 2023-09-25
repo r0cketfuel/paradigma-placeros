@@ -15,7 +15,7 @@ from apps.cooperativas.urls                 import router as cooperativas_router
 from apps.cuestionarios.urls                import router as cuestionarios_router
 from apps.dias_no_laborables.urls           import router as dias_no_laborables_router
 from apps.espacios_trabajo.urls             import router as espacios_trabajo_router
-from apps.evaluacion_trabajador.urls        import router as evaluaciones_trabajador_router
+from apps.evaluaciones_trabajadores.urls    import router as evaluaciones_trabajadores_router
 from apps.evaluaciones_desempeño.urls       import router as evaluaciones_desempeño_router
 from apps.feriados.urls                     import router as feriados_router
 from apps.incidentes.urls                   import router as incidentes_router
@@ -43,7 +43,7 @@ router.registry.extend(cooperativas_router.registry)
 router.registry.extend(cuestionarios_router.registry)
 router.registry.extend(dias_no_laborables_router.registry)
 router.registry.extend(espacios_trabajo_router.registry)
-router.registry.extend(evaluaciones_trabajador_router.registry)
+router.registry.extend(evaluaciones_trabajadores_router.registry)
 router.registry.extend(evaluaciones_desempeño_router.registry)
 router.registry.extend(feriados_router.registry)
 router.registry.extend(incidentes_router.registry)
