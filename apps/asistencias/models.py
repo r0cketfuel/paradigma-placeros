@@ -2,7 +2,7 @@ from django.db                  import models
 from apps.trabajadores.models   import Trabajador
 
 
-class Cooperativa(models.Model):
+class Asistencia(models.Model):
 
     trabajador      = models.ForeignKey(Trabajador, on_delete=models.RESTRICT)
     fecha           = models.DateTimeField(null=False)
