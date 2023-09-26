@@ -10,6 +10,7 @@ from drf_yasg.views                         import get_schema_view
 from drf_yasg                               import openapi
 
 # Importa los routers de las aplicaciones
+from apps.asistencias.urls                  import router as asistencias_router
 from apps.cooperativas.urls                 import router as cooperativas_router
 from apps.cuestionarios.urls                import router as cuestionarios_router
 from apps.dias_no_laborables.urls           import router as dias_no_laborables_router
@@ -39,6 +40,7 @@ schema_view = get_schema_view(
 router = routers.DefaultRouter()
 
 # Registra los routers de las aplicaciones en el router de nivel superior
+router.registry.extend(asistencias_router.registry)
 router.registry.extend(cooperativas_router.registry)
 router.registry.extend(cuestionarios_router.registry)
 router.registry.extend(dias_no_laborables_router.registry)
