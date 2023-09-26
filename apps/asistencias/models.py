@@ -5,7 +5,8 @@ from apps.trabajadores.models   import Trabajador
 class Asistencia(models.Model):
 
     trabajador      = models.ForeignKey(Trabajador, on_delete=models.RESTRICT)
-    fecha           = models.DateTimeField(null=False)
+    fecha           = models.DateField(null=False)
+    hora            = models.TimeField(null=False)
     presente        = models.BooleanField(default=False)
     observaciones   = models.CharField(null=True)
     

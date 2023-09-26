@@ -4,7 +4,7 @@ from .views                 import AsistenciaViewSet
 
 
 router = DefaultRouter()
-router.register(r'asistencias/', AsistenciaViewSet, basename='asistencias')
+router.register(r'asistencias', AsistenciaViewSet, basename='asistencias')
 
 urlpatterns = [
     path('', include(router.urls)),
