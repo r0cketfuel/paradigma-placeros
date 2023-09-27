@@ -43,11 +43,6 @@ services:
       - postgresql_plaza_dj
     networks:
       - plazaweb
-    healthcheck:
-      test: ["CMD-SHELL", "curl --fail http://localhost:8000/ || exit 1"]
-      interval: 30s
-      timeout: 10s
-      retries: 5
 
   nginx:
     build:
@@ -65,15 +60,11 @@ services:
       - static_media:/plaza_web_paradigma/media
     networks:
       - plazaweb
-    healthcheck:
-      test: ["CMD-SHELL", "curl --fail http://localhost:80/ || exit 1"]
-      interval: 30s
-      timeout: 10s
-      retries: 5
 
 volumes:
   static_volume:
   static_media:
+
 
 networks:
   plazaweb:
