@@ -1,4 +1,4 @@
-version: '3.8'
+version: '3'
 
 services:
   postgresql_plaza_dj:
@@ -43,6 +43,11 @@ services:
       - postgresql_plaza_dj
     networks:
       - plazaweb
+    healthcheck:
+      test: ["CMD-SHELL", "curl --fail http://localhost:8000/ || exit 1"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
 
   nginx:
     build:
@@ -53,7 +58,6 @@ services:
       - "80:80"
       - "443:443"
     depends_on:
-      - postgresql_plaza_dj
       - plazaweb
     volumes:
       - ./nginx.conf:/etc/nginx/nginx.conf:ro
@@ -61,11 +65,15 @@ services:
       - static_media:/plaza_web_paradigma/media
     networks:
       - plazaweb
+    healthcheck:
+      test: ["CMD-SHELL", "curl --fail http://localhost:80/ || exit 1"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
 
 volumes:
   static_volume:
   static_media:
-
 
 networks:
   plazaweb:
