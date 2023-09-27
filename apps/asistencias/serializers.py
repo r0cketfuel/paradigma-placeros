@@ -1,12 +1,14 @@
 from rest_framework import serializers
-from .models import Asistencia
+from .models        import Asistencia
 
 
 class AsistenciaSerializer(serializers.ModelSerializer):
 
+    fecha = serializers.DateTimeField(read_only=True)
+
     class Meta:
         model = Asistencia
-        fields = '__all__'
+        fields = ['trabajador', 'presente', 'observaciones', 'fecha']
 
     def to_representation(self, instance):
         # Si estamos serializando una lista de objetos, usar un formato de lista

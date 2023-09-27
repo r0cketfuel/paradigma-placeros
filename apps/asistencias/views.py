@@ -1,31 +1,35 @@
-from rest_framework             import viewsets
-from .models                    import Asistencia
-from .serializers               import AsistenciaSerializer
-from apps.user_type.permisions  import IsAdministrador, IsSuper
-import datetime
-
+from rest_framework import viewsets, status
+from rest_framework.response import Response
+from rest_framework.decorators import action
+from .models import Asistencia
+from .serializers import AsistenciaSerializer
+from apps.user_type.permisions import IsAdministrador, IsSuper
 
 class AsistenciaViewSet(viewsets.ModelViewSet):
 
-    queryset            = Asistencia.objects.all()
-    serializer_class    = AsistenciaSerializer
-    permission_classes  = [IsAdministrador | IsSuper]
+    queryset = Asistencia.objects.all()
+    serializer_class = AsistenciaSerializer
+    permission_classes = [IsAdministrador | IsSuper]
+    
+    def create(self, request, *args, **kwargs):
+        data = request.data
+        is_list = isinstance(data, list)
 
-    def get_queryset(self):
-        # Obtén la fecha proporcionada en la consulta
-        fecha = self.request.query_params.get('fecha', None)
+        if is_list:
+            asistencias_creadas = []
+            for item in data:
+                serializer = AsistenciaSerializer(data=item)
+                if serializer.is_valid():                
+                    serializer.save()
+                    asistencias_creadas.append(serializer.data)
+                else:
+                    return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
-        if fecha:
-            # Filtra las asistencias por la fecha proporcionada
-            queryset = Asistencia.objects.filter(fecha=fecha)
+            return Response(asistencias_creadas, status=status.HTTP_201_CREATED)
         else:
-            # Si no se proporciona una fecha, muestra todas las asistencias
-            queryset = Asistencia.objects.all()
-
-        return queryset
-
-    def perform_create(self, serializer):
-        # Obtiene la fecha y hora actual
-        now = datetime.datetime.now()
-        # Establece la fecha y hora en el serializer antes de guardarlo
-        serializer.save(fecha=now.date(), hora=now.time())
+            serializer = AsistenciaSerializer(data=data)
+            if serializer.is_valid():
+                serializer.save()
+                return Response(serializer.data, status=status.HTTP_201_CREATED)
+            else:
+                return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
