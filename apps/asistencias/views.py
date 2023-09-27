@@ -1,15 +1,15 @@
-from rest_framework import viewsets, status
-from rest_framework.response import Response
-from rest_framework.decorators import action
-from .models import Asistencia
-from .serializers import AsistenciaSerializer
-from apps.user_type.permisions import IsAdministrador, IsSuper
+from rest_framework             import viewsets, status
+from rest_framework.response    import Response
+from .models                    import Asistencia
+from .serializers               import AsistenciaSerializer
+from apps.user_type.permisions  import IsAdministrador, IsSuper
+
 
 class AsistenciaViewSet(viewsets.ModelViewSet):
 
-    queryset = Asistencia.objects.all()
-    serializer_class = AsistenciaSerializer
-    permission_classes = [IsAdministrador | IsSuper]
+    queryset            = Asistencia.objects.all()
+    serializer_class    = AsistenciaSerializer
+    permission_classes  = [IsAdministrador | IsSuper]
     
     def create(self, request, *args, **kwargs):
         data = request.data
