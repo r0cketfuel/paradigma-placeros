@@ -12,8 +12,8 @@ class PlanillaTrabajo(models.Model):
     la fecha, el horario de inicio y fin, si es laborable y si el trabajador estuvo presente.
 
     Campos del modelo:
-    - id_plan_trabajo: Referencia al plan de trabajo asociado.
-    - id_trabajador: Referencia al trabajador asignado.
+    - plan_trabajo: Referencia al plan de trabajo asociado.
+    - trabajador: Referencia al trabajador asignado.
     - fecha: Fecha de la planilla de trabajo.
     - horario_inicio: Hora de inicio del trabajo.
     - horario_fin: Hora de finalización del trabajo.
@@ -21,8 +21,8 @@ class PlanillaTrabajo(models.Model):
     - presente: Indica si el trabajador estuvo presente (por defecto False).
 
     """
-    id_plan_trabajo = models.ForeignKey(PlanTrabajo, null=False, on_delete=models.CASCADE)
-    id_trabajador   = models.ForeignKey(Trabajador, null=False, on_delete=models.CASCADE)
+    plan_trabajo    = models.ForeignKey(PlanTrabajo, null=False, on_delete=models.RESTRICT)
+    trabajador      = models.ForeignKey(Trabajador, null=False, on_delete=models.RESTRICT)
     dias_semana     = models.CharField(max_length=7)
     horario_inicio  = models.TimeField()
     horario_fin     = models.TimeField()
@@ -31,4 +31,4 @@ class PlanillaTrabajo(models.Model):
         db_table = 'planillas_trabajo'
 
     def __str__(self):
-        return self.id_plan_trabajo.name
+        return self.plan_trabajo.nombre

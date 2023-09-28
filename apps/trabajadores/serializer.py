@@ -11,7 +11,7 @@ class CooperativaSerializer(serializers.ModelSerializer):
 
 class TrabajadorSerializer(serializers.ModelSerializer):
 
-    cooperativa_nombre = serializers.ReadOnlyField(source='id_cooperativa.nombre')
+    cooperativa_nombre = serializers.ReadOnlyField(source='cooperativa.nombre')
 
     class Meta:
         model   = Trabajador

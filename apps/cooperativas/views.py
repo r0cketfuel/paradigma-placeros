@@ -40,7 +40,7 @@ class CantidadTrabajadoresPorCooperativa(viewsets.ViewSet):
         data = []
 
         for cooperativa in cooperativas:
-            trabajadores_count = Trabajador.objects.filter(id_cooperativa=cooperativa).filter(activo=True).count()
+            trabajadores_count = Trabajador.objects.filter(cooperativa=cooperativa).filter(activo=True).count()
             data.append({
                 'cooperativa_id':       cooperativa.id,
                 'cooperativa_nombre':   cooperativa.nombre,

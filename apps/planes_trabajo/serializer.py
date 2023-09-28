@@ -27,6 +27,6 @@ class PlanTrabajoSerializer(serializers.ModelSerializer):
 
     def get_cooperativa(self, obj):
         return {
-            'id':           obj.id_cooperativa.id,
-            'cooperativa':  obj.id_cooperativa.nombre
+            'id':           obj.cooperativa.id,
+            'cooperativa':  obj.cooperativa.nombre
         }

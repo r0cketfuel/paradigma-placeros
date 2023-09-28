@@ -17,7 +17,7 @@ class TrabajadorViewSet(viewsets.ModelViewSet):
     - Todos los campos de la clase Trabajador.
 
     """
-    queryset            = Trabajador.objects.all().order_by('id_cooperativa', 'apellido', 'nombre')
+    queryset            = Trabajador.objects.all().order_by('cooperativa', 'apellido', 'nombre')
     serializer_class    = TrabajadorSerializer
     permission_classes  = [IsAdministrador | IsSuper]
 
