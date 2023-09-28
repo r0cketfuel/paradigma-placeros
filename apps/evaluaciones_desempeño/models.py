@@ -24,7 +24,7 @@ class EvaluacionDesempeño(models.Model):
     """
     cooperativa             = models.ForeignKey(Cooperativa, on_delete=models.RESTRICT, null=False, default=None)
     espacio_trabajo         = models.ForeignKey(EspacioTrabajo, on_delete=models.RESTRICT, null=False, default=None)
-    id_supervisor           = models.ForeignKey(CustomUser, on_delete=models.RESTRICT, null=False, default=None)
+    supervisor              = models.ForeignKey(CustomUser, on_delete=models.RESTRICT, null=False, default=None)
     plan_trabajo            = models.ForeignKey(PlanTrabajo, on_delete=models.RESTRICT, null=False, default=None)
     respuesta_cuestionario  = models.ForeignKey(RespuestaCuestionario, on_delete=models.RESTRICT, null=False, default=None)
     fecha                   = models.DateField(null=False)
