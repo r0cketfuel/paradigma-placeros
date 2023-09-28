@@ -4,6 +4,7 @@ from .serializer                import PlanTrabajoSerializer
 from apps.user_type.permisions  import IsAdministrador, IsSuper
 from django.db.models           import F
 
+
 class PlanTrabajoViewSet(viewsets.ModelViewSet):
     """
     Vista para gestionar planes de trabajo.
@@ -16,10 +17,10 @@ class PlanTrabajoViewSet(viewsets.ModelViewSet):
     - Todos los campos de la clase PlanTrabajo.
 
     """
-    queryset = PlanTrabajo.objects.select_related('id_cooperativa', 'id_espacio', 'id_supervisor').annotate(
-        cooperativa_name    = F('id_cooperativa__nombre'),
-        espacio_nombre      = F('id_espacio__description'),
-        supervisor_nombre   = F('id_supervisor__username')
+    queryset = PlanTrabajo.objects.select_related('cooperativa', 'espacio', 'supervisor').annotate(
+        cooperativa_name    = F('cooperativa__nombre'),
+        espacio_nombre      = F('espacio__description'),
+        supervisor_nombre   = F('supervisor__username')
     )
     
     serializer_class        = PlanTrabajoSerializer

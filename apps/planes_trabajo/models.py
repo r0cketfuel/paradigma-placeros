@@ -3,6 +3,7 @@ from apps.cooperativas.models       import Cooperativa
 from apps.espacios_trabajo.models   import EspacioTrabajo
 from apps.users.models              import CustomUser
 
+
 class PlanTrabajo(models.Model):
     """
     Modelo para representar un plan de trabajo.
@@ -13,18 +14,18 @@ class PlanTrabajo(models.Model):
 
     Campos del modelo:
     - name: Nombre del plan de trabajo.
-    - id_cooperativa: Referencia a la cooperativa asociada.
-    - id_espacio: Referencia al espacio de trabajo asignado.
-    - id_supervisor: Referencia al supervisor responsable.
+    - cooperativa: Referencia a la cooperativa asociada.
+    - espacio: Referencia al espacio de trabajo asignado.
+    - supervisor: Referencia al supervisor responsable.
     - tipo_servicio: Tipo de servicio del plan de trabajo.
     - fecha_creacion: Fecha de creación del plan de trabajo.
 
     """
-    name            = models.TextField()
+    nombre          = models.TextField()
     tipo_servicio   = models.TextField()
-    id_cooperativa  = models.ForeignKey(Cooperativa, null=False, on_delete=models.CASCADE)
-    id_espacio      = models.ForeignKey(EspacioTrabajo, null=False, on_delete=models.CASCADE)
-    id_supervisor   = models.ForeignKey(CustomUser, null=False, on_delete=models.CASCADE)
+    cooperativa     = models.ForeignKey(Cooperativa, null=False, on_delete=models.RESTRICT)
+    espacio         = models.ForeignKey(EspacioTrabajo, null=False, on_delete=models.RESTRICT)
+    supervisor      = models.ForeignKey(CustomUser, null=False, on_delete=models.RESTRICT)
     fecha_creacion  = models.DateField(auto_now_add=True, null=True)
     activo          = models.BooleanField(null=False, default=True)
 
@@ -32,7 +33,7 @@ class PlanTrabajo(models.Model):
         db_table = 'planes_trabajo'
 
     def __str__(self):
-        return self.name
+        return self.nombre
     
     def delete(self):
         self.activo = False

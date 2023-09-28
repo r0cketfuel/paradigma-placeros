@@ -3,11 +3,11 @@
         "model": "planes_trabajo.PlanTrabajo",
         "pk": 1,
         "fields": {
-            "name":             "Plan de trabajo 1",
+            "nombre":           "Plan de trabajo 1",
             "tipo_servicio":    "Tipo de servicio de plan de trabajo 1",
-            "id_cooperativa":   1,
-            "id_espacio":       1,
-            "id_supervisor":    2,
+            "cooperativa":      1,
+            "espacio":          1,
+            "supervisor":       2,
             "fecha_creacion":   "2023-09-21",
             "activo":           "True"
         }
@@ -16,11 +16,11 @@
         "model": "planes_trabajo.PlanTrabajo",
         "pk": 2,
         "fields": {
-            "name":             "Plan de trabajo 2",
+            "nombre":           "Plan de trabajo 2",
             "tipo_servicio":    "Tipo de servicio de plan de trabajo 2",
-            "id_cooperativa":   2,
-            "id_espacio":       2,
-            "id_supervisor":    2,
+            "cooperativa":      2,
+            "espacio":          2,
+            "supervisor":       2,
             "fecha_creacion":   "2023-09-21",
             "activo":           "True"
         }
@@ -29,11 +29,11 @@
         "model": "planes_trabajo.PlanTrabajo",
         "pk": 3,
         "fields": {
-            "name":             "Plan de trabajo 3",
+            "nombre":           "Plan de trabajo 3",
             "tipo_servicio":    "Tipo de servicio de plan de trabajo 3",
-            "id_cooperativa":   3,
-            "id_espacio":       3,
-            "id_supervisor":    2,
+            "cooperativa":      3,
+            "espacio":          3,
+            "supervisor":       2,
             "fecha_creacion":   "2023-09-21",
             "activo":           "True"
         }

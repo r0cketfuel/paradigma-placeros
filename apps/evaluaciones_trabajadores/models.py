@@ -12,10 +12,10 @@ class EvaluacionTrabajador(models.Model):
     de la evaluación y el tipo de evaluación (por ejemplo, uniforme, EPP, herramientas).
 
     Campos del modelo:
-    - id_trabajador: Referencia al trabajador evaluado.
-    - id_coordinador: Referencia al coordinador que realiza la evaluación.
-    - evaluation_result: Resultado de la evaluación (opciones: bueno, regular, malo).
-    - evaluation_type: Tipo de evaluación (opciones: uniforme, EPP, herramientas).
+    - trabajador: Referencia al trabajador evaluado.
+    - coordinador: Referencia al coordinador que realiza la evaluación.
+    - resultado_evaluacion: Resultado de la evaluación (opciones: bueno, regular, malo).
+    - tipo_evaluacion: Tipo de evaluación (opciones: uniforme, EPP, herramientas).
 
     """
     EVALUATION_RESULT = [
@@ -30,13 +30,13 @@ class EvaluacionTrabajador(models.Model):
         ('herramientas',    'Herramientas'),
     ]
 
-    id_trabajador       = models.ForeignKey(Trabajador, null=False, on_delete=models.CASCADE)
-    id_coordinador      = models.ForeignKey(CustomUser, null=False, on_delete=models.CASCADE)
-    evaluation_result   = models.CharField(max_length=20, choices=EVALUATION_RESULT, default='malo', null=False)
-    evaluation_type     = models.CharField(max_length=20, choices=EVALUATION_TYPE, default='Uniforme', null=False)
+    trabajador              = models.ForeignKey(Trabajador, null=False, on_delete=models.RESTRICT)
+    coordinador             = models.ForeignKey(CustomUser, null=False, on_delete=models.RESTRICT)
+    resultado_evaluacion    = models.CharField(max_length=20, choices=EVALUATION_RESULT, default='Malo', null=False)
+    tipo_evaluacion         = models.CharField(max_length=20, choices=EVALUATION_TYPE, default='Uniforme', null=False)
 
     class Meta:
         db_table = 'evaluaciones_trabajadores'
 
     def __str__(self):
-        return f"{self.id_trabajador}  {self.id_coordinador}"
+        return f"{self.trabajador}  {self.coordinador}"
