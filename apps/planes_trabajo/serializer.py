@@ -3,7 +3,7 @@ from .models        import PlanTrabajo
 
 class PlanTrabajoSerializer(serializers.ModelSerializer):
     
-    name            = serializers.CharField()
+    nombre          = serializers.CharField()
     tipo_servicio   = serializers.CharField()
     espacio         = serializers.SerializerMethodField()
     supervisor      = serializers.SerializerMethodField()
@@ -15,14 +15,14 @@ class PlanTrabajoSerializer(serializers.ModelSerializer):
 
     def get_espacio(self, obj):
         return {
-            'id':           obj.id_espacio.id,
-            'espacio_name': obj.id_espacio.description
+            'id':           obj.espacio.id,
+            'espacio_name': obj.espacio.description
         }
 
     def get_supervisor(self, obj):
         return {
-            'id':           obj.id_supervisor.id,
-            'supervisor':   obj.id_supervisor.username
+            'id':           obj.supervisor.id,
+            'supervisor':   obj.supervisor.username
         }
 
     def get_cooperativa(self, obj):
