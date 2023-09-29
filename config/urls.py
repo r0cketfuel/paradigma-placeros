@@ -8,6 +8,7 @@ from apps.users.views                       import UserRegisterationViewSet, Use
 from apps.user_type.permisions              import IsSuper
 from drf_yasg.views                         import get_schema_view
 from drf_yasg                               import openapi
+from apps.espacios_trabajo.views            import RutaUnoViewSet
 
 # Importa los routers de las aplicaciones
 from apps.asistencias.urls                  import router as asistencias_router
@@ -69,6 +70,7 @@ urlpatterns = [
     path('', include(router.urls)),
     path(r'snippets/', schema_view.with_ui('redoc', cache_timeout=0), name='schema-redoc'),
     path(r'doc&test/', schema_view.with_ui('swagger',cache_timeout=0), name='schema-swagger-ui'),
+    path('espacios_trabajo/trabajadores/<int:espacio_trabajo_id>', RutaUnoViewSet.as_view({'get': 'list'}), name='espacio_trabajo_trabajadores'),
     path('api-auth/', include('rest_framework.urls')),
     path('token/refresh/', TokenRefreshView.as_view(), name='token-refresh'),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

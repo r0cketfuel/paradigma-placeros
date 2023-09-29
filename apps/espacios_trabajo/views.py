@@ -1,10 +1,15 @@
 from rest_framework                 import viewsets
-from rest_framework.response        import Response
+
+from apps.trabajadores.models import Trabajador
 from .models                        import EspacioTrabajo
 from .serializer                    import EspacioTrabajoSerializer
 from apps.user_type.permisions      import IsAdministrador, IsSuper, IsSupervisor
 from apps.planillas_trabajo.models  import PlanillaTrabajo
-from datetime                       import datetime
+from apps.planillas_trabajo.serializer import PlanillaTrabajoSerializer
+from apps.trabajadores.serializer import TrabajadorSerializer
+from rest_framework.response        import Response
+
+from apps.planes_trabajo.models     import PlanTrabajo
 
 class EspacioTrabajoViewSet(viewsets.ModelViewSet):
     """
@@ -23,36 +28,43 @@ class EspacioTrabajoViewSet(viewsets.ModelViewSet):
     permission_classes = [IsAdministrador | IsSuper]
 
 
-class PresentesPorEspacioDeTrabajo(viewsets.ViewSet):
-    """
-    Vista para obtener el total de trabajadores presentes en espacios de trabajo hoy.
+# class RutaUnoViewSet(viewsets.ModelViewSet):
 
-    Esta vista permite obtener el número total de trabajadores presentes en los espacios de
-    trabajo hoy. Los usuarios con permisos de administrador, superusuario o supervisor pueden
-    acceder a esta vista.
+#     queryset            = PlanillaTrabajo.objects.all()
+#     serializer_class    = PlanillaTrabajo
+#     permission_classes  = [IsAdministrador | IsSuper | IsSupervisor]
 
-    La vista realiza una consulta en la base de datos para contar los trabajadores presentes
-    en cada espacio de trabajo y devuelve el resultado.
+#     def list(self,request, espacio_trabajo_id=None):
+#         # planilla<-plan<-espacio
+#         planes_trabajos=PlanTrabajo.objects.filter(espacio=espacio_trabajo_id)
+#         # print(planes_trabajos)
+#         # print(PlanillaTrabajo.objects.all())
+#         lista= []
+#         for planilla in PlanillaTrabajo.objects.all():
+#             for plan in planes_trabajos:
+#                 # print("plan:",plan.__dict__)
+#                 # print("planilla: ", planilla.__dict__)
+#                 if planilla.plan_trabajo_id == plan.id:                    
+#                     lista.append(Trabajador.objects.get(id=planilla.trabajador_id).id)
+#         return Response(data = {'lista':lista} , status=200)
 
-    """
+class RutaUnoViewSet(viewsets.ModelViewSet):
+    queryset = Trabajador.objects.all() 
+    serializer_class = TrabajadorSerializer  # Cambiar al serializador de Trabajador
     permission_classes = [IsAdministrador | IsSuper | IsSupervisor]
 
-    def list(self, request):
-        try:
-            hoy = datetime.today()
-            hoy = datetime.strptime(
-                f"{datetime.today().day}-{datetime.today().month}-{datetime.today().year}", "%d-%m-%Y")
-            planillas = PlanillaTrabajo.objects.filter(
-                fecha=hoy, presente=True)
-            total_presentes_por_espacio_trabajo_today = {}
-            for planilla in planillas:
-                espacio = planilla.id_plan_trabajo.id_espacio
-                if espacio.description in total_presentes_por_espacio_trabajo_today:
-                    total_presentes_por_espacio_trabajo_today[espacio.description] += 1
-                else:
-                    total_presentes_por_espacio_trabajo_today[espacio.description] = 1
+    def list(self, request, espacio_trabajo_id=None):
+        # Filtrar los planes de trabajo por espacio_trabajo_id
+        planes_trabajos = PlanTrabajo.objects.filter(espacio_id=espacio_trabajo_id)
 
-            return Response(total_presentes_por_espacio_trabajo_today, status=200)
-        except Exception as e:
-            return Response({"error": str(e)}, status=400)
+        # Obtener las PlanillaTrabajo asociadas a los planes de trabajo encontrados
+        planillas = PlanillaTrabajo.objects.filter(plan_trabajo_id__in=planes_trabajos)
 
+        # Obtener la lista de trabajadores asociados a las PlanillaTrabajo encontradas
+        lista_trabajadores = [planilla.trabajador_id for planilla in planillas]
+
+        # Obtener los detalles de los trabajadores
+        trabajadores = Trabajador.objects.filter(id__in=lista_trabajadores)
+        serializer = TrabajadorSerializer(trabajadores, many=True)
+
+        return Response(serializer.data, status=200)
