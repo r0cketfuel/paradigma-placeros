@@ -4,11 +4,14 @@ from .models        import Asistencia
 
 class AsistenciaSerializer(serializers.ModelSerializer):
 
-    fecha = serializers.DateTimeField(read_only=True)
+    fecha = serializers.SerializerMethodField()
 
     class Meta:
         model = Asistencia
         fields = ['trabajador', 'presente', 'observaciones', 'fecha']
+
+    def get_fecha(self, obj):
+        return obj.fecha.strftime('%Y-%m-%d')
 
     def to_representation(self, instance):
         # Si estamos serializando una lista de objetos, usar un formato de lista
