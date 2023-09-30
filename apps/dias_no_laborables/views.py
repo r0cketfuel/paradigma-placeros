@@ -3,6 +3,7 @@ from .models                    import DiaNoLaborable
 from .serializers               import DiaNoLaborableSerializer
 from apps.user_type.permisions  import IsAdministrador, IsSuper
 
+
 class DiaNoLaborableViewSet(viewsets.ModelViewSet):
     serializer_class    = DiaNoLaborableSerializer
     permission_classes  = [IsAdministrador | IsSuper]

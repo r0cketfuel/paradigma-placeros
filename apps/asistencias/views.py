@@ -9,7 +9,7 @@ from    datetime                    import date
 import  pytz
 
 
-class AsistenciaViewSet(viewsets.ModelViewSet):
+class AsistenciaTrabajadorViewSet(viewsets.ModelViewSet):
 
     serializer_class    = AsistenciaSerializer
     permission_classes  = [IsAdministrador | IsSuper]

@@ -8,14 +8,12 @@ from apps.users.views                       import UserRegisterationViewSet, Use
 from apps.user_type.permisions              import IsSuper
 from drf_yasg.views                         import get_schema_view
 from drf_yasg                               import openapi
-from apps.espacios_trabajo.views            import RutaUnoViewSet
 
 # Importa los routers de las aplicaciones
 from apps.asistencias.urls                  import router as asistencias_router
 from apps.cooperativas.urls                 import router as cooperativas_router
 from apps.cuestionarios.urls                import router as cuestionarios_router
 from apps.dias_no_laborables.urls           import router as dias_no_laborables_router
-from apps.espacios_trabajo.urls             import router as espacios_trabajo_router
 from apps.evaluaciones_trabajadores.urls    import router as evaluaciones_trabajadores_router
 from apps.evaluaciones_desempeño.urls       import router as evaluaciones_desempeño_router
 from apps.feriados.urls                     import router as feriados_router
@@ -45,7 +43,6 @@ router.registry.extend(asistencias_router.registry)
 router.registry.extend(cooperativas_router.registry)
 router.registry.extend(cuestionarios_router.registry)
 router.registry.extend(dias_no_laborables_router.registry)
-router.registry.extend(espacios_trabajo_router.registry)
 router.registry.extend(evaluaciones_trabajadores_router.registry)
 router.registry.extend(evaluaciones_desempeño_router.registry)
 router.registry.extend(feriados_router.registry)
@@ -67,10 +64,11 @@ router.get_api_root_view().cls.__doc__  = 'Documentacion en /snippets & /doc&tes
 router.get_api_root_view().cls.permission_classes = [IsAuthenticated]
 
 urlpatterns = [
-    path('', include(router.urls)),
+    path('',                    include(router.urls)),
+    path('espacios_trabajo/',   include('apps.espacios_trabajo.urls')),
+
     path(r'snippets/', schema_view.with_ui('redoc', cache_timeout=0), name='schema-redoc'),
     path(r'doc&test/', schema_view.with_ui('swagger',cache_timeout=0), name='schema-swagger-ui'),
-    path('espacios_trabajo/trabajadores/<int:espacio_trabajo_id>', RutaUnoViewSet.as_view({'get': 'list'}), name='espacio_trabajo_trabajadores'),
     path('api-auth/', include('rest_framework.urls')),
     path('token/refresh/', TokenRefreshView.as_view(), name='token-refresh'),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

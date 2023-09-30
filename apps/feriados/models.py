@@ -1,5 +1,6 @@
 from django.db import models
 
+
 class Feriado(models.Model):
     """
     Modelo para representar un feriado.

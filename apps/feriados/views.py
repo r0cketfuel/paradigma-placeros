@@ -3,6 +3,7 @@ from .models                    import Feriado
 from .serializers               import FeriadoSerializer
 from apps.user_type.permisions  import IsAdministrador, IsSuper
 
+
 class FeriadoViewSet(viewsets.ModelViewSet):
     serializer_class    = FeriadoSerializer
     permission_classes  = [IsAdministrador | IsSuper]

@@ -1,5 +1,6 @@
 from django.db import models
 
+
 class DiaNoLaborable(models.Model):
     """
     Modelo para representar un dia no laborable.

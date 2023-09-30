@@ -7,6 +7,7 @@ from apps.trabajadores.models       import Trabajador
 from apps.trabajadores.serializer   import TrabajadorSerializer
 from datetime                       import date
 
+
 class PlanillaTrabajoViewSet(viewsets.ModelViewSet):
     """
     Vista para gestionar planillas de trabajo.

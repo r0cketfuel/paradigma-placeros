@@ -1,6 +1,7 @@
 from rest_framework import serializers
 from .models        import Cooperativa
 
+
 class CooperativaSerializer(serializers.ModelSerializer):
     """
     Este serializador se utiliza para convertir instancias de la clase Cooperativa

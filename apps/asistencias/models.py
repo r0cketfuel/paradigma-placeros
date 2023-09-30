@@ -2,6 +2,7 @@ from django.db                  import models
 from apps.trabajadores.models   import Trabajador
 from django.utils               import timezone
 
+
 class Asistencia(models.Model):
 
     trabajador      = models.ForeignKey(Trabajador, on_delete=models.RESTRICT)
