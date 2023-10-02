@@ -70,9 +70,12 @@ class TrabajadoresAsignadosListView(generics.ListAPIView):
         # Inicializar una lista de trabajadores que cumplen con el rango horario actual
         trabajadores = []
 
-        # Iterar sobre las planillas y verificar el rango horario para cada trabajador
+        # Iterar sobre las planillas y verificar el rango horario y el campo activo para cada trabajador
         for planilla in planillas_dia_actual:
-            if planilla.horario_inicio <= current_time <= planilla.horario_fin:
+            if (
+                planilla.horario_inicio <= current_time <= planilla.horario_fin
+                and planilla.trabajador.activo  # Verificar si el trabajador está activo
+            ):
                 trabajadores.append(planilla.trabajador)
 
         if not trabajadores:
