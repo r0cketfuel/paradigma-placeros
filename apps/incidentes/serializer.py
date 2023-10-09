@@ -2,7 +2,7 @@ from rest_framework import serializers
 from .models        import Incidente
 
 
-class IncidentSerializer(serializers.ModelSerializer):
+class IncidenteSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Incidente
