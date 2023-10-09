@@ -87,27 +87,17 @@ WSGI_APPLICATION = "config.wsgi.application"
 # Database
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 
-# DATABASES = {
-#     'default': {
-#         "ENGINE": "django.db.backends.postgresql",
-#         "NAME": "test_plaza_web",
-#         "USER": "u_plaza_web",
-#         "PASSWORD": "123456",
-#         "HOST": "postgresql_plaza_dj",
-#         "PORT": '5432'
-#     }
-# }
-
 DATABASES = {
     'default': {
         "ENGINE": "django.db.backends.postgresql",
-        "NAME": "placeros",
-        "USER": "postgres",
-        "PASSWORD": "$0123456789ABCDEF$",
-        "HOST": "192.168.1.10",
+        "NAME": "test_plaza_web",
+        "USER": "u_plaza_web",
+        "PASSWORD": "123456",
+        "HOST": "postgresql_plaza_dj",
         "PORT": '5432'
     }
 }
+
 
 # Password validation
 # https://docs.djangoproject.com/en/4.1/ref/settings/#auth-password-validators
@@ -190,14 +180,14 @@ SIMPLE_JWT = {
     "SLIDING_TOKEN_REFRESH_LIFETIME": timedelta(days=1),
 }
 
-# SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
-# SECURE_SSL_REDIRECT = True
-# SESSION_COOKIE_SECURE = True
-# CSRF_COOKIE_SECURE = True
-# SECURE_HSTS_SECONDS = 3600
-# SECURE_HSTS_INCLUDE_SUBDOMAINS = True
-# SECURE_HSTS_PRELOAD = True
-# SECURE_REFERRER_POLICY = 'same-origin'
+SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+SECURE_SSL_REDIRECT = True
+SESSION_COOKIE_SECURE = True
+CSRF_COOKIE_SECURE = True
+SECURE_HSTS_SECONDS = 3600
+SECURE_HSTS_INCLUDE_SUBDOMAINS = True
+SECURE_HSTS_PRELOAD = True
+SECURE_REFERRER_POLICY = 'same-origin'
 
 FILE_UPLOAD_MAX_MEMORY_SIZE = 31457280
 

@@ -2,7 +2,7 @@
 from apps.user_type.permisions  import IsAdministrador, IsSuper, IsSupervisor
 from rest_framework             import viewsets
 from .models                    import Incidente
-from .serializer                import IncidenteSerializer
+from .serializers               import IncidenteSerializer
 from .filter                    import IncidenteFilter
 
 

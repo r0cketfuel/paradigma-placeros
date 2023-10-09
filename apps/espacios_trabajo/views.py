@@ -1,7 +1,7 @@
 from rest_framework                     import generics
 from apps.trabajadores.models           import Trabajador
 from .models                            import EspacioTrabajo
-from .serializer                        import EspacioTrabajoSerializer
+from .serializers                       import EspacioTrabajoSerializer
 from apps.user_type.permisions          import IsAdministrador, IsSuper, IsSupervisor
 from apps.planillas_trabajo.models      import PlanillaTrabajo
 from apps.trabajadores.serializer       import TrabajadorSerializer
