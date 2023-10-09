@@ -1,9 +1,9 @@
 from rest_framework import serializers
-from .models        import Incident
+from .models        import Incidente
 
 
 class IncidentSerializer(serializers.ModelSerializer):
 
     class Meta:
-        model = Incident
+        model = Incidente
         fields = '__all__'
