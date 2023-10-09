@@ -3,7 +3,7 @@ from django.db                  import models
 from apps.planes_trabajo.models import PlanTrabajo
 
 
-class Incident(models.Model):
+class Incidente(models.Model):
     STATE_INCIDENTS = [
         ('pendiente',   'Pendiente'),
         ('en_progreso', 'En Progreso'),
