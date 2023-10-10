@@ -17,7 +17,7 @@ class PlanTrabajoSerializer(serializers.ModelSerializer):
     def get_espacio(self, obj):
         return {
             'id':           obj.espacio.id,
-            'espacio_name': obj.espacio.description
+            'espacio_name': obj.espacio.nombre
         }
 
     def get_supervisor(self, obj):

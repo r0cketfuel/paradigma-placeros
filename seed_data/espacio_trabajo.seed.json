@@ -3,7 +3,7 @@
         "model": "espacios_trabajo.espaciotrabajo",
         "pk": 1,
         "fields": {
-            "description":  "Espacio de trabajo 1",
+            "nombre":       "Espacio de trabajo 1",
             "image":        "espacio_trabajo_1.jpg",
             "address":      "Dirección espacio trabajo 1"
         }
@@ -12,7 +12,7 @@
         "model": "espacios_trabajo.espaciotrabajo",
         "pk": 2,
         "fields": {
-            "description":  "Espacio de trabajo 2",
+            "nombre":       "Espacio de trabajo 2",
             "image":        "espacio_trabajo_2.jpg",
             "address":      "Dirección espacio trabajo 2"
         }
@@ -21,7 +21,7 @@
         "model": "espacios_trabajo.espaciotrabajo",
         "pk": 3,
         "fields": {
-            "description":  "Espacio de trabajo 3",
+            "nombre":       "Espacio de trabajo 3",
             "image":        "espacio_trabajo_3.jpg",
             "address":      "Dirección espacio trabajo 3"
         }
@@ -30,7 +30,7 @@
         "model": "espacios_trabajo.espaciotrabajo",
         "pk": 4,
         "fields": {
-            "description":  "Espacio de trabajo 4",
+            "nombre":       "Espacio de trabajo 4",
             "image":        "espacio_trabajo_4.jpg",
             "address":      "Dirección espacio trabajo 4"
         }
@@ -39,7 +39,7 @@
         "model": "espacios_trabajo.espaciotrabajo",
         "pk": 5,
         "fields": {
-            "description":  "Espacio de trabajo 5",
+            "nombre":       "Espacio de trabajo 5",
             "image":        "espacio_trabajo_5.jpg",
             "address":      "Dirección espacio trabajo 5"
         }
@@ -48,7 +48,7 @@
         "model": "espacios_trabajo.espaciotrabajo",
         "pk": 6,
         "fields": {
-            "description":  "Espacio de trabajo 6",
+            "nombre":       "Espacio de trabajo 6",
             "image":        "espacio_trabajo_6.jpg",
             "address":      "Dirección espacio trabajo 6"
         }
@@ -57,7 +57,7 @@
         "model": "espacios_trabajo.espaciotrabajo",
         "pk": 7,
         "fields": {
-            "description":  "Espacio de trabajo 7",
+            "nombre":       "Espacio de trabajo 7",
             "image":        "espacio_trabajo_7.jpg",
             "address":      "Dirección espacio trabajo 7"
         }
@@ -66,7 +66,7 @@
         "model": "espacios_trabajo.espaciotrabajo",
         "pk": 8,
         "fields": {
-            "description":  "Espacio de trabajo 8",
+            "nombre":       "Espacio de trabajo 8",
             "image":        "espacio_trabajo_8.jpg",
             "address":      "Dirección espacio trabajo 8"
         }
@@ -75,7 +75,7 @@
         "model": "espacios_trabajo.espaciotrabajo",
         "pk": 9,
         "fields": {
-            "description":  "Espacio de trabajo 9",
+            "nombre":       "Espacio de trabajo 9",
             "image":        "espacio_trabajo_9.jpg",
             "address":      "Dirección espacio trabajo 9"
         }
@@ -84,7 +84,7 @@
         "model": "espacios_trabajo.espaciotrabajo",
         "pk": 10,
         "fields": {
-            "description":  "Espacio de trabajo 10",
+            "nombre":       "Espacio de trabajo 10",
             "image":        "espacio_trabajo_10.jpg",
             "address":      "Dirección espacio trabajo 10"
         }
