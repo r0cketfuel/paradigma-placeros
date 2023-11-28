@@ -31,9 +31,9 @@ class TrabajadoresInPlanillaTrabajoByIdPlanTrabajoViewSet(viewsets.ViewSet):
     - plan_trabajo_id: ID del plan de trabajo para el cual se desea obtener la lista de trabajadores.
 
     Ejemplo de solicitud JSON:
-{
-    "plan_trabajo_id": 1
-}
+    {
+        "plan_trabajo_id": 1
+    }
 
     La vista realiza una consulta en la base de datos y devuelve la lista de trabajadores
     asignados a la planilla de trabajo especificada.
@@ -49,16 +49,22 @@ class TrabajadoresInPlanillaTrabajoByIdPlanTrabajoViewSet(viewsets.ViewSet):
         try:
             if request.data.get("plan_trabajo_id", None):
                 id = request.data.get('plan_trabajo_id')
-                planilla_today = PlanillaTrabajo.objects.filter(
-                    plan_trabajo_id=id)
+                planilla_today = PlanillaTrabajo.objects.filter(plan_trabajo_id=id)
                 if planilla_today:
                     trabajadores = []
                     for planilla in planilla_today:
-                        trabajadores.append(Trabajador.objects.filter(
-                            id=planilla.trabajador_id).first())   # type: ignore
-                    serializer = TrabajadorSerializer(
-                        trabajadores, many=True)
-                    return Response(serializer.data)
+                        trabajador = Trabajador.objects.filter(id=planilla.trabajador_id).first()
+                        if trabajador:
+                            # Obtener los objetos PlanillaTrabajo asociados a Trabajador
+                            planillas_trabajo = PlanillaTrabajo.objects.filter(trabajador_id=trabajador.id)
+                            
+                            # Serializar los objetos PlanillaTrabajo
+                            serializer = PlanillaTrabajoSerializer(planillas_trabajo, many=True)
+                            
+                            # Agregar los resultados a la lista de trabajadores
+                            trabajadores.extend(serializer.data)
+                    
+                    return Response(trabajadores)
                 return Response([])
             return Response({"error": "no se reconoce el identificador"})
         except Exception as e:
