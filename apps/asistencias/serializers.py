@@ -8,7 +8,7 @@ class AsistenciaSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Asistencia
-        fields = ['trabajador', 'presente', 'observaciones', 'fecha']
+        fields = ['trabajador', 'espacio_trabajo', 'presente', 'observaciones', 'fecha']
 
     def get_fecha(self, obj):
         return obj.fecha.strftime('%Y-%m-%d')

@@ -2,7 +2,7 @@ from rest_framework.response    import Response
 from rest_framework             import viewsets
 from .models                    import Trabajador
 from .serializer                import TrabajadorSerializer
-from apps.user_type.permisions  import IsAdministrador, IsSuper
+from apps.user_type.permissions import IsAdministrador, IsSuper
 
 
 class TrabajadorViewSet(viewsets.ModelViewSet):

@@ -1,7 +1,7 @@
 from rest_framework             import viewsets
 from .models                    import PlanTrabajo
 from .serializer                import PlanTrabajoSerializer
-from apps.user_type.permisions  import IsAdministrador, IsSuper
+from apps.user_type.permissions import IsAdministrador, IsSuper
 from django.db.models           import F
 
 

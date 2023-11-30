@@ -5,7 +5,7 @@ from rest_framework.permissions             import IsAuthenticated
 from rest_framework_simplejwt.views         import TokenRefreshView
 from rest_framework                         import routers
 from apps.users.views                       import UserRegisterationViewSet, UserLoginViewSet, UserLogoutViewSet
-from apps.user_type.permisions              import IsSuper
+from apps.user_type.permissions             import IsSuper
 from drf_yasg.views                         import get_schema_view
 from drf_yasg                               import openapi
 

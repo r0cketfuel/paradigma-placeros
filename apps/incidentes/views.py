@@ -1,5 +1,5 @@
 
-from apps.user_type.permisions  import IsAdministrador, IsSuper, IsSupervisor
+from apps.user_type.permissions import IsAdministrador, IsSuper, IsSupervisor
 from rest_framework             import viewsets
 from .models                    import Incidente
 from .serializers               import IncidenteSerializer

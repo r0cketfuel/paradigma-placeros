@@ -1,7 +1,7 @@
 from rest_framework             import viewsets
 from .models                    import Cuestionario
 from .serializer                import CuestionarioSerializer
-from apps.user_type.permisions  import IsAdministrador, IsSuper, IsSupervisor
+from apps.user_type.permissions import IsAdministrador, IsSuper, IsSupervisor
 
 
 class CuestionarioViewSet(viewsets.ModelViewSet):

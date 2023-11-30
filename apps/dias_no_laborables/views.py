@@ -1,7 +1,7 @@
 from rest_framework             import viewsets
 from .models                    import DiaNoLaborable
 from .serializers               import DiaNoLaborableSerializer
-from apps.user_type.permisions  import IsAdministrador, IsSuper
+from apps.user_type.permissions import IsAdministrador, IsSuper
 
 
 class DiaNoLaborableViewSet(viewsets.ModelViewSet):

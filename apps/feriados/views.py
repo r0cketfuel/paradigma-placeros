@@ -1,7 +1,7 @@
 from rest_framework             import viewsets
 from .models                    import Feriado
 from .serializers               import FeriadoSerializer
-from apps.user_type.permisions  import IsAdministrador, IsSuper
+from apps.user_type.permissions import IsAdministrador, IsSuper
 
 
 class FeriadoViewSet(viewsets.ModelViewSet):

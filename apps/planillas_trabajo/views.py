@@ -3,8 +3,7 @@ from rest_framework.response        import Response
 from .models                        import PlanillaTrabajo
 from apps.trabajadores.models       import Trabajador
 from .serializer                    import PlanillaTrabajoSerializer
-from apps.trabajadores.serializer   import TrabajadorSerializer
-from apps.user_type.permisions      import IsAdministrador, IsSuper, IsSupervisor
+from apps.user_type.permissions     import IsAdministrador, IsSuper, IsSupervisor
 
 
 class PlanillaTrabajoViewSet(viewsets.ModelViewSet):

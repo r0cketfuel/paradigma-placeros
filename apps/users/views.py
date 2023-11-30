@@ -2,7 +2,7 @@ from apps.users                         import serializers
 from django.contrib.auth                import get_user_model
 from rest_framework                     import status, viewsets
 from rest_framework.permissions         import AllowAny
-from apps.user_type.permisions          import IsAdministrador, IsSuper
+from apps.user_type.permissions         import IsAdministrador, IsSuper
 from rest_framework.response            import Response
 from rest_framework_simplejwt.tokens    import RefreshToken
 from django.contrib.auth.hashers        import make_password

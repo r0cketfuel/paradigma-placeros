@@ -1,7 +1,7 @@
 from rest_framework             import viewsets
 from .models                    import EvaluacionTrabajador
 from .serializer                import EvaluacionTrabajadorSerializer
-from apps.user_type.permisions  import IsAdministrador, IsSuper, IsCoordinador
+from apps.user_type.permissions import IsAdministrador, IsSuper, IsCoordinador
 
 
 class EvaluacionTrabajadorViewSet(viewsets.ModelViewSet):

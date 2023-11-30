@@ -2,7 +2,7 @@ from rest_framework.response        import Response
 from rest_framework                 import viewsets
 from .models                        import Cooperativa
 from .serializer                    import CooperativaSerializer
-from apps.user_type.permisions      import IsAdministrador, IsSuper
+from apps.user_type.permissions     import IsAdministrador, IsSuper
 from apps.trabajadores.models       import Trabajador
 
 
